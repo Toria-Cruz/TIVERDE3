@@ -1,0 +1,11 @@
+Finalizar os containers 
+
+docker-compose down
+
+Subir os containers
+
+docker-compose up --build -d 
+
+Atualizar as alterações no codigo
+
+docker-compose up --build -d 

@@ -168,7 +168,7 @@
 </div>
 
 <script>
-  const BACKEND_URL = "http://localhost:5000/api/chat"; // URL do backend
+  const BACKEND_URL = "http://localhost:5000/chat"; // URL do backend
 
   function toggleChat() {
     const chatbox = document.getElementById("chatbox");
@@ -202,6 +202,7 @@ async function sendMessage() {
     addMessage("Ops! Não consegui me conectar ao servidor.", "bot");
   }
 }
+
 
   function addMessage(text, sender) {
     const chat = document.getElementById("chatMessages");

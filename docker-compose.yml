@@ -1,0 +1,15 @@
+services: 
+  backend: 
+    build: ./backend 
+    container_name: tiverde3-backend 
+    ports: 
+      - "5000:5000"
+    env_file:
+      - .env
+  frontend: 
+    build: ./frontend 
+    container_name: tiverde3-frontend 
+    ports: 
+      - "8080:80"
+    depends_on:
+      - backend

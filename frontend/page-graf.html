@@ -9,151 +9,151 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark custom-navbar">
-        <div class="container">
-            <a class="navbar-brand d-flex align-items-center" href="index.html">
-                <img src="img/tecnologia-verde.png" alt="Logo" class="logo" width="30" height="30" class="me-3">
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#about">Sobre</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#services">Serviços</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">Contato</a></li>
-                    <div class="d-grid gap-2 d-md-flex justify-content-md-end"></div>
-                    <div class="d-grid gap-2 d-md-flex justify-content-md-end" style="padding-left: 10px;">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark custom-navbar">
+    <div class="container">
+        <a class="navbar-brand d-flex align-items-center" href="index.html">
+            <img src="img/tecnologia-verde.png" alt="Logo" class="logo" width="30" height="30" class="me-3">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="#about">Sobre</a></li>
+                <li class="nav-item"><a class="nav-link" href="#services">Serviços</a></li>
+                <li class="nav-item"><a class="nav-link" href="#contact">Contato</a></li>
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end"></div>
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end" style="padding-left: 10px;">
                     <button type="button" class=" btn btn-sm   btn-outline-light">User: Joel Miller </button>
 
-                    </div>
-                </ul>
-            </div>
+                </div>
+            </ul>
         </div>
-    </nav>
+    </div>
+</nav>
 
-    <header class="hero">
-        <div class="overlay">
-        </div>
-        <div class="container">
-            <h1>EcoTech Energy Solutions</h1>
-            <p>Monitoramento inteligente e eficiência energética para um futuro sustentável.</p>
-    </header>
-
-    <section class="monitoring-overview">
-                <h2 class="tag-visao">Visão Geral do Monitoramento</h2>
-    </section>
-
+<header class="hero">
+    <div class="overlay">
+    </div>
     <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-md-6 text-center">
+        <h1>EcoTech Energy Solutions</h1>
+        <p>Monitoramento inteligente e eficiência energética para um futuro sustentável.</p>
+</header>
+
+<section class="monitoring-overview">
+    <h2 class="tag-visao">Visão Geral do Monitoramento</h2>
+</section>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6 text-center">
             <h2 class="tag-consumo">Consumo em kWh</h2>
             <select id="ano-picker" class="form-select form-select-sm mb-3">
-                </select>
+            </select>
             <canvas id="consumoChart" class="img-kamila img-top-space"></canvas>
-          </div>
-      
-          <div class="col-md-6 text-center">
+        </div>
+
+        <div class="col-md-6 text-center">
             <h2 class="tag-consumo">Análise Gráfica</h2>
             <canvas id="analiseChart" class="img-kamila1 img-fluid"></canvas>
-          </div>
-        </div>
-      </div>
-
-<div id="graf-nav" class="container">
-    <div class="row justify-content-center align-items-start">
-        <!-- Coluna dispositivos -->
-        <div class="col-md-6 mb-3">
-            <h1>Dispositivos e Equipamentos</h1>
-            <div class="bloco-central">
-                <div class="img-vitoria">
-                    <img class="tecnicos-img img-fluid" src="img/tecnicos.jpg" alt="Técnicos">
-                    <div class="texto" id="device-list-container"></div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Coluna gráfico -->
-        <div class="col-md-6 mb-3 text-center">
-            <h1>Consumo por Tipo</h1>
-            <select id="ano-picker-pizza" class="form-select form-select-sm mb-3"></select>
-            <canvas id="pizzaChart"></canvas>
         </div>
     </div>
 </div>
 
-    <div id="graf-nav"> <h1 id="titulo-disp">Informações de Consumo Mensal</h1>
-        <div class="row justify-content-center mb-3"> <div class="col-md-3 col-6"> <select name="mes-info-tabela" id="mes-info-tabela" class="form-select form-select-sm" aria-label="Selecione o mês">
-                  <option value="">Selecione o mês</option>
-                  <option value="Janeiro">Janeiro</option>
-                  <option value="Fevereiro">Fevereiro</option>
-                  <option value="Março">Março</option>
-                  <option value="Abril">Abril</option>
-                  <option value="Maio">Maio</option>
-                  <option value="Junho">Junho</option>
-                  <option value="Julho">Julho</option>
-                  <option value="Agosto">Agosto</option>
-                  <option value="Setembro">Setembro</option>
-                  <option value="Outubro">Outubro</option>
-                  <option value="Novembro">Novembro</option>
-                  <option value="Dezembro">Dezembro</option>
-                </select>
-            </div>
-            <div class="col-md-3 col-6"> <select name="ano-info-tabela" id="ano-info-tabela" class="form-select form-select-sm" aria-label="Selecione o ano">
-                  <option value="">Selecione o ano</option>
-                  </select>
+<div id="graf-nav" class="container">
+    <h1 id="titulo-disp">Dispositivos e Equipamentos</h1>
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="bloco-central">
+                <div class="img-vitoria">
+                    <img class="tecnicos-img" src="img/tecnicos.jpg">
+                    <div class="texto" id="device-list-container">
+                    </div>
+                </div>
             </div>
         </div>
-      
-        <div id="tabela-info"></div>
+        <div class="col-md-6 text-center">
+            <h2 class="tag-consumo">Consumo por Tipo</h2>
+            <select id="ano-picker-pizza" class="form-select form-select-sm mb-3">
+            </select>
+            <canvas id="consumoTipoChart"></canvas>
+        </div>
     </div>
-      
-      
+</div>
+
+
+<div id="graf-nav"> <h1 id="titulo-disp">Informações de Consumo Mensal</h1>
+    <div class="row justify-content-center mb-3"> <div class="col-md-3 col-6"> <select name="mes-info-tabela" id="mes-info-tabela" class="form-select form-select-sm" aria-label="Selecione o mês">
+        <option value="">Selecione o mês</option>
+        <option value="Janeiro">Janeiro</option>
+        <option value="Fevereiro">Fevereiro</option>
+        <option value="Março">Março</option>
+        <option value="Abril">Abril</option>
+        <option value="Maio">Maio</option>
+        <option value="Junho">Junho</option>
+        <option value="Julho">Julho</option>
+        <option value="Agosto">Agosto</option>
+        <option value="Setembro">Setembro</option>
+        <option value="Outubro">Outubro</option>
+        <option value="Novembro">Novembro</option>
+        <option value="Dezembro">Dezembro</option>
+    </select>
+    </div>
+        <div class="col-md-3 col-6"> <select name="ano-info-tabela" id="ano-info-tabela" class="form-select form-select-sm" aria-label="Selecione o ano">
+            <option value="">Selecione o ano</option>
+        </select>
+        </div>
+    </div>
+
+    <div id="tabela-info"></div>
+</div>
+
+
 
 
 <div class="informacoes">
     <div class="container">
-      <div class="row">
-        <div class="col-md-4">
-            <div id="logos" class="d-flex align-items-start gap-4">
-            <img src="img/X Logo.png" class="img-fluid logo-img" alt="Logo 1">
-            <img src="img/insta logo.png" class="img-fluid logo-img" alt="Logo 2">
-            <img src="img/linkedin logo.png" class="img-fluid logo-img" alt="Logo 3">
+        <div class="row">
+            <div class="col-md-4">
+                <div id="logos" class="d-flex align-items-start gap-4">
+                    <img src="img/X Logo.png" class="img-fluid logo-img" alt="Logo 1">
+                    <img src="img/insta logo.png" class="img-fluid logo-img" alt="Logo 2">
+                    <img src="img/linkedin logo.png" class="img-fluid logo-img" alt="Logo 3">
+                </div>
             </div>
-        </div>
 
-        <div class="col-md-8">
-          <div class="row">
-            <div class="col-md-6">
-              <div class="p-3">
-                <p class="fs-3">Equipe Técnica</p>
-                <p>UI design</p>
-                <p>UX design</p>
-                <p>Wireframing</p>
-                <p>Diagramming</p>
-                <p>Prototyping</p>
-                <p>Brainstorming</p>
-                <p>Online whiteboard</p>
-                <p>Team collaboration</p>
-              </div>
+            <div class="col-md-8">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="p-3">
+                            <p class="fs-3">Equipe Técnica</p>
+                            <p>UI design</p>
+                            <p>UX design</p>
+                            <p>Wireframing</p>
+                            <p>Diagramming</p>
+                            <p>Prototyping</p>
+                            <p>Brainstorming</p>
+                            <p>Online whiteboard</p>
+                            <p>Team collaboration</p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="p-3">
+                            <p class="fs-3">Outros</p>
+                            <p class="espaco-palavra">Prototyping</p>
+                            <p>Prototyping</p>
+                            <p>Brainstorming</p>
+                            <p>Online whiteboard</p>
+                            <p>Team collaboration</p>
+                            <p>Prototyping</p>
+                            <p>Brainstorming</p>
+                            <p>Online whiteboard</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-  
-            <div class="col-md-6">
-              <div class="p-3">
-                <p class="fs-3">Outros</p>
-                <p class="espaco-palavra">Prototyping</p>
-                <p>Prototyping</p>
-                <p>Brainstorming</p>
-                <p>Online whiteboard</p>
-                <p>Team collaboration</p>
-                <p>Prototyping</p>
-                <p>Brainstorming</p>
-                <p>Online whiteboard</p>
-              </div>
-            </div>
-          </div>
         </div>
-      </div>
     </div>
 </div>
 
@@ -162,6 +162,6 @@
     <p>&copy; 2025 EcoTech Energy Solutions - Todos os direitos reservados.</p>
 </footer>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<script src="js/script.js"></script>
+<script src="js/index.js"></script>
 </body>
 </html>

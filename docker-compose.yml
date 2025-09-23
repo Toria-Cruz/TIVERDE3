@@ -6,10 +6,25 @@ services:
       - "5000:5000"
     env_file:
       - .env
-  frontend: 
+    networks:
+      - tiverde-net
+  frontend:
     build: ./frontend 
     container_name: tiverde3-frontend 
     ports: 
       - "8080:80"
     depends_on:
       - backend
+    networks:
+      - tiverde-net
+  backend-api:
+    build: ./backend_api
+    container_name: tiverde3-backend-api
+    ports: 
+      - "9000:9000"
+    networks:
+      - tiverde-net
+
+networks:
+  tiverde-net:
+    driver: bridge

@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const BASE_URL = 'https://morning-taiga-16872-e562d485bca5.herokuapp.com';
+    const BASE_URL = 'http://localhost:9000';
     let consumoChartInstance = null;
     let analiseChartInstance = null;
     let consumoTipoChartInstance = null;
@@ -383,7 +383,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
             const anos = await response.json();
-            
+
             anoInfoTabelaSelect.innerHTML = '<option value="">Selecione o ano</option>'; // Opção default
             let latestAno = null;
             if (anos && anos.length > 0) {
@@ -413,54 +413,18 @@ document.addEventListener('DOMContentLoaded', function() {
             console.error('Erro ao popular o seletor de anos da tabela:', error);
             tabelaInfoContainer.innerHTML = '<p>Não foi possível carregar os anos disponíveis.</p>';
         }
-
-        // --- Chat Inteligente ---
-const chatMessages = document.getElementById('chat-messages');
-const chatInput = document.getElementById('chat-input');
-const chatSend = document.getElementById('chat-send');
-
-async function sendChatMessage(message) {
-    if (!message) return;
-
-    // Mostra a mensagem do usuário
-    const userMessageEl = document.createElement('p');
-    userMessageEl.innerHTML = `<strong>Você:</strong> ${message}`;
-    chatMessages.appendChild(userMessageEl);
-    chatMessages.scrollTop = chatMessages.scrollHeight;
-
-    chatInput.value = '';
-
-    try {
-        const response = await fetch(`${BASE_URL}/api/chat`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ message })
-        });
-
-        const data = await response.json();
-
-        const botMessageEl = document.createElement('p');
-        botMessageEl.innerHTML = `<strong>Assistente:</strong> ${data.reply}`;
-        chatMessages.appendChild(botMessageEl);
-        chatMessages.scrollTop = chatMessages.scrollHeight;
-
-    } catch (error) {
-        console.error("Erro no chat:", error);
-        const errorMessageEl = document.createElement('p');
-        errorMessageEl.innerHTML = `<strong>Assistente:</strong> Não foi possível processar a mensagem.`;
-        chatMessages.appendChild(errorMessageEl);
     }
-}
 
-chatSend.addEventListener('click', () => sendChatMessage(chatInput.value));
-chatInput.addEventListener('keypress', (e) => {
-    if (e.key === 'Enter') sendChatMessage(chatInput.value);
-});
-
-    }       
-
+    // Adiciona event listeners para os pickers da tabela
     mesInfoTabelaSelect.addEventListener('change', fetchTabelaConsumoDetalhe);
     anoInfoTabelaSelect.addEventListener('change', fetchTabelaConsumoDetalhe);
-    populateAnoInfoTabelaPicker();
 
+    // Chama as funções para carregar os dados e renderizar os gráficos/listas ao carregar a página
+    populateAnoPicker(); // Para Consumo em kWh
+    fetchAnaliseData();
+    fetchDispositivosData(); // Para a lista de dispositivos
+    populateAnoPickerPizza(); // Para o seletor de anos do gráfico de pizza
+    populateAnoInfoTabelaPicker(); // Popula o seletor de ano da tabela
+    // A chamada inicial de fetchTabelaConsumoDetalhe é feita dentro de populateAnoInfoTabelaPicker,
+    // se um ano padrão for selecionado.
 });

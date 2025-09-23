@@ -1,24 +1,17 @@
-Baixar e instalar o Docker no windows
+# Instruções de Uso dos Scripts
 
+## Subir os containers
 
-Criar arquivo "docker-compose.yml" na raiz do projeto e colar esse texto neste aquivo:
+Execute o script abaixo para construir e iniciar todos os containers:
 
-services:
-  backend:
-    build: ./backend
-    container_name: tiverde-backend
-    ports:
-      - "5000:5000"
+```bash
+./build-and-up.sh
+```
 
-  frontend:
-    build: ./frontend
-    container_name: tiverde-frontend
-    ports:
-      - "8080:80"        # Porta externa 8080 → interna 80 (nginx)
-    depends_on:
-      - backend
+## Parar e remover os containers
 
-Abra o Docker Desktop
-Depois rodar o comando no terminal do vscode: docker-compose up --build -d para criar os conteiners frontend e backend 
+Execute o script abaixo para parar e remover todos os containers:
 
-<img width="1911" height="1079" alt="image" src="https://github.com/user-attachments/assets/e8aba959-16cf-40bd-9182-6f4f99665b47" />
+```bash
+./docker-down.sh
+```

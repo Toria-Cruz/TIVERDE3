@@ -8,6 +8,7 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
   <style>
+    /* ======== ESTILO GERAL ======== */
     body {
       background-color: #ffffff !important;
       color: #212529;
@@ -16,11 +17,26 @@
       padding: 0;
     }
 
-    .navbar {
+    /* ======== NAVBAR ======== */
+    .custom-navbar {
       background-color: #ffffff !important;
       border-bottom: 1px solid #e0e0e0;
     }
 
+    .navbar-dark .navbar-nav .nav-link {
+      color: #212529 !important;
+      font-weight: 500;
+    }
+
+    .navbar-dark .navbar-nav .nav-link:hover {
+      color: #1d8348 !important;
+    }
+
+    .navbar-dark .navbar-brand img {
+      filter: none;
+    }
+
+    /* ======== HEADER (Hero Section) ======== */
     .hero {
       background: #f8f9fa;
       color: #212529;
@@ -33,6 +49,12 @@
       color: #1d8348;
     }
 
+    .hero p {
+      font-size: 1.2rem;
+      color: #333;
+    }
+
+    /* ======== CONTEÚDO PRINCIPAL ======== */
     .container h2, .container h1 {
       color: #1d8348;
       margin-top: 20px;
@@ -54,6 +76,7 @@
       box-shadow: 0px 3px 8px rgba(0,0,0,0.05);
     }
 
+    /* ======== DISPOSITIVOS E EQUIPAMENTOS ======== */
     .bloco-central {
       background-color: #f8f9fa;
       border-radius: 10px;
@@ -67,19 +90,25 @@
       margin-bottom: 10px;
     }
 
+    /* ======== SEÇÃO INFORMAÇÕES ======== */
     .informacoes {
       background-color: #f8f9fa;
       color: #212529;
       padding: 40px 0;
     }
 
+    .informacoes p {
+      margin: 0;
+    }
+
+    /* ======== FOOTER ======== */
     footer {
       background-color: #1d8348 !important;
       color: #fff;
       font-size: 0.9rem;
     }
 
-    /* ================= CHATBOT ================= */
+    /* ======== CHATBOT BUTTON ======== */
     .chat-button {
       position: fixed;
       bottom: 20px;
@@ -101,89 +130,25 @@
       transform: scale(1.1);
     }
 
-    .chatbox {
-      display: none;
-      position: fixed;
-      bottom: 90px;
-      right: 20px;
-      width: 320px;
-      height: 420px;
-      background: #fff;
-      border-radius: 15px;
-      box-shadow: 0 8px 16px rgba(0,0,0,0.25);
-      overflow: hidden;
-      flex-direction: column;
-      z-index: 9998;
+    /* ======== BARRA DE PESQUISA ======== */
+    .search-bar {
+      max-width: 250px;
+      border-radius: 30px;
+      padding-left: 15px;
     }
 
-    .chat-header {
-      background: linear-gradient(135deg, #00b894, #00cec9);
-      color: white;
-      padding: 12px;
-      font-weight: bold;
-      text-align: center;
-    }
-
-    .chat-messages {
-      flex: 1;
-      padding: 10px;
-      overflow-y: auto;
-      background: #f9f9f9;
-    }
-
-    .chat-input {
-      display: flex;
-      border-top: 1px solid #ccc;
-    }
-
-    .chat-input input {
-      flex: 1;
-      border: none;
-      padding: 10px;
-      outline: none;
-    }
-
-    .chat-input button {
-      background: linear-gradient(135deg, #00b894, #00cec9);
-      color: white;
-      border: none;
-      padding: 10px 15px;
-      cursor: pointer;
-    }
-
-    .message {
-      margin: 8px 0;
-      padding: 8px 12px;
-      border-radius: 10px;
-      max-width: 80%;
-      word-wrap: break-word;
-    }
-
-    .message.user {
-      background: #d1f7c4;
-      align-self: flex-end;
-      text-align: right;
-    }
-
-    .message.bot {
-      background: #e0e0e0;
-      align-self: flex-start;
-    }
-
-    .chat-icon {
-      width: 30px;
-      height: 30px;
+    .navbar-nav .nav-link {
+      margin-right: 10px;
     }
   </style>
 </head>
 
 <body>
   <!-- ======== NAVBAR ======== -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm">
-    <div class="container-fluid">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark custom-navbar">
+    <div class="container">
       <a class="navbar-brand d-flex align-items-center" href="index.html">
-        <img src="img/logo novo.png" alt="Logo" class="img-fluid me-2" style="width: 30px; height: 30px;">
-        <span class="fw-bold">EcoTech</span>
+        <img src="img/tecnologia-verde.png" alt="Logo" class="logo" width="30" height="30">
       </a>
 
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -197,10 +162,12 @@
           <li class="nav-item"><a class="nav-link" href="#contact">Contato</a></li>
         </ul>
 
-        <form class="d-flex mx-3" role="search">
-          <input class="form-control form-control-sm" type="search" placeholder="Buscar..." aria-label="Search">
+        <!-- Barra de Pesquisa -->
+        <form class="d-flex ms-3">
+          <input class="form-control form-control-sm search-bar" type="search" placeholder="Buscar..." aria-label="Buscar">
         </form>
 
+        <!-- Botão Usuário -->
         <div class="d-flex ms-3">
           <button type="button" class="btn btn-sm btn-outline-success">User: Joel Miller</button>
         </div>
@@ -216,14 +183,37 @@
     </div>
   </header>
 
-  <!-- ======== CONTEÚDO PRINCIPAL (Gráficos e dispositivos) ======== -->
-  <div class="container my-5">
-    <h1>Monitoramento e Consumo</h1>
+  <!-- ======== VISÃO GERAL ======== -->
+  <section class="monitoring-overview text-center">
+    <h2>Visão Geral do Monitoramento</h2>
+  </section>
+
+  <div class="container">
     <div class="row justify-content-center">
       <div class="col-md-6 text-center">
         <h2>Consumo em kWh</h2>
         <select id="ano-picker" class="form-select form-select-sm mb-3"></select>
         <canvas id="consumoChart"></canvas>
+      </div>
+
+      <div class="col-md-6 text-center">
+        <h2>Análise Gráfica</h2>
+        <canvas id="analiseChart"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======== DISPOSITIVOS ======== -->
+  <div class="container my-5">
+    <h1>Dispositivos e Equipamentos</h1>
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="bloco-central">
+          <img class="tecnicos-img" src="img/tecnicos.jpg" alt="Equipe técnica">
+          <div class="texto" id="device-list-container">
+            <p>Não foi possível carregar a lista de dispositivos.</p>
+          </div>
+        </div>
       </div>
 
       <div class="col-md-6 text-center">
@@ -234,65 +224,136 @@
     </div>
   </div>
 
-  <!-- ======== CHATBOT (mesmo estilo do primeiro código) ======== -->
-  <button class="chat-button" onclick="toggleChat()">
-    <img src="img/atendente.png" alt="Atendente" class="chat-icon">
-  </button>
-
-  <div class="chatbox" id="chatbox">
-    <div class="chat-header">
-      Atendimento Online <span class="status-dot"></span>
+  <!-- ======== CONSUMO MENSAL ======== -->
+  <div class="container my-5">
+    <h1>Informações de Consumo Mensal</h1>
+    <div class="row justify-content-center mb-3">
+      <div class="col-md-3 col-6">
+        <select id="mes-info-tabela" class="form-select form-select-sm">
+          <option value="">Selecione o mês</option>
+          <option>Janeiro</option><option>Fevereiro</option><option>Março</option>
+          <option>Abril</option><option>Maio</option><option>Junho</option>
+          <option>Julho</option><option>Agosto</option><option>Setembro</option>
+          <option>Outubro</option><option>Novembro</option><option>Dezembro</option>
+        </select>
+      </div>
+      <div class="col-md-3 col-6">
+        <select id="ano-info-tabela" class="form-select form-select-sm">
+          <option value="">Selecione o ano</option>
+        </select>
+      </div>
     </div>
-    <div class="chat-messages" id="chatMessages"></div>
-    <div class="chat-input">
-      <input type="text" id="userInput" placeholder="Digite sua mensagem..." onkeypress="if(event.key==='Enter'){sendMessage();}">
-      <button onclick="sendMessage()">Enviar</button>
+    <div id="tabela-info"></div>
+  </div>
+
+  <!-- ======== INFORMAÇÕES ======== -->
+  <div class="informacoes">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 d-flex align-items-start gap-4">
+          <img src="img/X Logo.png" class="img-fluid logo-img" alt="Logo X">
+          <img src="img/insta logo.png" class="img-fluid logo-img" alt="Logo Instagram">
+          <img src="img/linkedin logo.png" class="img-fluid logo-img" alt="Logo LinkedIn">
+        </div>
+        <div class="col-md-8">
+          <div class="row">
+            <div class="col-md-6">
+              <p class="fs-4 fw-semibold">Equipe Técnica</p>
+              <p>UI design</p>
+              <p>UX design</p>
+              <p>Wireframing</p>
+              <p>Diagramming</p>
+              <p>Prototyping</p>
+              <p>Brainstorming</p>
+              <p>Online whiteboard</p>
+              <p>Team collaboration</p>
+            </div>
+            <div class="col-md-6">
+              <p class="fs-4 fw-semibold">Outros</p>
+              <p>Prototyping</p>
+              <p>Brainstorming</p>
+              <p>Online whiteboard</p>
+              <p>Team collaboration</p>
+              <p>Prototyping</p>
+              <p>Brainstorming</p>
+              <p>Online whiteboard</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
-  <!-- ======== JS DO CHATBOT ======== -->
-  <script>
-    const BACKEND_URL = "http://localhost:5000/chat";
+  <!-- ======== FOOTER ======== -->
+  <footer class="text-white text-center py-3">
+    <p>&copy; 2025 EcoTech Energy Solutions - Todos os direitos reservados.</p>
+  </footer>
 
-    function toggleChat() {
-      const chatbox = document.getElementById("chatbox");
-      chatbox.style.display = chatbox.style.display === "flex" ? "none" : "flex";
-      chatbox.style.flexDirection = "column";
-    }
+  <!-- Botão flutuante do chatbot -->
 
-    async function sendMessage() {
-      const input = document.getElementById("userInput");
-      const msg = input.value.trim();
-      if (!msg) return;
-      addMessage(msg, "user");
-      input.value = "";
+<button class="chat-button" onclick="toggleChat()">
+  <img src="img/atendente.png" alt="Atendente" class="chat-icon">
+</button>
 
-      try {
-        const response = await fetch(BACKEND_URL, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ message: msg })
-        });
+<!-- Caixa do chatbot -->
+<div class="chatbox" id="chatbox">
+  <div class="chat-header">
+    Atendimento Online <span class="status-dot"></span>
+  </div>
+  <div class="chat-messages" id="chatMessages"></div>
+  <div class="chat-input">
+    <input type="text" id="userInput" placeholder="Digite sua mensagem..." onkeypress="if(event.key==='Enter'){sendMessage();}">
+    <button onclick="sendMessage()">Enviar</button>
+  </div>
+</div>
 
-        if (!response.ok) throw new Error(`Erro do servidor: ${response.status}`);
-        const data = await response.json();
-        addMessage(data.reply || "Sem resposta do servidor.", "bot");
-      } catch (error) {
-        console.error("Erro:", error);
-        addMessage("Ops! Não consegui me conectar ao servidor.", "bot");
-      }
-    }
 
-    function addMessage(text, sender) {
-      const chat = document.getElementById("chatMessages");
-      const msgDiv = document.createElement("div");
-      msgDiv.classList.add("message", sender);
-      msgDiv.innerText = text;
-      chat.appendChild(msgDiv);
-      chat.scrollTop = chat.scrollHeight;
-    }
-  </script>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  const BACKEND_URL = "http://localhost:5000/chat"; // URL do backend
+  function toggleChat() {
+    const chatbox = document.getElementById("chatbox");
+    chatbox.style.display = chatbox.style.display === "flex" ? "none" : "flex";
+    chatbox.style.flexDirection = "column";
+
+  }
+
+async function sendMessage() {
+  const input = document.getElementById("userInput");
+  const msg = input.value.trim();
+  if (!msg) return;
+  addMessage(msg, "user");
+  input.value = "";
+
+  try {
+    const response = await fetch(BACKEND_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ message: msg })
+
+    });
+
+    if (!response.ok) {
+      throw new Error(`Servidor retornou ${response.status}`);
+
+    }
+    const data = await response.json();
+    addMessage(data.reply || "Sem resposta do servidor.", "bot");
+  } catch (error) {
+    console.error("Erro ao enviar mensagem:", error);
+    addMessage("Ops! Não consegui me conectar ao servidor.", "bot");
+  }
+}
+  function addMessage(text, sender) {
+    const chat = document.getElementById("chatMessages");
+    const msgDiv = document.createElement("div");
+    msgDiv.classList.add("message", sender);
+    msgDiv.innerText = text;
+    chat.appendChild(msgDiv);
+    chat.scrollTop = chat.scrollHeight;
+  }
+</script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

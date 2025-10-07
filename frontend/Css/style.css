@@ -33,7 +33,7 @@
 
 /* Ajustes para o alinhamento da seção Dispositivos e Equipamentos */
 #graf-nav {
-  background-color: #ffffff;
+  background-color: #000000;
   /* REDUZIDO: Padding vertical de 20px para 10px */
   padding: 10px 20px; /* top/bottom 10px, left/right 20px */
   text-align: center;
@@ -77,26 +77,15 @@
   max-width: 300px; /* Mantém a largura máxima para o texto da lista */
 }
 
-html, body {
-  background-color: #04000f;
-  width: 100%;             /* Em vez de 100vw */
-  margin: 0;
-  padding: 0;
-  font-family: 'Times New Roman', Times, serif;
-}
-
-h2 {
-    color: #ffffff !important;
-}
-
 .tag-visao {
-    color: #ffffff !important;
-    background-color: #339989; color: rgb(105, 12, 53); text-align: center; padding: 25px 0;
+    color: #0c0c0c !important;
+    background-color: #030303; color: rgb(105, 12, 53); text-align: center; padding: 25px 0;
 }
 
-footer {
-    margin-top: 50px;
-}
+
+/* Remove a barra azul escura (se for um div/seção separada) */
+/* Se a barra preta for uma div com uma classe específica, adicione-a aqui e aplique 'display: none' */
+/* Se for um efeito da imagem, o CSS não pode remover. */
 
 .image-spacing {
    column-gap: 86px;
@@ -171,11 +160,9 @@ footer {
   margin-top: 15px;
 }
 
-
-
 /* #graf-nav foi modificado acima */
 #graf-nav { /* Removido padding original aqui, foi modificado para cima */
-  background-color: #ffffff;
+  background-color: #2c0101;
   /* padding: 20px; */ /* Removido */
   text-align: center;
 }
@@ -186,20 +173,6 @@ footer {
   margin-bottom: 30px;
   text-align: center;
 }
-
-/* .bloco-central foi modificado acima */
-/* .bloco-central {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 40px;
-  flex-wrap: wrap;
-  padding: 20px;
-} */
-
-/* Bloco da imagem + texto */
-/* .img-vitoria foi movido para cima e modificado para melhor alinhamento */
-
 .tecnicos-img,
 .grafico-img {
   max-width: 300px;
@@ -239,42 +212,324 @@ footer {
   padding-bottom: 40px;
   padding-top: 40px;
   text-align: justify;
-  color: #d4cccc !important;
+  color: #111111 !important;
 }
 
-.hero {
-  position: relative;
-  height: 45vh; /* O header vai ocupar 45% da altura da tela */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  overflow: hidden;
+
+
+
+
+
+
+
+
+
+
+/* Configurações Globais */
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    /* Ajustado para compensar a navbar fixa */
+    padding-top: 60px; 
+    background-color: #f8f8f8; 
 }
 
-.hero .overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%; /* A overlay cobre toda a área do header */
-  z-index: 0; /* A overlay fica atrás do texto */
+/* --- ESTILOS PARA HEADER CLARO (BRANCO) E CENTRALIZADO --- */
+
+/* --- NAVBAR COMPACTA, ALINHADA E SEM ESPAÇOS --- */
+#header-nav.custom-navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1030;
+    background-color: #ffffff !important;
+    border-bottom: 1px solid #eeeeee;
+    padding: 0 16px !important; /* remove altura, só laterais */
+    height: 56px; /* define altura fixa da barra */
+    display: flex;
+    align-items: center; /* centraliza tudo verticalmente */
+    justify-content: space-between;
 }
 
-.hero .background-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* Garante que a imagem cubra todo o espaço */
-  object-position: center center;
-  filter: brightness(70%); /* Escurece a imagem em 66% */
+/* Remove margens padrões de containers Bootstrap */
+#header-nav .container,
+#header-nav .container-fluid {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 0 !important;
+    margin: 0 !important;
 }
 
-.hero .container {
-  position: relative;
-  z-index: 1; /* O conteúdo fica sobre a imagem e overlay */
-  color: white; /* Definindo cor do texto como branco para melhor contraste */
-  padding: 0 15px; /* Espaçamento lateral */
+/* --- LOGO + TEXTO --- */
+#header-nav .navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin: 0;
+    padding: 0;
 }
+#header-nav .navbar-brand img {
+    width: 28px !important;
+    height: 28px !important;
+}
+#header-nav .navbar-brand span {
+    font-size: 1rem;
+    color: #1e873a;
+    font-weight: 600;
+    line-height: 1;
+}
+
+/* --- LINKS (Sobre, Serviços, Contato) --- */
+#header-nav .navbar-nav {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin: 0;
+    padding: 0;
+}
+#header-nav .nav-link {
+    color: #333333 !important;
+    font-size: 0.9rem;
+    padding: 0 !important;
+    margin: 0 !important;
+    line-height: 1;
+}
+
+/* --- BUSCA E BOTÕES --- */
+#header-nav form {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin: 0;
+    padding: 0;
+}
+#header-nav .form-control {
+    height: 32px;
+    font-size: 0.85rem;
+    padding: 4px 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    width: 220px;
+    margin: 0 !important;
+}
+
+/* --- BOTÕES --- */
+#header-nav .btn {
+    height: 32px;
+    font-size: 0.85rem;
+    padding: 4px 10px;
+    border-radius: 4px;
+    margin: 0 !important;
+}
+
+/* Login */
+#login-botao {
+    border: 1px solid #1e873a !important;
+    color: #1e873a !important;
+    background-color: transparent !important;
+}
+#login-botao:hover {
+    background-color: #1e873a !important;
+    color: #fff !important;
+}
+
+/* Cadastrar */
+#cadastro-botao {
+    background-color: #1e873a !important;
+    color: #fff !important;
+    border: 1px solid #1e873a !important;
+}
+#cadastro-botao:hover {
+    background-color: #156d2e !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* --- AJUSTES DE RESPONSIVIDADE --- */
+
+@media (max-width: 991px) {
+    /* Garante que o menu colapsado em mobile use o fundo branco para consistência */
+    #header-nav .collapse.navbar-collapse {
+        background-color: #ffffff;
+        padding: 10px;
+        border-radius: 0 0 5px 5px;
+        border: 1px solid #eeeeee;
+        border-top: none;
+    }
+    /* Centraliza a barra de busca em mobile dentro do menu colapsado */
+    #header-nav .mx-auto {
+        width: 100%;
+        margin-bottom: 10px !important;
+    }
+}
+
+
+/* ======================== 2. ESTILOS DA SEÇÃO HERO (CORRIGIDOS) ======================== */
+
+.hero-section {
+    height: 400px; 
+    position: relative; 
+    overflow: hidden; 
+    display: flex; 
+    align-items: center; 
+    padding: 0;
+}
+
+/* 2.1. A FOTO DE FUNDO */
+.background-img {
+    width: 101%; 
+    height: 220%; 
+    object-fit: contain; 
+    position: absolute; 
+    top: 0;
+    left: 0;
+    z-index: 1; 
+}
+
+/* 2.2. Container de Conteúdo (Posicionamento do texto) */
+.hero-content-container {
+    position: relative; 
+    z-index: 2; 
+    width: 105%;
+    height: 100%;
+    display: flex;
+    /* Alinha o conteúdo à esquerda no desktop */
+    align-items: center; 
+}
+
+/* 2.3. Wrapper do Texto (REMOVIDA A CAIXA BRANCA) */
+.content-wrapper {
+    /* CORREÇÃO CHAVE: Removemos o background e o padding excessivo da caixa */
+    background-color: transparent; 
+    padding: 20px 0; 
+    
+    /* Garante que o texto fique à esquerda e com boa largura */
+    max-width: 600px; 
+    color: #333;
+    margin-left: 50px; /* Margem da esquerda para dar um respiro */
+}
+
+/* 2.4. Estilos de Texto (CORRIGIDOS para grande e sobreposto) */
+.content-wrapper h1 {
+    /* CORREÇÃO: Cor e sombra para se destacar no fundo */
+    color: #212529; 
+    font-size: 4em; /* Título maior */
+    font-weight: 800; 
+    line-height: 1; /* Linha mais apertada para o texto grande */
+    margin-bottom: 10px; 
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Sombra para destacar no fundo claro */
+}
+
+.content-wrapper p {
+    /* CORREÇÃO: Cor e sombra para se destacar */
+    color: #444; 
+    font-size: 1.1em; /* Texto um pouco maior */
+    line-height: 1.3; 
+    margin-bottom: 15px; 
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* 2.5. Estilo do Botão */
+.learn-more-button {
+    /* Mantido o estilo do botão */
+    display: inline-block;
+    padding: 10px 25px;
+    background-color: #39886a; 
+    color: white; 
+    text-decoration: none; 
+    border-radius: 8px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+    border: none;
+}
+
+.learn-more-button:hover {
+    background-color: #2e6f56; 
+}
+
+/* Responsividade para Telas Pequenas */
+@media (max-width: 991px) {
+    
+    .content-wrapper {
+        text-align: center; 
+        margin: 0 auto;
+        padding: 40px 20px;
+    }
+    
+    .content-wrapper h1 {
+        font-size: 2.5em;
+        font-weight:  800;
+        line-height: 1;
+        margin-bottom: 5px;
+    }
+}
+
+/* ======================== 3. ESTILOS DOS CARDS ======================== */
+
+.content-cards {
+    /* Margem negativa para "puxar" os cards para perto do hero */
+    margin-top: -80px; 
+    position: relative; 
+    z-index: 5;
+}
+
+.content-cards .card {
+    border: none;
+    border-radius: 12px;
+}
+
+.content-cards .card-body {
+    /* Centraliza o texto dentro do card */
+    text-align: center; 
+}
+
+.content-cards .card-img-top {
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    height: 220px; 
+    object-fit: cover;
+}
+
+
+/* --- AJUSTES DE RESPONSIVIDADE --- */
+
+@media (max-width: 991px) {
+    /* Ajustes para mobile */
+    #header-nav .collapse.navbar-collapse {
+        background-color: #ffffff;
+        padding: 10px;
+        border-radius: 0 0 5px 5px;
+        border: 1px solid #eeeeee;
+        border-top: none;
+    }
+    /* Centraliza a barra de busca em mobile dentro do menu colapsado */
+    #header-nav .ms-auto,
+    #header-nav .me-auto {
+        margin: auto !important;
+        width: 100%;
+        margin-bottom: 10px !important;
+    }
+}
+
+
+
+
+
+
+
+
+
+
 
 .section {
     padding: 80px 0;
@@ -289,23 +544,24 @@ footer {
 }
 
 .section-heading {
-    margin-bottom: 40px;
+    color: #070707 !important;  /* ✅ Agora o texto aparece */
 }
 
+
 .custom-navbar {
-    background-color: #4FA095 !important;
+    background-color: #111212 !important;
   }
   
   .custom-navbar .navbar-brand {
-    color: #fff !important;
+    color: #090909 !important;
   }
   
   .custom-navbar .navbar-nav .nav-link {
-    color: #fff !important;
+    color: #131313 !important;
   }
   
   .custom-navbar .navbar-nav .nav-link:hover {
-    color: #ccc !important;
+    color: #0f0f0f !important;
   }
 
   .navbar-brand {
@@ -314,11 +570,11 @@ footer {
   }
 
   .bg-dark {
-    background-color: #0fc3ab !important;
+    background-color: #000000 !important;
   }
 
   .bg-dark-1 {
-    background-color: #04004a !important;
+    background-color: #03304b !important;
   }
 
   /* .container {
@@ -332,12 +588,6 @@ footer {
     width: 45%; /* Ajuste conforme o tamanho desejado */
   }
 
-h2 {
-    width: 100%;
-    text-align: center;
-    color: #333;
-    margin-bottom: 20px;
-}
 .left-section {
     flex: 1;
     min-width: 300px;
@@ -361,7 +611,7 @@ h2 {
     margin: 0;
 }
 .device-list li {
-    color: #e9e9e9;
+    color: #121111;
     margin-bottom: 8px;
 }
 
@@ -369,7 +619,7 @@ h2 {
   display: flex; /* Cria um contêiner flexível */
   align-items: center; /* Opcional: alinha verticalmente as imagens ao centro */
   /* justify-content: space-between; /* Opcional: distribui o espaço entre as imagens */
-  background-color: white; /* Fundo branco para a seção */
+  background-color: rgb(1, 1, 1); /* Fundo branco para a seção */
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -392,7 +642,7 @@ h2 {
     bottom: 20px;
     right: 20px;
     background: linear-gradient(135deg, #00b894, #00cec9);
-    color: white;
+    color: rgb(12, 12, 12);
     border: none;
     border-radius: 50%;
     width: 60px;
@@ -403,6 +653,95 @@ h2 {
     transition: transform 0.2s ease-in-out;
     z-index: 9999;
   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*CHAT BOX - NÃO MEIXA NESSA PARTE AINDA :-)*/
 
 .chatbox {
   width: 340px;
@@ -607,5 +946,3 @@ h2 {
   width: 80px;
   height: 80px;
 }
-
-

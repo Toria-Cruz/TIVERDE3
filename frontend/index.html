@@ -27,193 +27,270 @@
 </style>
 </head>
 <body>
-    <nav id="header-nav" class="navbar navbar-expand-lg navbar-dark bg-dark custom-navbar">
-        <div class="container">
+
+  
+<!-- ======================== NAVBAR ======================== -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm">
+        <div class="container-fluid">
+
+          <!-- LOGO -->
             <a class="navbar-brand d-flex align-items-center" href="#">
-                <img src="img/tecnologia-verde.png" alt="Logo" class="logo" width="30" height="30" class="me-3">
-                </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+                <img src="img/logo novo.png" alt="Logo" class="img-fluid me-2" style="width: 30px; height: 30px;">
+                <span class="fw-bold">EcoTech</span>
+            </a>
+           <!-- MENU -->
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#about">Sobre</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#services">Serviços</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">Contato</a></li>
-                    <div class="d-grid gap-2 d-md-flex justify-content-md-end"></div>
-                    <div class="d-grid gap-2 d-md-flex justify-content-md-end" style="padding-left: 10px;">
-                    <a href="page-graf.html" id="login-botao" class="btn btn-sm btn-outline-dark btn-light" role="button">Sign In</a>
-                    <button id="cadastro-botao" type="button" class="btn btn-sm btn-outline-light btn-dark">Register</button>
-                    </div>
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a class="nav-link fw-semibold" href="#about">Sobre</a></li>
+                    <li class="nav-item"><a class="nav-link fw-semibold" href="#services">Serviços</a></li>
+                    <li class="nav-item"><a class="nav-link fw-semibold" href="#contact">Contato</a></li>
                 </ul>
+                <!-- BARRA DE PESQUISA -->
+      <form class="d-flex mx-3" role="search">
+      <input class="form-control form-control-sm" type="search" placeholder="Buscar..." aria-label="Search">
+    </form>
+
+    <!-- BOTÕES -->
+    <div class="d-flex">
+      <button id="login-botao" class="btn btn-outline-success me-2">Sign In</button>
+      <button id="cadastro-botao" class="btn btn-success">Register</button>
+    </div>
+
+  </div>
+</nav>
+
+    <!-- ======================== HERO ======================== -->
+    <header class="hero-section">
+        <img src="./img/novo.png" alt="Homem monitorando energia no tablet" class="background-img">
+        <div class="container hero-content-container">
+            <div>
+                <h1 class="display-4 fw-bold">EcoTech Energy Solutions</h1>
+                <p class="lead">Monitoramento inteligente de energia para um futuro sustentável.</p>
+                <a href="#" class="learn-more-button shadow">Saiba mais</a>
             </div>
-        </div>
-    </nav>
-
-    
-
-    <header class="hero">
-        <div class="overlay">
-            <img src="./img/nav-backgorund.jpg" alt="Imagem de Fundo" class="background-img">
-        </div>
-        <div class="container">
-            <h1 class="highlight-text">EcoTech Energy Solutions</h1>
-            <p class="highlight-text">Monitoramento inteligente e eficiência energética para um futuro sustentável.</p>
         </div>
     </header>
-    
-    <div id="services" class="container my-5">
-        <div id="card-img" class="d-flex justify-content-center align-items-center">
-            <div class="text-center">
-                <h2 class="section-heading">Indicadores de consumo</h2>
-                    <img src="img/indica-consumo.png" alt="Imagem 1" class="background-img image-spacing">
-            </div>
-            <div class="text-center">
-                <h2 class="section-heading">Gráficos em tempo real</h2>
-                    <img src="img/grafc.png" alt="Imagem 2" class="background-img">
-            </div>
-        </div>
-    </div>
-    
 
-    <div class="container-services">
-        <section id="services" class="bg-light py-5">
-            <div class="container">
-                <h2 id="about" class="text-center section-heading text-dark">Sobre nós</h2>
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="card">
-                            <img src="img/tecnicos.jpg" class="card-img-top" alt="Imagem 1">
+    <!-- ======================== CARDS ======================== -->
+    <main class="main-content-wrapper">
+        <div class="container py-5">
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="card shadow-sm border-0 h-100">
+                        <img src="img/indica-consumo.png" class="card-img-top" alt="Consumption Indicators">
+                        <div class="card-body">
+                            <h2 class="card-title fs-4">Indicadores de Consumo</h2>
+                            <p class="card-text text-muted">Análise de consumo: Detalhamento por tipo de equipamento referente a Dezembro/2024, podemos identificar onde otimizar a eficiência energética.</p>
                         </div>
                     </div>
-                    <div id="paragrafo" class="col-md-8 fs-4 d-flex align-items-center">
-                        <p>A EcoTech Energy Solutions é uma startup inovadora focada na otimização do consumo de energia em sistemas de TI. 
-                            Nosso objetivo é reduzir o impacto ambiental e promover a eficiência energética por meio do uso de tecnologias limpas e renováveis.</p>
+                </div>
+                <div class="col-md-6">
+                    <div class="card shadow-sm border-0 h-100">
+                        <img src="img/grafc.png" class="card-img-top" alt="Real-Time Graphs">
+                        <div class="card-body">
+                            <h2 class="card-title fs-4">Gráficos em Tempo Real</h2>
+                            <p class="card-text text-muted">Visualize dados energéticos atualizados em tempo real para rápida tomada de decisão e ajustes eficientes.</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </section>
-    </div>           
-
-    <div class="informacoes">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-4">
-                <div id="logos" class="d-flex align-items-start gap-4">
-                    <a href="https://x.com/" target="_blank">
-                    <img src="img/X Logo.png" class="img-fluid logo-img" alt="Logo 1">
-                    </a>             
-                    <a href="https://www.instagram.com/" target="_blank">
-                    <img src="img/insta logo.png" href="https://www.instagram.com/" class="img-fluid logo-img" alt="Logo 2">
-                    </a>             
-                    <a href="https://www.linkedin.com/" target="_blank">
-                    <img src="img/linkedin logo.png" href="https://www.linkedin.com/" class="img-fluid logo-img" alt="Logo 3">
-                    </a>
-                </div>
-            </div>
-
-            <div class="col-md-8">
-              <div id="contact" class="row">
-                <div class="col-md-6">
-                  <div class="p-3">
-                    <p class="fs-3">Equipe Técnica</p>
-                    <p class="espaco-palavra">UI design</p>
-                    <p>UX design</p>
-                    <p>Wireframing</p>
-                    <p>Diagramming</p>
-                    <p>Prototyping</p>
-                    <p>Brainstorming</p>
-                    <p>Online whiteboard</p>
-                    <p>Team collaboration</p>
-                  </div>
-                </div>
-      
-                <div class="col-md-6">
-                  <div class="p-3">
-                    <p class="fs-3">Outros</p>
-                    <p class="espaco-palavra">Prototyping</p>
-                    <p>Prototyping</p>
-                    <p>Brainstorming</p>
-                    <p>Online whiteboard</p>
-                    <p>Team collaboration</p>
-                    <p>Prototyping</p>
-                    <p>Brainstorming</p>
-                    <p>Online whiteboard</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
-    </div>
-    <footer class="bg-dark text-white text-center py-3">
-        <p>&copy; 2025 EcoTech Energy Solutions - Todos os direitos reservados.</p>
+
+        <!-- ======================== NEWSLETTER ======================== -->
+        <section class="newsletter py-5 border-top border-bottom bg-light">
+            <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center">
+                <h3 class="mb-3 mb-md-0 fw-bold">Inscreva-se com seu email</h3>
+                <form class="d-flex align-items-center" style="gap: 10px;">
+                    <input type="email" class="form-control" placeholder="Enter your email" style="max-width: 250px;">
+                    <button type="submit" class="btn btn-success">Inscrever-se</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- ======================== FOOTER ======================== -->
+    <footer class="bg-white py-4 border-top">
+        <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center text-muted small">
+            <div class="d-flex flex-column flex-md-row align-items-center mb-2 mb-md-0">
+                <span class="me-md-3">ecotech.com/pasesd3d1973d7-2pdwed33d3</span>
+                <a href="#" class="text-muted text-decoration-none me-md-3">Privacy Policy</a>
+                <a href="#" class="text-muted text-decoration-none">Terms of Service</a>
+            </div>
+            <span class="mb-2 mb-md-0">&copy; 2024 EcoTech Energy Solutions</span>
+            <div class="d-flex gap-3">
+                <a href="#" class="text-muted text-decoration-none">f</a>
+                <a href="#" class="text-muted text-decoration-none">t</a>
+                <a href="#" class="text-muted text-decoration-none">in</a>
+            </div>
+        </div>
     </footer>
 
+    <!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+  document.getElementById("login-botao").addEventListener("click", function() {
+    window.location.href = "page-graf.html"; 
+  });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!-- Botão flutuante do chatbot -->
+
 <button class="chat-button" onclick="toggleChat()">
-  <img src="img/atendente.png" alt="Atendente" class="chat-icon">
+  <img src="img/atendente.png" alt="Atendente" class="chat-icon">
 </button>
 
 <!-- Caixa do chatbot -->
 <div class="chatbox" id="chatbox">
-  <div class="chat-header">
-    Atendimento Online <span class="status-dot"></span>
-  </div>
-  <div class="chat-messages" id="chatMessages"></div>
-  <div class="chat-input">
-    <input type="text" id="userInput" placeholder="Digite sua mensagem..." onkeypress="if(event.key==='Enter'){sendMessage();}">
-    <button onclick="sendMessage()">Enviar</button>
-  </div>
+  <div class="chat-header">
+    Atendimento Online <span class="status-dot"></span>
+  </div>
+  <div class="chat-messages" id="chatMessages"></div>
+  <div class="chat-input">
+    <input type="text" id="userInput" placeholder="Digite sua mensagem..." onkeypress="if(event.key==='Enter'){sendMessage();}">
+    <button onclick="sendMessage()">Enviar</button>
+  </div>
 </div>
 
-<script>
-  const BACKEND_URL = "http://localhost:5000/chat"; // URL do backend
 
-  function toggleChat() {
-    const chatbox = document.getElementById("chatbox");
-    chatbox.style.display = chatbox.style.display === "flex" ? "none" : "flex";
-    chatbox.style.flexDirection = "column";
-  }
+
+<script>
+  const BACKEND_URL = "http://localhost:5000/chat"; // URL do backend
+  function toggleChat() {
+    const chatbox = document.getElementById("chatbox");
+    chatbox.style.display = chatbox.style.display === "flex" ? "none" : "flex";
+    chatbox.style.flexDirection = "column";
+
+  }
 
 async function sendMessage() {
-  const input = document.getElementById("userInput");
-  const msg = input.value.trim();
-  if (!msg) return;
+  const input = document.getElementById("userInput");
+  const msg = input.value.trim();
+  if (!msg) return;
+  addMessage(msg, "user");
+  input.value = "";
 
-  addMessage(msg, "user");
-  input.value = "";
+  try {
+    const response = await fetch(BACKEND_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ message: msg })
 
-  try {
-    const response = await fetch(BACKEND_URL, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ message: msg })
-    });
+    });
 
-    if (!response.ok) {
-      throw new Error(`Servidor retornou ${response.status}`);
-    }
+    if (!response.ok) {
+      throw new Error(`Servidor retornou ${response.status}`);
 
-    const data = await response.json();
-    addMessage(data.reply || "Sem resposta do servidor.", "bot");
-  } catch (error) {
-    console.error("Erro ao enviar mensagem:", error);
-    addMessage("Ops! Não consegui me conectar ao servidor.", "bot");
-  }
+    }
+    const data = await response.json();
+    addMessage(data.reply || "Sem resposta do servidor.", "bot");
+  } catch (error) {
+    console.error("Erro ao enviar mensagem:", error);
+    addMessage("Ops! Não consegui me conectar ao servidor.", "bot");
+  }
 }
-
-
-  function addMessage(text, sender) {
-    const chat = document.getElementById("chatMessages");
-    const msgDiv = document.createElement("div");
-    msgDiv.classList.add("message", sender);
-    msgDiv.innerText = text;
-    chat.appendChild(msgDiv);
-    chat.scrollTop = chat.scrollHeight;
-  }
+  function addMessage(text, sender) {
+    const chat = document.getElementById("chatMessages");
+    const msgDiv = document.createElement("div");
+    msgDiv.classList.add("message", sender);
+    msgDiv.innerText = text;
+    chat.appendChild(msgDiv);
+    chat.scrollTop = chat.scrollHeight;
+  }
 </script>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

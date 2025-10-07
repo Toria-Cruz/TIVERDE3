@@ -1,167 +1,298 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>EcoTech Energy Solutions</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="Css/style.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EcoTech Energy Solutions</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <style>
+    body {
+      background-color: #ffffff !important;
+      color: #212529;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar {
+      background-color: #ffffff !important;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    .hero {
+      background: #f8f9fa;
+      color: #212529;
+      padding: 60px 0;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-weight: 700;
+      color: #1d8348;
+    }
+
+    .container h2, .container h1 {
+      color: #1d8348;
+      margin-top: 20px;
+      font-weight: 600;
+    }
+
+    select.form-select {
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      background-color: #f8f9fa;
+      color: #212529;
+    }
+
+    canvas {
+      background-color: #ffffff;
+      border: 1px solid #eaeaea;
+      border-radius: 10px;
+      padding: 10px;
+      box-shadow: 0px 3px 8px rgba(0,0,0,0.05);
+    }
+
+    .bloco-central {
+      background-color: #f8f9fa;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0px 3px 8px rgba(0,0,0,0.1);
+    }
+
+    .tecnicos-img {
+      border-radius: 10px;
+      width: 100%;
+      margin-bottom: 10px;
+    }
+
+    .informacoes {
+      background-color: #f8f9fa;
+      color: #212529;
+      padding: 40px 0;
+    }
+
+    footer {
+      background-color: #1d8348 !important;
+      color: #fff;
+      font-size: 0.9rem;
+    }
+
+    /* ================= CHATBOT ================= */
+    .chat-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: linear-gradient(135deg, #00b894, #00cec9);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      cursor: pointer;
+      font-size: 26px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+      transition: transform 0.2s ease-in-out;
+      z-index: 9999;
+    }
+
+    .chat-button:hover {
+      transform: scale(1.1);
+    }
+
+    .chatbox {
+      display: none;
+      position: fixed;
+      bottom: 90px;
+      right: 20px;
+      width: 320px;
+      height: 420px;
+      background: #fff;
+      border-radius: 15px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.25);
+      overflow: hidden;
+      flex-direction: column;
+      z-index: 9998;
+    }
+
+    .chat-header {
+      background: linear-gradient(135deg, #00b894, #00cec9);
+      color: white;
+      padding: 12px;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .chat-messages {
+      flex: 1;
+      padding: 10px;
+      overflow-y: auto;
+      background: #f9f9f9;
+    }
+
+    .chat-input {
+      display: flex;
+      border-top: 1px solid #ccc;
+    }
+
+    .chat-input input {
+      flex: 1;
+      border: none;
+      padding: 10px;
+      outline: none;
+    }
+
+    .chat-input button {
+      background: linear-gradient(135deg, #00b894, #00cec9);
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      cursor: pointer;
+    }
+
+    .message {
+      margin: 8px 0;
+      padding: 8px 12px;
+      border-radius: 10px;
+      max-width: 80%;
+      word-wrap: break-word;
+    }
+
+    .message.user {
+      background: #d1f7c4;
+      align-self: flex-end;
+      text-align: right;
+    }
+
+    .message.bot {
+      background: #e0e0e0;
+      align-self: flex-start;
+    }
+
+    .chat-icon {
+      width: 30px;
+      height: 30px;
+    }
+  </style>
 </head>
+
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark custom-navbar">
-    <div class="container">
-        <a class="navbar-brand d-flex align-items-center" href="index.html">
-            <img src="img/tecnologia-verde.png" alt="Logo" class="logo" width="30" height="30" class="me-3">
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item"><a class="nav-link" href="#about">Sobre</a></li>
-                <li class="nav-item"><a class="nav-link" href="#services">Serviços</a></li>
-                <li class="nav-item"><a class="nav-link" href="#contact">Contato</a></li>
-                <div class="d-grid gap-2 d-md-flex justify-content-md-end"></div>
-                <div class="d-grid gap-2 d-md-flex justify-content-md-end" style="padding-left: 10px;">
-                    <button type="button" class=" btn btn-sm   btn-outline-light">User: Joel Miller </button>
+  <!-- ======== NAVBAR ======== -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm">
+    <div class="container-fluid">
+      <a class="navbar-brand d-flex align-items-center" href="index.html">
+        <img src="img/logo novo.png" alt="Logo" class="img-fluid me-2" style="width: 30px; height: 30px;">
+        <span class="fw-bold">EcoTech</span>
+      </a>
 
-                </div>
-            </ul>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto align-items-center">
+          <li class="nav-item"><a class="nav-link" href="#about">Sobre</a></li>
+          <li class="nav-item"><a class="nav-link" href="#services">Serviços</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contato</a></li>
+        </ul>
+
+        <form class="d-flex mx-3" role="search">
+          <input class="form-control form-control-sm" type="search" placeholder="Buscar..." aria-label="Search">
+        </form>
+
+        <div class="d-flex ms-3">
+          <button type="button" class="btn btn-sm btn-outline-success">User: Joel Miller</button>
         </div>
+      </div>
     </div>
-</nav>
+  </nav>
 
-<header class="hero">
-    <div class="overlay">
-    </div>
+  <!-- ======== HEADER ======== -->
+  <header class="hero">
     <div class="container">
-        <h1>EcoTech Energy Solutions</h1>
-        <p>Monitoramento inteligente e eficiência energética para um futuro sustentável.</p>
-</header>
+      <h1>EcoTech Energy Solutions</h1>
+      <p>Monitoramento inteligente e eficiência energética para um futuro sustentável.</p>
+    </div>
+  </header>
 
-<section class="monitoring-overview">
-    <h2 class="tag-visao">Visão Geral do Monitoramento</h2>
-</section>
-
-<div class="container">
+  <!-- ======== CONTEÚDO PRINCIPAL (Gráficos e dispositivos) ======== -->
+  <div class="container my-5">
+    <h1>Monitoramento e Consumo</h1>
     <div class="row justify-content-center">
-        <div class="col-md-6 text-center">
-            <h2 class="tag-consumo">Consumo em kWh</h2>
-            <select id="ano-picker" class="form-select form-select-sm mb-3">
-            </select>
-            <canvas id="consumoChart" class="img-kamila img-top-space"></canvas>
-        </div>
+      <div class="col-md-6 text-center">
+        <h2>Consumo em kWh</h2>
+        <select id="ano-picker" class="form-select form-select-sm mb-3"></select>
+        <canvas id="consumoChart"></canvas>
+      </div>
 
-        <div class="col-md-6 text-center">
-            <h2 class="tag-consumo">Análise Gráfica</h2>
-            <canvas id="analiseChart" class="img-kamila1 img-fluid"></canvas>
-        </div>
+      <div class="col-md-6 text-center">
+        <h2>Consumo por Tipo</h2>
+        <select id="ano-picker-pizza" class="form-select form-select-sm mb-3"></select>
+        <canvas id="consumoTipoChart"></canvas>
+      </div>
     </div>
-</div>
+  </div>
 
-<div id="graf-nav" class="container">
-    <h1 id="titulo-disp">Dispositivos e Equipamentos</h1>
-    <div class="row justify-content-center">
-        <div class="col-md-6">
-            <div class="bloco-central">
-                <div class="img-vitoria">
-                    <img class="tecnicos-img" src="img/tecnicos.jpg">
-                    <div class="texto" id="device-list-container">
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6 text-center">
-            <h2 class="tag-consumo">Consumo por Tipo</h2>
-            <select id="ano-picker-pizza" class="form-select form-select-sm mb-3">
-            </select>
-            <canvas id="consumoTipoChart"></canvas>
-        </div>
+  <!-- ======== CHATBOT (mesmo estilo do primeiro código) ======== -->
+  <button class="chat-button" onclick="toggleChat()">
+    <img src="img/atendente.png" alt="Atendente" class="chat-icon">
+  </button>
+
+  <div class="chatbox" id="chatbox">
+    <div class="chat-header">
+      Atendimento Online <span class="status-dot"></span>
     </div>
-</div>
-
-
-<div id="graf-nav"> <h1 id="titulo-disp">Informações de Consumo Mensal</h1>
-    <div class="row justify-content-center mb-3"> <div class="col-md-3 col-6"> <select name="mes-info-tabela" id="mes-info-tabela" class="form-select form-select-sm" aria-label="Selecione o mês">
-        <option value="">Selecione o mês</option>
-        <option value="Janeiro">Janeiro</option>
-        <option value="Fevereiro">Fevereiro</option>
-        <option value="Março">Março</option>
-        <option value="Abril">Abril</option>
-        <option value="Maio">Maio</option>
-        <option value="Junho">Junho</option>
-        <option value="Julho">Julho</option>
-        <option value="Agosto">Agosto</option>
-        <option value="Setembro">Setembro</option>
-        <option value="Outubro">Outubro</option>
-        <option value="Novembro">Novembro</option>
-        <option value="Dezembro">Dezembro</option>
-    </select>
+    <div class="chat-messages" id="chatMessages"></div>
+    <div class="chat-input">
+      <input type="text" id="userInput" placeholder="Digite sua mensagem..." onkeypress="if(event.key==='Enter'){sendMessage();}">
+      <button onclick="sendMessage()">Enviar</button>
     </div>
-        <div class="col-md-3 col-6"> <select name="ano-info-tabela" id="ano-info-tabela" class="form-select form-select-sm" aria-label="Selecione o ano">
-            <option value="">Selecione o ano</option>
-        </select>
-        </div>
-    </div>
+  </div>
 
-    <div id="tabela-info"></div>
-</div>
+  <!-- ======== JS DO CHATBOT ======== -->
+  <script>
+    const BACKEND_URL = "http://localhost:5000/chat";
 
+    function toggleChat() {
+      const chatbox = document.getElementById("chatbox");
+      chatbox.style.display = chatbox.style.display === "flex" ? "none" : "flex";
+      chatbox.style.flexDirection = "column";
+    }
 
+    async function sendMessage() {
+      const input = document.getElementById("userInput");
+      const msg = input.value.trim();
+      if (!msg) return;
+      addMessage(msg, "user");
+      input.value = "";
 
+      try {
+        const response = await fetch(BACKEND_URL, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ message: msg })
+        });
 
-<div class="informacoes">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4">
-                <div id="logos" class="d-flex align-items-start gap-4">
-                    <img src="img/X Logo.png" class="img-fluid logo-img" alt="Logo 1">
-                    <img src="img/insta logo.png" class="img-fluid logo-img" alt="Logo 2">
-                    <img src="img/linkedin logo.png" class="img-fluid logo-img" alt="Logo 3">
-                </div>
-            </div>
+        if (!response.ok) throw new Error(`Erro do servidor: ${response.status}`);
+        const data = await response.json();
+        addMessage(data.reply || "Sem resposta do servidor.", "bot");
+      } catch (error) {
+        console.error("Erro:", error);
+        addMessage("Ops! Não consegui me conectar ao servidor.", "bot");
+      }
+    }
 
-            <div class="col-md-8">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="p-3">
-                            <p class="fs-3">Equipe Técnica</p>
-                            <p>UI design</p>
-                            <p>UX design</p>
-                            <p>Wireframing</p>
-                            <p>Diagramming</p>
-                            <p>Prototyping</p>
-                            <p>Brainstorming</p>
-                            <p>Online whiteboard</p>
-                            <p>Team collaboration</p>
-                        </div>
-                    </div>
+    function addMessage(text, sender) {
+      const chat = document.getElementById("chatMessages");
+      const msgDiv = document.createElement("div");
+      msgDiv.classList.add("message", sender);
+      msgDiv.innerText = text;
+      chat.appendChild(msgDiv);
+      chat.scrollTop = chat.scrollHeight;
+    }
+  </script>
 
-                    <div class="col-md-6">
-                        <div class="p-3">
-                            <p class="fs-3">Outros</p>
-                            <p class="espaco-palavra">Prototyping</p>
-                            <p>Prototyping</p>
-                            <p>Brainstorming</p>
-                            <p>Online whiteboard</p>
-                            <p>Team collaboration</p>
-                            <p>Prototyping</p>
-                            <p>Brainstorming</p>
-                            <p>Online whiteboard</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<footer class="bg-dark text-white text-center py-3">
-    <p>&copy; 2025 EcoTech Energy Solutions - Todos os direitos reservados.</p>
-</footer>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<script src="js/index.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
+<<<<<<< HEAD
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>EcoTech Energy Solutions</title>
@@ -25,8 +26,152 @@
     z-index: 9999;
   }
     </style>
+=======
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EcoTech Energy Solutions</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <style>
+    /* ======== ESTILO GERAL ======== */
+    body {
+      background-color: #ffffff !important;
+      color: #212529;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* ======== NAVBAR ======== */
+    .custom-navbar {
+      background-color: #ffffff !important;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    .navbar-dark .navbar-nav .nav-link {
+      color: #212529 !important;
+      font-weight: 500;
+    }
+
+    .navbar-dark .navbar-nav .nav-link:hover {
+      color: #1d8348 !important;
+    }
+
+    .navbar-dark .navbar-brand img {
+      filter: none;
+    }
+
+    /* ======== HEADER (Hero Section) ======== */
+    .hero {
+      background: #f8f9fa;
+      color: #212529;
+      padding: 60px 0;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-weight: 700;
+      color: #1d8348;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: #333;
+    }
+
+    /* ======== CONTEÚDO PRINCIPAL ======== */
+    .container h2, .container h1 {
+      color: #1d8348;
+      margin-top: 20px;
+      font-weight: 600;
+    }
+
+    select.form-select {
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      background-color: #f8f9fa;
+      color: #212529;
+    }
+
+    canvas {
+      background-color: #ffffff;
+      border: 1px solid #eaeaea;
+      border-radius: 10px;
+      padding: 10px;
+      box-shadow: 0px 3px 8px rgba(0,0,0,0.05);
+    }
+
+    /* ======== DISPOSITIVOS E EQUIPAMENTOS ======== */
+    .bloco-central {
+      background-color: #f8f9fa;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0px 3px 8px rgba(0,0,0,0.1);
+    }
+
+    .tecnicos-img {
+      border-radius: 10px;
+      width: 100%;
+      margin-bottom: 10px;
+    }
+
+    /* ======== SEÇÃO INFORMAÇÕES ======== */
+    .informacoes {
+      background-color: #f8f9fa;
+      color: #212529;
+      padding: 40px 0;
+    }
+
+    .informacoes p {
+      margin: 0;
+    }
+
+    /* ======== FOOTER ======== */
+    footer {
+      background-color: #1d8348 !important;
+      color: #fff;
+      font-size: 0.9rem;
+    }
+
+    /* ======== CHATBOT BUTTON ======== */
+    .chat-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: linear-gradient(135deg, #00b894, #00cec9);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      cursor: pointer;
+      font-size: 26px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+      transition: transform 0.2s ease-in-out;
+      z-index: 9999;
+    }
+
+    .chat-button:hover {
+      transform: scale(1.1);
+    }
+
+    /* ======== BARRA DE PESQUISA ======== */
+    .search-bar {
+      max-width: 250px;
+      border-radius: 30px;
+      padding-left: 15px;
+    }
+
+    .navbar-nav .nav-link {
+      margin-right: 10px;
+    }
+  </style>
+>>>>>>> c98adc4cf52cb84ce1d7b68ab6297451eef59460
 </head>
+
 <body>
+<<<<<<< HEAD
 <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm">
     <div class="container-fluid">
         <a class="navbar-brand d-flex align-items-center" href="#">
@@ -50,9 +195,38 @@
                 <a href="page-graf.html" id="login-botao" class="btn btn-outline-success">Perfil</a> 
                 <button id="cadastro-botao" class="btn btn-success">Sair</button>
             </div>
+=======
+  <!-- ======== NAVBAR ======== -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark custom-navbar">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="index.html">
+        <img src="img/tecnologia-verde.png" alt="Logo" class="logo" width="30" height="30">
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto align-items-center">
+          <li class="nav-item"><a class="nav-link" href="#about">Sobre</a></li>
+          <li class="nav-item"><a class="nav-link" href="#services">Serviços</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contato</a></li>
+        </ul>
+
+        <!-- Barra de Pesquisa -->
+        <form class="d-flex ms-3">
+          <input class="form-control form-control-sm search-bar" type="search" placeholder="Buscar..." aria-label="Buscar">
+        </form>
+
+        <!-- Botão Usuário -->
+        <div class="d-flex ms-3">
+          <button type="button" class="btn btn-sm btn-outline-success">User: Joel Miller</button>
+>>>>>>> c98adc4cf52cb84ce1d7b68ab6297451eef59460
         </div>
+      </div>
     </div>
-</nav>
+  </nav>
 
 <header class="hero-section">
         <img src="./img/novo.png" alt="Homem monitorando energia no tablet" class="background-img">
@@ -70,9 +244,10 @@
 
     </header>
 
-<section class="monitoring-overview">
-    <h2 class="tag-visao">Visão Geral do Monitoramento</h2>
-</section>
+  <!-- ======== VISÃO GERAL ======== -->
+  <section class="monitoring-overview text-center">
+    <h2>Visão Geral do Monitoramento</h2>
+  </section>
 
  <div class="container">
     <div class="row justify-content-center">
@@ -89,17 +264,16 @@
     </div>
   </div>
 
-<div id="graf-nav" class="container">
-    <h1 id="titulo-disp">Dispositivos e Equipamentos</h1>
+  <!-- ======== DISPOSITIVOS ======== -->
+  <div class="container my-5">
+    <h1>Dispositivos e Equipamentos</h1>
     <div class="row justify-content-center">
-        <div class="col-md-6">
-            <div class="bloco-central">
-                <div class="img-vitoria">
-                    <img class="tecnicos-img" src="img/tecnicos.jpg">
-                    <div class="texto" id="device-list-container">
-                    </div>
-                </div>
-            </div>
+      <div class="col-md-6">
+        <div class="bloco-central">
+          <img class="tecnicos-img" src="img/tecnicos.jpg" alt="Equipe técnica">
+          <div class="texto" id="device-list-container">
+            <p>Não foi possível carregar a lista de dispositivos.</p>
+          </div>
         </div>
 
         <div class="col-md-6 text-center">
@@ -140,48 +314,62 @@
 </div>
 <div class="informacoes">
     <div class="container">
-        <div class="row">
-            <div class="col-md-4">
-                <div id="logos" class="d-flex align-items-start gap-4">
-                    <img src="img/X Logo.png" class="img-fluid logo-img" alt="Logo 1">
-                    <img src="img/insta logo.png" class="img-fluid logo-img" alt="Logo 2">
-                    <img src="img/linkedin logo.png" class="img-fluid logo-img" alt="Logo 3">
-                </div>
-            </div>
-
-            <div class="col-md-8">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="p-3">
-                            <p class="fs-3">Equipe Técnica</p>
-                            <p>UI design</p>
-                            <p>UX design</p>
-                            <p>Wireframing</p>
-                            <p>Diagramming</p>
-                            <p>Prototyping</p>
-                            <p>Brainstorming</p>
-                            <p>Online whiteboard</p>
-                            <p>Team collaboration</p>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6">
-                        <div class="p-3">
-                            <p class="fs-3">Outros</p>
-                            <p class="espaco-palavra">Prototyping</p>
-                            <p>Prototyping</p>
-                            <p>Brainstorming</p>
-                            <p>Online whiteboard</p>
-                            <p>Team collaboration</p>
-                            <p>Prototyping</p>
-                            <p>Brainstorming</p>
-                            <p>Online whiteboard</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+      <div class="row">
+        <div class="col-md-4 d-flex align-items-start gap-4">
+          <img src="img/X Logo.png" class="img-fluid logo-img" alt="Logo X">
+          <img src="img/insta logo.png" class="img-fluid logo-img" alt="Logo Instagram">
+          <img src="img/linkedin logo.png" class="img-fluid logo-img" alt="Logo LinkedIn">
         </div>
+        <div class="col-md-8">
+          <div class="row">
+            <div class="col-md-6">
+              <p class="fs-4 fw-semibold">Equipe Técnica</p>
+              <p>UI design</p>
+              <p>UX design</p>
+              <p>Wireframing</p>
+              <p>Diagramming</p>
+              <p>Prototyping</p>
+              <p>Brainstorming</p>
+              <p>Online whiteboard</p>
+              <p>Team collaboration</p>
+            </div>
+            <div class="col-md-6">
+              <p class="fs-4 fw-semibold">Outros</p>
+              <p>Prototyping</p>
+              <p>Brainstorming</p>
+              <p>Online whiteboard</p>
+              <p>Team collaboration</p>
+              <p>Prototyping</p>
+              <p>Brainstorming</p>
+              <p>Online whiteboard</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
+
+  <!-- ======== FOOTER ======== -->
+  <footer class="text-white text-center py-3">
+    <p>&copy; 2025 EcoTech Energy Solutions - Todos os direitos reservados.</p>
+  </footer>
+
+  <!-- Botão flutuante do chatbot -->
+
+<button class="chat-button" onclick="toggleChat()">
+  <img src="img/atendente.png" alt="Atendente" class="chat-icon">
+</button>
+
+<!-- Caixa do chatbot -->
+<div class="chatbox" id="chatbox">
+  <div class="chat-header">
+    Atendimento Online <span class="status-dot"></span>
+  </div>
+  <div class="chat-messages" id="chatMessages"></div>
+  <div class="chat-input">
+    <input type="text" id="userInput" placeholder="Digite sua mensagem..." onkeypress="if(event.key==='Enter'){sendMessage();}">
+    <button onclick="sendMessage()">Enviar</button>
+  </div>
 </div>
 <footer class="bg-dark text-white text-center py-3">
     <p>&copy; 2025 EcoTech Energy Solutions - Todos os direitos reservados.</p>

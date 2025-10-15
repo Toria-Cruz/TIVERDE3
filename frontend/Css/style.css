@@ -1,112 +1,200 @@
-/* Para controlar a altura máxima de todos os gráficos gerados pelo Chart.js */
+
+/* --- 1. ESTILOS GLOBAIS E HERO (CABEÇALHO) --- */
+
+/* Garante que o fundo da página é branco e a cor do texto padrão é escura */
+body {
+    background-color: white; 
+    color: #333; 
+}
+
+/* Estilos gerais do Hero (ajuste a altura se necessário) */
+.hero {
+    color: white; /* Cor do texto no header */
+}
+
+/* Container do Hero (Configuração para sobreposição e centralização) */
+.hero .container {
+    position: relative; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    height: 300px; /* Altura do cabeçalho */
+    overflow: hidden; 
+    text-align: center;
+}
+
+/* Imagem de Fundo/Logo no Hero */
+.hero-background-image {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    margin: auto;
+}
+
+/* Overlay (Para escurecer a imagem e facilitar a leitura do texto) */
+.hero .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1; 
+}
+
+/* Conteúdo (Texto) do Hero que Ficará por Cima */
+.hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    width: 100%;
+    padding: 0 20px;
+    box-sizing: border-box;
+    z-index: 2; /* Acima do overlay */
+}
+
+.hero-content h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+}
+.hero-content p {
+    font-size: 1.2em;
+}
+
+
+/* --- 2. ESTILOS DE NAVEGAÇÃO E CARDS --- */
+
+#header-nav {
+    height: 90px;
+    font-size: 20px;
+}
+.logo {
+    width: 50px;
+    height: auto;
+}
+.logo-img {
+    width: 25px;
+    height: auto;
+}
+.card-img-top {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+}
+.image-spacing,
+#card-img {
+    column-gap: 86px;
+}
+#card-img {
+    margin-bottom: 51px;
+}
+.tag-visao {
+    color: #e9e1e1 !important;
+    background-color: #1e873a;
+    text-align: center; 
+    padding: 25px 0;
+}
+
+
+/* --- 3. ESTILOS DOS GRÁFICOS E PICKERS --- */
+
+/* Para gráfico de Barras/Linhas (Analise) */
 #consumoChart,
-#analiseChart {
+#analiseChart,
+#pizzaChart { 
     max-height: 400px;
-    width: 100% !important;
     height: auto !important;
 }
 
+/* Para gráfico de Pizza (Consumo por Tipo) */
 #consumoTipoChart {
     max-height: 250px;
     max-width: 250px;
     width: 100% !important;
     height: auto !important;
     margin: 0 auto;
+    display: block; 
 }
 
-/* Adicionado: Largura fixa para os pickers de ano */
+/* Largura para os selects de ano */
 #ano-picker,
 #ano-picker-pizza {
-    width: 150px; /* Largura fixa. Ajuste este valor conforme o desejado */
-    margin-left: auto; /* Centraliza o picker dentro do seu contêiner */
-    margin-right: auto; /* Centraliza o picker dentro do seu contêiner */
+    width: 150px;
+    margin: 0 auto; 
 }
 
-/* Opcional: Para controlar a altura dos contêineres dos gráficos se a classe 'img-kamila' ou 'img-kamila1' não for suficiente */
+
+/* --- 4. ESTILOS DE LAYOUT (GRÁFICOS, DISPOSITIVOS, ETC.) --- */
+
 .img-kamila,
 .img-kamila1 {
-    display: flex;
     justify-content: center;
     align-items: center;
     max-height: 400px;
+    max-width: 100%; 
+    height: auto;
+    padding: 10px;
 }
 
-/* Ajustes para o alinhamento da seção Dispositivos e Equipamentos */
 #graf-nav {
-  background-color: #000000;
-  /* REDUZIDO: Padding vertical de 20px para 10px */
-  padding: 10px 20px; /* top/bottom 10px, left/right 20px */
-  text-align: center;
-}
-
-#graf-nav .row { /* Alinha os itens da linha verticalmente ao centro */
-    display: flex;
-    align-items: center;
-    justify-content: center; /* Centraliza horizontalmente também */
+    background-color: #f8f8f8 ;
+    padding: 10px 20px;
+    text-align: center;
 }
 
 .bloco-central {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 40px;
-  flex-wrap: wrap;
-  /* REDUZIDO: Padding de 20px para 10px */
-  padding: 10px; /* Reduzido o padding interno do bloco */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    padding: 10px; 
+    min-height: 300px;
 }
 
 .col-md-6.text-center {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start; /* Alinha o conteúdo ao topo da coluna para gráficos/pickers */
+    justify-content: flex-start;
 }
 
-/* Adicional: Garante que o container da lista de dispositivos também usa flexbox para alinhamento */
 .img-vitoria {
-  display: flex;
-  align-items: center; /* Alinha verticalmente a imagem e o texto */
-  gap: 20px;
-  flex-wrap: nowrap; /* Faz o texto ficar abaixo da imagem em telas pequenas */
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: nowrap;
+}
+.img-vitoria img {
+    max-width: 50%;
+    height: auto;
 }
 
-/* Garante que o texto da lista de dispositivos não seja muito grande e permita o alinhamento */
 .texto {
-  text-align: left;
-  color: #000;
-  max-width: 300px; /* Mantém a largura máxima para o texto da lista */
+    text-align: left;
+    color: #000;
+    max-width: 300px;
+    margin-top: 15px;
 }
 
-.tag-visao {
-    color: #0c0c0c !important;
-    background-color: #030303; color: rgb(105, 12, 53); text-align: center; padding: 25px 0;
+.img-fluid {
+    max-width: 103%;
+    height: auto;
+    padding-top: 16px;
 }
 
-
-/* Remove a barra azul escura (se for um div/seção separada) */
-/* Se a barra preta for uma div com uma classe específica, adicione-a aqui e aplique 'display: none' */
-/* Se for um efeito da imagem, o CSS não pode remover. */
-
-.image-spacing {
-   column-gap: 86px;
-}
-/* id card-img  */
-#card-img {
-    column-gap: 86px;
-    margin-bottom: 51px;
-    
+.img-top-space {
+    margin-top: 5px;
 }
 
-#header-nav {
-    height: 90px;
-    font-size: 20px;
-}
-
-.card-img-top {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center center;
+.informacoes {
+    padding: 40px;
+    text-align: justify;
+    color: #111111 !important;
 }
 
 #paragrafo {
@@ -114,106 +202,46 @@
     padding-left: 40px;
 }
 
-.logo {
-  width: 50px;             /* Ajuste o tamanho conforme desejar */
-  height: auto;
-}
-
-.logo-img {
-  width: 25px;             /* Ajuste o tamanho conforme desejar */
-  height: auto;
-}
-
-.img-kamila {
-  max-width: 100%;
-  height: auto;
-  padding: 10px;
-}
-
-.img-top-space {
-  margin-top: 5px; /* ajuste conforme necessário */
-}
-
-.img-fluid {
-  max-width: 103%;
-  height: auto;
-  padding-top: 16px;
-}
-
-#pizzaChart {
-  width: 300px;
-  height: 300px;
-  margin: 0 auto;
-  display: block;
-}
-
-.bloco-central {
-  min-height: 300px; /* Mantém a altura consistente com o gráfico */
-}
-
-.img-vitoria img {
-  max-width: 50%;
-  height: auto;
-}
-
-.texto {
-  margin-top: 15px;
-}
-
-/* #graf-nav foi modificado acima */
-#graf-nav { /* Removido padding original aqui, foi modificado para cima */
-  background-color: #2c0101;
-  /* padding: 20px; */ /* Removido */
-  text-align: center;
-}
-
 #titulo-disp {
-  font-size: 32px;
-  color: #333;
-  margin-bottom: 30px;
-  text-align: center;
+    font-size: 32px;
+    color: #333;
+    margin-bottom: 30px;
+    text-align: center;
 }
 .tecnicos-img,
 .grafico-img {
-  max-width: 300px;
-  width: 100%;
-  height: auto;
+    max-width: 300px;
+    width: 100%;
+    height: auto;
 }
 
-/* .texto foi movido para cima e modificado para melhor alinhamento */
+/* --- 5. RESPONSIVIDADE --- */
 
 @media (max-width: 768px) {
-  .bloco-central {
-    flex-direction: column;
-    align-items: center;
-  }
-  .img-vitoria {
-    flex-direction: column;
-    align-items: center;
-  }
-  .texto {
-    text-align: center;
-    max-width: 90%;
-  }
+    .bloco-central {
+        flex-direction: column;
+        align-items: center;
+    }
+    .img-vitoria {
+        flex-direction: column;
+        align-items: center;
+    }
+    .texto {
+        text-align: center;
+        max-width: 90%;
+    }
 
-  #titulo-disp {
-    font-size: 26px;
-  }
+    #titulo-disp {
+        font-size: 26px;
+    }
 
-  .grafico-img,
-  .tecnicos-img {
-    max-width: 90%;
-  }
+    .grafico-img,
+    .tecnicos-img {
+        max-width: 90%;
+    }
 }
 
-.informacoes {
-  padding-left: 40px;
-  padding-right: 40px;
-  padding-bottom: 40px;
-  padding-top: 40px;
-  text-align: justify;
-  color: #111111 !important;
-}
+/* //////////////////////////////////////////CSS DA 2º TELAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA*/
 
 
 
@@ -223,7 +251,7 @@
 
 
 
-
+/* //////////////////////////////////////////CSS DA 1º TELAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA*/
 
 /* Configurações Globais */
 body {
@@ -345,15 +373,13 @@ body {
     background-color: #156d2e !important;
 }
 
+/* //////////////////////////////////////////CSS DA 1º TELAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA*/
 
 
 
 
 
-
-
-
-
+/* //////////////////////////////////////////CSS DA 1º TELAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA*/
 
 /* --- AJUSTES DE RESPONSIVIDADE --- */
 
@@ -377,71 +403,89 @@ body {
 /* ======================== 2. ESTILOS DA SEÇÃO HERO (CORRIGIDOS) ======================== */
 
 .hero-section {
-    height: 400px; 
+    /* Ajuste a altura para ter um bom espaço visual */
+    height: 650px; /* Aumentado para uma melhor proporção da imagem */
     position: relative; 
-    overflow: hidden; 
+    overflow: hidden; /* ESSENCIAL para cortar a imagem nas bordas arredondadas */
     display: flex; 
-    align-items: center; 
+    align-items: center; /* Centraliza o conteúdo verticalmente */
     padding: 0;
+
+    /* PROPRIEDADES PARA ARREDONDAR AS BORDAS DA SEÇÃO */
+    border-radius: 20px; /* Arredondamento visível */
+    margin-bottom: 30px; /* Espaço abaixo para o próximo conteúdo */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15); /* Sombra para destacar */
+    max-width: 1300px; /* Limita a largura máxima */
+    margin-left: auto; /* Centraliza horizontalmente */      
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;                                   
 }
 
-/* 2.1. A FOTO DE FUNDO */
+/* 2.1. A FOTO DE FUNDO - AQUI ESTÁ A MAIOR MUDANÇA */
 .background-img {
-    width: 101%; 
-    height: 220%; 
-    object-fit: contain; 
+    width: 100%; /* A imagem preenche a largura do pai */
+    height: 100%; /* A imagem preenche a altura do pai (hero-section) */
+    
+    /* CORREÇÃO CHAVE: 'cover' faz a imagem preencher o espaço, cortando o excesso se necessário */
+    object-fit: cover; 
+    
+    /* Reposiciona a imagem para focar na parte direita (a mão e o tablet) */
+    object-position: right center; 
+    
     position: absolute; 
     top: 0;
     left: 0;
-    z-index: 1; 
+    z-index: 1; /* Garante que a imagem fique atrás do texto */
 }
 
 /* 2.2. Container de Conteúdo (Posicionamento do texto) */
 .hero-content-container {
     position: relative; 
-    z-index: 2; 
-    width: 105%;
+    z-index: 2; /* Garante que o texto fique acima da imagem */
+    width: 100%; /* Ajustado para 100% para melhor controle de padding */
     height: 100%;
     display: flex;
-    /* Alinha o conteúdo à esquerda no desktop */
     align-items: center; 
+    /* Adiciona padding no container para o texto não colar nas bordas laterais */
+    padding: 0 50px; 
 }
 
 /* 2.3. Wrapper do Texto (REMOVIDA A CAIXA BRANCA) */
+/* Se este div não existe mais no seu HTML, você pode remover este bloco. 
+   Senão, vamos ajustá-lo para que o texto fique bem posicionado. */
 .content-wrapper {
-    /* CORREÇÃO CHAVE: Removemos o background e o padding excessivo da caixa */
     background-color: transparent; 
-    padding: 20px 0; 
-    
-    /* Garante que o texto fique à esquerda e com boa largura */
+    padding: 0; /* Remove padding desnecessário aqui, já que o container já tem */
     max-width: 600px; 
-    color: #333;
-    margin-left: 50px; /* Margem da esquerda para dar um respiro */
+    color: #333; /* Essa cor será sobrescrita pelos h1/p abaixo para melhor contraste */
+    /* Removido margin-left fixo, o padding do container já ajuda */
 }
 
 /* 2.4. Estilos de Texto (CORRIGIDOS para grande e sobreposto) */
 .content-wrapper h1 {
-    /* CORREÇÃO: Cor e sombra para se destacar no fundo */
-    color: #212529; 
-    font-size: 4em; /* Título maior */
+    /* Cor do texto para destacar no fundo da imagem */
+    color: #FFFFFF; /* Branco ou um cinza claro para visibilidade */
+    font-size: 4em; 
     font-weight: 800; 
-    line-height: 1; /* Linha mais apertada para o texto grande */
+    line-height: 1; 
     margin-bottom: 10px; 
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Sombra para destacar no fundo claro */
+    /* Sombra mais forte para garantir leitura sobre a imagem */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); 
 }
 
 .content-wrapper p {
-    /* CORREÇÃO: Cor e sombra para se destacar */
-    color: #444; 
-    font-size: 1.1em; /* Texto um pouco maior */
+    /* Cor do texto para destacar no fundo da imagem */
+    color: #EEEEEE; /* Um cinza bem claro */
+    font-size: 1.1em; 
     line-height: 1.3; 
     margin-bottom: 15px; 
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+    /* Sombra mais forte para garantir leitura sobre a imagem */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
 }
 
 /* 2.5. Estilo do Botão */
 .learn-more-button {
-    /* Mantido o estilo do botão */
     display: inline-block;
     padding: 10px 25px;
     background-color: #39886a; 
@@ -451,6 +495,8 @@ body {
     font-weight: 600;
     transition: background-color 0.3s ease;
     border: none;
+    /* Adiciona sombra para dar profundidade ao botão */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 
 .learn-more-button:hover {
@@ -459,16 +505,23 @@ body {
 
 /* Responsividade para Telas Pequenas */
 @media (max-width: 991px) {
+    .hero-section {
+        height: 450px; /* Ajuste a altura para telas menores */
+    }
+
+    .hero-content-container {
+        padding: 0 20px; /* Menos padding em telas menores */
+    }
     
     .content-wrapper {
         text-align: center; 
         margin: 0 auto;
-        padding: 40px 20px;
+        padding: 40px 0; /* Padding vertical para espaçamento */
     }
     
     .content-wrapper h1 {
         font-size: 2.5em;
-        font-weight:  800;
+        font-weight: 800;
         line-height: 1;
         margin-bottom: 5px;
     }
@@ -499,8 +552,6 @@ body {
     height: 220px; 
     object-fit: cover;
 }
-
-
 /* --- AJUSTES DE RESPONSIVIDADE --- */
 
 @media (max-width: 991px) {
@@ -520,6 +571,7 @@ body {
         margin-bottom: 10px !important;
     }
 }
+/* //////////////////////////////////////////CSS DA 1º TELAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA*/
 
 
 
@@ -531,128 +583,14 @@ body {
 
 
 
-.section {
-    padding: 80px 0;
-    
-}
-
-.container-services {
-  margin-left: 0;
-  margin-right: 0;
-  text-align: center;
-
-}
-
-.section-heading {
-    color: #070707 !important;  /* ✅ Agora o texto aparece */
-}
-
-
-.custom-navbar {
-    background-color: #111212 !important;
-  }
-  
-  .custom-navbar .navbar-brand {
-    color: #090909 !important;
-  }
-  
-  .custom-navbar .navbar-nav .nav-link {
-    color: #131313 !important;
-  }
-  
-  .custom-navbar .navbar-nav .nav-link:hover {
-    color: #0f0f0f !important;
-  }
-
-  .navbar-brand {
-    color: #a10b0b !important;
-    opacity: 0.8;
-  }
 
-  .bg-dark {
-    background-color: #000000 !important;
-  }
 
-  .bg-dark-1 {
-    background-color: #03304b !important;
-  }
 
-  /* .container {
-    display: flex;
-    justify-content: center; /* Centraliza os gráficos */
-    /* gap: 20px; Espaçamento entre eles */
-    /* flex-wrap: wrap; Para quebrar em telas menores */
-  /* */
-  
-  .chart-container {
-    width: 45%; /* Ajuste conforme o tamanho desejado */
-  }
 
-.left-section {
-    flex: 1;
-    min-width: 300px;
-    margin-right: 20px;
-}
-.image-container {
-    max-width: 40%;
-    height: auto;
-    border-radius: 4px;
-    overflow: hidden;
-    margin-bottom: 15px;
-}
-.image-container img {
-    display: flex;
-    width: 100%;
-    height: auto;
-}
-.device-list {
-    list-style: right;
-    padding: 0;
-    margin: 0;
-}
-.device-list li {
-    color: #121111;
-    margin-bottom: 8px;
-}
 
-.container-imagens {
-  display: flex; /* Cria um contêiner flexível */
-  align-items: center; /* Opcional: alinha verticalmente as imagens ao centro */
-  /* justify-content: space-between; /* Opcional: distribui o espaço entre as imagens */
-  background-color: rgb(1, 1, 1); /* Fundo branco para a seção */
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  margin: 20px auto;
-  max-width: 900px /* Opcional: define a largura total do contêiner */
-}
 
-.container-imagens img {
-  display: block; /* Remove qualquer espaçamento extra abaixo da imagem */
-  max-width: 40%; /* Faz com que cada imagem ocupe no máximo 50% da largura do contêiner */
-  height: auto; /* Mantém a proporção da imagem */
-}
 
-.bg-dark-1 {
-  background-color: #0f6ca1 !important;
-}
 
-.chat-button {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: linear-gradient(135deg, #00b894, #00cec9);
-    color: rgb(12, 12, 12);
-    border: none;
-    border-radius: 50%;
-    width: 60px;
-    height: 60px;
-    cursor: pointer;
-    font-size: 26px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
-    transition: transform 0.2s ease-in-out;
-    z-index: 9999;
-  }
 
 
 
@@ -662,86 +600,7 @@ body {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*CHAT BOX - NÃO MEIXA NESSA PARTE AINDA :-)*/
+/* CHATTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT BOX DA TELA 1 E 2 TELAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA*/
 
 .chatbox {
   width: 340px;
@@ -843,9 +702,9 @@ body {
   display: none;
   position: fixed;
   bottom: 100px;
-  right: 60px;
-  width: 300px;
-  max-height: 400px;
+  right: 70px;
+  width: 500px;
+  max-height: 850px;
   background: white;
   border-radius: 10px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.2);
@@ -909,8 +768,8 @@ body {
 }
 
 .message.bot {
-  background-color: #5e35b1;     /* Cor de fundo desejada */
-  color: #ffffff;                /* Cor do texto */
+  background-color: #5e35b1;    
+  color: #ffffff;                
   padding: 10px 14px;
   border-radius: 16px;
   margin: 5px 10px 5px 5px;
@@ -921,8 +780,6 @@ body {
   width: fit-content;
   word-break: break-word;
 }
-
-
 
 .chat-button {
   position: fixed;
@@ -946,3 +803,4 @@ body {
   width: 80px;
   height: 80px;
 }
+/* CHATTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT BOX DA TELA 1 E 2 TELAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA*/

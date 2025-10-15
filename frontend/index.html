@@ -27,38 +27,32 @@
 </style>
 </head>
 <body>
-
-  
-<!-- ======================== NAVBAR ======================== -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm">
-        <div class="container-fluid">
-
-          <!-- LOGO -->
-            <a class="navbar-brand d-flex align-items-center" href="#">
-                <img src="img/logo novo.png" alt="Logo" class="img-fluid me-2" style="width: 30px; height: 30px;">
-                <span class="fw-bold">EcoTech</span>
-            </a>
-           <!-- MENU -->
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav me-auto">
-                    <li class="nav-item"><a class="nav-link fw-semibold" href="#about">Sobre</a></li>
-                    <li class="nav-item"><a class="nav-link fw-semibold" href="#services">Serviços</a></li>
-                    <li class="nav-item"><a class="nav-link fw-semibold" href="#contact">Contato</a></li>
-                </ul>
-                <!-- BARRA DE PESQUISA -->
-      <form class="d-flex mx-3" role="search">
-      <input class="form-control form-control-sm" type="search" placeholder="Buscar..." aria-label="Search">
-    </form>
-
-    <!-- BOTÕES -->
-    <div class="d-flex">
-      <button id="login-botao" class="btn btn-outline-success me-2">Sign In</button>
-      <button id="cadastro-botao" class="btn btn-success">Register</button>
+<nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm">
+    <div class="container-fluid">
+        <a class="navbar-brand d-flex align-items-center" href="#">
+            <img style="width: 30px; height: 30px;" class="img-fluid me-2" alt="Logo" src="img/Logo2.png">
+            <span class="fw-bold">EcoTech</span>
+        </a>
+        
+        <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+            
+            <ul class="navbar-nav mx-auto"> 
+                <li class="nav-item"><a class="nav-link fw-semibold" href="#about">Sobre</a></li>
+                <li class="nav-item"><a class="nav-link fw-semibold" href="#services">Serviços</a></li>
+                <li class="nav-item"><a class="nav-link fw-semibold" href="#contact">Contato</a></li>
+            </ul>
+            
+            <form class="d-flex mx-3" role="search">
+                <input class="form-control form-control-sm" type="search" placeholder="Buscar..." aria-label="Search">
+            </form>
+            
+            <div class="d-flex ms-auto">
+                <a href="page-graf.html" id="login-botao" class="btn btn-outline-success">Entrar</a> 
+                <button id="cadastro-botao" class="btn btn-success">Perfil</button>
+            </div>
+        </div>
     </div>
-
-  </div>
 </nav>
-
     <!-- ======================== HERO ======================== -->
     <header class="hero-section">
         <img src="./img/novo.png" alt="Homem monitorando energia no tablet" class="background-img">
@@ -112,11 +106,11 @@
     <footer class="bg-white py-4 border-top">
         <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center text-muted small">
             <div class="d-flex flex-column flex-md-row align-items-center mb-2 mb-md-0">
-                <span class="me-md-3">ecotech.com/pasesd3d1973d7-2pdwed33d3</span>
+                <span class="me-md-3">2025 EcoTech Energy Solutions</span>
                 <a href="#" class="text-muted text-decoration-none me-md-3">Privacy Policy</a>
                 <a href="#" class="text-muted text-decoration-none">Terms of Service</a>
             </div>
-            <span class="mb-2 mb-md-0">&copy; 2024 EcoTech Energy Solutions</span>
+            <span class="mb-2 mb-md-0">&copy; Todos os direitos reservados.</span>
             <div class="d-flex gap-3">
                 <a href="#" class="text-muted text-decoration-none">f</a>
                 <a href="#" class="text-muted text-decoration-none">t</a>
@@ -134,100 +128,6 @@
   });
 </script>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- Botão flutuante do chatbot -->
-
 <button class="chat-button" onclick="toggleChat()">
   <img src="img/atendente.png" alt="Atendente" class="chat-icon">
 </button>
@@ -243,8 +143,6 @@
     <button onclick="sendMessage()">Enviar</button>
   </div>
 </div>
-
-
 
 <script>
   const BACKEND_URL = "http://localhost:5000/chat"; // URL do backend

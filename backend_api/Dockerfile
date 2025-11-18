@@ -1,8 +1,10 @@
-FROM openjdk:21-jdk-slim
+# Imagem leve e compatível com o Java que você compilou
+FROM eclipse-temurin:21-jdk-alpine
 
 WORKDIR /app
 
-COPY target/ti.verde-*.jar app.jar
+# Copia o arquivo .jar gerado pelo Maven
+COPY target/*.jar app.jar
 
 EXPOSE 9000
 

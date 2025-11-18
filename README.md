@@ -4,8 +4,7 @@
 
 Execute o script abaixo para construir e iniciar todos os containers:
 
-```bash
-./build-and-up.sh
+```bash ./build-and-up.sh
 ```
 
 ## Parar e remover os containers

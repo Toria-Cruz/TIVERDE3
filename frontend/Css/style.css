@@ -1,29 +1,36 @@
+/* =========================================================
+   1. GLOBAL
+========================================================= */
 
-/* --- 1. ESTILOS GLOBAIS E HERO (CABEÇALHO) --- */
-
-/* Garante que o fundo da página é branco e a cor do texto padrão é escura */
 body {
-    background-color: white; 
-    color: #333; 
+    background-color: white;
+    color: #333;
 }
 
-/* Estilos gerais do Hero (ajuste a altura se necessário) */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+
+/* =========================================================
+   2. HERO (HEADER / BANNER PRINCIPAL)
+========================================================= */
+
 .hero {
-    color: white; /* Cor do texto no header */
+    color: white;
 }
 
-/* Container do Hero (Configuração para sobreposição e centralização) */
 .hero .container {
-    position: relative; 
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
-    height: 300px; /* Altura do cabeçalho */
-    overflow: hidden; 
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+    overflow: hidden;
     text-align: center;
 }
 
-/* Imagem de Fundo/Logo no Hero */
 .hero-background-image {
     max-width: 100%;
     height: auto;
@@ -32,18 +39,13 @@ body {
     margin: auto;
 }
 
-/* Overlay (Para escurecer a imagem e facilitar a leitura do texto) */
 .hero .overlay {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 1; 
+    inset: 0;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 1;
 }
 
-/* Conteúdo (Texto) do Hero que Ficará por Cima */
 .hero-content {
     position: absolute;
     top: 50%;
@@ -52,234 +54,33 @@ body {
     color: white;
     width: 100%;
     padding: 0 20px;
+    text-align: center;
     box-sizing: border-box;
-    z-index: 2; /* Acima do overlay */
+    z-index: 2;
 }
 
-.hero-content h1 {
-    font-size: 3em;
-    margin-bottom: 10px;
-}
-.hero-content p {
-    font-size: 1.2em;
-}
+.hero-content h1 { font-size: 3em; margin-bottom: 10px; }
+.hero-content p { font-size: 1.2em; }
 
 
-/* --- 2. ESTILOS DE NAVEGAÇÃO E CARDS --- */
+/* =========================================================
+   3. NAVBAR
+========================================================= */
 
 #header-nav {
-    height: 90px;
-    font-size: 20px;
-}
-.logo {
-    width: 50px;
-    height: auto;
-}
-.logo-img {
-    width: 25px;
-    height: auto;
-}
-.card-img-top {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center center;
-}
-.image-spacing,
-#card-img {
-    column-gap: 86px;
-}
-#card-img {
-    margin-bottom: 51px;
-}
-.tag-visao {
-    color: #e9e1e1 !important;
-    background-color: #1e873a;
-    text-align: center; 
-    padding: 25px 0;
-}
-
-
-/* --- 3. ESTILOS DOS GRÁFICOS E PICKERS --- */
-
-/* Para gráfico de Barras/Linhas (Analise) */
-#consumoChart,
-#analiseChart,
-#pizzaChart { 
-    max-height: 400px;
-    height: auto !important;
-}
-
-/* Para gráfico de Pizza (Consumo por Tipo) */
-#consumoTipoChart {
-    max-height: 250px;
-    max-width: 250px;
-    width: 100% !important;
-    height: auto !important;
-    margin: 0 auto;
-    display: block; 
-}
-
-/* Largura para os selects de ano */
-#ano-picker,
-#ano-picker-pizza {
-    width: 150px;
-    margin: 0 auto; 
-}
-
-
-/* --- 4. ESTILOS DE LAYOUT (GRÁFICOS, DISPOSITIVOS, ETC.) --- */
-
-.img-kamila,
-.img-kamila1 {
-    justify-content: center;
-    align-items: center;
-    max-height: 400px;
-    max-width: 100%; 
-    height: auto;
-    padding: 10px;
-}
-
-#graf-nav {
-    background-color: #f8f8f8 ;
-    padding: 10px 20px;
-    text-align: center;
-}
-
-.bloco-central {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 40px;
-    flex-wrap: wrap;
-    padding: 10px; 
-    min-height: 300px;
-}
-
-.col-md-6.text-center {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-}
-
-.img-vitoria {
+    background-color: #ffffff !important;
+    border-bottom: 1px solid #eee;
+    height: 56px;
+    padding: 0 16px !important;
     display: flex;
     align-items: center;
-    gap: 20px;
-    flex-wrap: nowrap;
-}
-.img-vitoria img {
-    max-width: 50%;
-    height: auto;
-}
-
-.texto {
-    text-align: left;
-    color: #000;
-    max-width: 300px;
-    margin-top: 15px;
-}
-
-.img-fluid {
-    max-width: 103%;
-    height: auto;
-    padding-top: 16px;
-}
-
-.img-top-space {
-    margin-top: 5px;
-}
-
-.informacoes {
-    padding: 40px;
-    text-align: justify;
-    color: #111111 !important;
-}
-
-#paragrafo {
-    text-align: justify;
-    padding-left: 40px;
-}
-
-#titulo-disp {
-    font-size: 32px;
-    color: #333;
-    margin-bottom: 30px;
-    text-align: center;
-}
-.tecnicos-img,
-.grafico-img {
-    max-width: 300px;
-    width: 100%;
-    height: auto;
-}
-
-/* --- 5. RESPONSIVIDADE --- */
-
-@media (max-width: 768px) {
-    .bloco-central {
-        flex-direction: column;
-        align-items: center;
-    }
-    .img-vitoria {
-        flex-direction: column;
-        align-items: center;
-    }
-    .texto {
-        text-align: center;
-        max-width: 90%;
-    }
-
-    #titulo-disp {
-        font-size: 26px;
-    }
-
-    .grafico-img,
-    .tecnicos-img {
-        max-width: 90%;
-    }
-}
-
-/* //////////////////////////////////////////CSS DA 2º TELAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA*/
-
-
-
-
-
-
-
-
-
-/* //////////////////////////////////////////CSS DA 1º TELAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA*/
-
-/* Configurações Globais */
-body {
-    font-family: 'Inter', sans-serif;
-    margin: 0;
-    /* Ajustado para compensar a navbar fixa */
-    padding-top: 60px; 
-    background-color: #f8f8f8; 
-}
-
-/* --- ESTILOS PARA HEADER CLARO (BRANCO) E CENTRALIZADO --- */
-
-/* --- NAVBAR COMPACTA, ALINHADA E SEM ESPAÇOS --- */
-#header-nav.custom-navbar {
+    justify-content: space-between;
     position: fixed;
     top: 0;
     width: 100%;
     z-index: 1030;
-    background-color: #ffffff !important;
-    border-bottom: 1px solid #eeeeee;
-    padding: 0 16px !important; /* remove altura, só laterais */
-    height: 56px; /* define altura fixa da barra */
-    display: flex;
-    align-items: center; /* centraliza tudo verticalmente */
-    justify-content: space-between;
 }
 
-/* Remove margens padrões de containers Bootstrap */
 #header-nav .container,
 #header-nav .container-fluid {
     display: flex;
@@ -290,69 +91,44 @@ body {
     margin: 0 !important;
 }
 
-/* --- LOGO + TEXTO --- */
 #header-nav .navbar-brand {
     display: flex;
     align-items: center;
     gap: 6px;
-    margin: 0;
     padding: 0;
 }
+
 #header-nav .navbar-brand img {
-    width: 28px !important;
-    height: 28px !important;
+    width: 200px;
+    height: 160px;
 }
+
 #header-nav .navbar-brand span {
     font-size: 1rem;
     color: #1e873a;
     font-weight: 600;
-    line-height: 1;
 }
 
-/* --- LINKS (Sobre, Serviços, Contato) --- */
-#header-nav .navbar-nav {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    margin: 0;
-    padding: 0;
-}
 #header-nav .nav-link {
-    color: #333333 !important;
-    font-size: 0.9rem;
+    color: #333 !important;
+    font-size: .9rem;
     padding: 0 !important;
-    margin: 0 !important;
-    line-height: 1;
 }
 
-/* --- BUSCA E BOTÕES --- */
 #header-nav form {
     display: flex;
     align-items: center;
     gap: 6px;
-    margin: 0;
-    padding: 0;
-}
-#header-nav .form-control {
-    height: 32px;
-    font-size: 0.85rem;
-    padding: 4px 10px;
-    border-radius: 4px;
-    border: 1px solid #ccc;
-    width: 220px;
-    margin: 0 !important;
 }
 
-/* --- BOTÕES --- */
+#header-nav .form-control,
 #header-nav .btn {
     height: 32px;
-    font-size: 0.85rem;
+    font-size: .85rem;
     padding: 4px 10px;
     border-radius: 4px;
-    margin: 0 !important;
 }
 
-/* Login */
 #login-botao {
     border: 1px solid #1e873a !important;
     color: #1e873a !important;
@@ -363,444 +139,437 @@ body {
     color: #fff !important;
 }
 
-/* Cadastrar */
 #cadastro-botao {
     background-color: #1e873a !important;
     color: #fff !important;
-    border: 1px solid #1e873a !important;
 }
 #cadastro-botao:hover {
     background-color: #156d2e !important;
 }
 
-/* //////////////////////////////////////////CSS DA 1º TELAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA*/
 
-
-
-
-
-/* //////////////////////////////////////////CSS DA 1º TELAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA*/
-
-/* --- AJUSTES DE RESPONSIVIDADE --- */
-
-@media (max-width: 991px) {
-    /* Garante que o menu colapsado em mobile use o fundo branco para consistência */
-    #header-nav .collapse.navbar-collapse {
-        background-color: #ffffff;
-        padding: 10px;
-        border-radius: 0 0 5px 5px;
-        border: 1px solid #eeeeee;
-        border-top: none;
-    }
-    /* Centraliza a barra de busca em mobile dentro do menu colapsado */
-    #header-nav .mx-auto {
-        width: 100%;
-        margin-bottom: 10px !important;
-    }
-}
-
-
-/* ======================== 2. ESTILOS DA SEÇÃO HERO (CORRIGIDOS) ======================== */
+/* =========================================================
+   4. HERO PRINCIPAL (TELA 1)
+========================================================= */
 
 .hero-section {
-    /* Ajuste a altura para ter um bom espaço visual */
-    height: 650px; /* Aumentado para uma melhor proporção da imagem */
-    position: relative; 
-    overflow: hidden; /* ESSENCIAL para cortar a imagem nas bordas arredondadas */
-    display: flex; 
-    align-items: center; /* Centraliza o conteúdo verticalmente */
-    padding: 0;
-
-    /* PROPRIEDADES PARA ARREDONDAR AS BORDAS DA SEÇÃO */
-    border-radius: 20px; /* Arredondamento visível */
-    margin-bottom: 30px; /* Espaço abaixo para o próximo conteúdo */
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15); /* Sombra para destacar */
-    max-width: 1300px; /* Limita a largura máxima */
-    margin-left: auto; /* Centraliza horizontalmente */      
+    height: 500px;
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    margin: 30px auto;
     width: 90%;
-    margin-left: auto;
-    margin-right: auto;                                   
-}
-
-/* 2.1. A FOTO DE FUNDO - AQUI ESTÁ A MAIOR MUDANÇA */
-.background-img {
-    width: 100%; /* A imagem preenche a largura do pai */
-    height: 100%; /* A imagem preenche a altura do pai (hero-section) */
-    
-    /* CORREÇÃO CHAVE: 'cover' faz a imagem preencher o espaço, cortando o excesso se necessário */
-    object-fit: cover; 
-    
-    /* Reposiciona a imagem para focar na parte direita (a mão e o tablet) */
-    object-position: right center; 
-    
-    position: absolute; 
-    top: 0;
-    left: 0;
-    z-index: 1; /* Garante que a imagem fique atrás do texto */
-}
-
-/* 2.2. Container de Conteúdo (Posicionamento do texto) */
-.hero-content-container {
-    position: relative; 
-    z-index: 2; /* Garante que o texto fique acima da imagem */
-    width: 100%; /* Ajustado para 100% para melhor controle de padding */
-    height: 100%;
+    max-width: 1300px;
     display: flex;
-    align-items: center; 
-    /* Adiciona padding no container para o texto não colar nas bordas laterais */
-    padding: 0 50px; 
+    align-items: center;
+    box-shadow: 0 5px 18px rgba(0,0,0,0.18);
 }
 
-/* 2.3. Wrapper do Texto (REMOVIDA A CAIXA BRANCA) */
-/* Se este div não existe mais no seu HTML, você pode remover este bloco. 
-   Senão, vamos ajustá-lo para que o texto fique bem posicionado. */
-.content-wrapper {
-    background-color: transparent; 
-    padding: 0; /* Remove padding desnecessário aqui, já que o container já tem */
-    max-width: 600px; 
-    color: #333; /* Essa cor será sobrescrita pelos h1/p abaixo para melhor contraste */
-    /* Removido margin-left fixo, o padding do container já ajuda */
+.hero-section::before {
+    content: "";
+    background: url("./img/novo.png") center right / cover no-repeat;
+    position: absolute;
+    inset: 0;
+    z-index: 1;
 }
 
-/* 2.4. Estilos de Texto (CORRIGIDOS para grande e sobreposto) */
-.content-wrapper h1 {
-    /* Cor do texto para destacar no fundo da imagem */
-    color: #FFFFFF; /* Branco ou um cinza claro para visibilidade */
-    font-size: 4em; 
-    font-weight: 800; 
-    line-height: 1; 
-    margin-bottom: 10px; 
-    /* Sombra mais forte para garantir leitura sobre a imagem */
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); 
+.hero-section::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to right,
+        rgba(0,0,0,0.45) 0%,
+        rgba(0,0,0,0.15) 45%,
+        rgba(0,0,0,0.04) 100%
+    );
+    z-index: 2;
 }
 
-.content-wrapper p {
-    /* Cor do texto para destacar no fundo da imagem */
-    color: #EEEEEE; /* Um cinza bem claro */
-    font-size: 1.1em; 
-    line-height: 1.3; 
-    margin-bottom: 15px; 
-    /* Sombra mais forte para garantir leitura sobre a imagem */
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+.hero-content-container {
+    position: relative;
+    z-index: 3;
+    max-width: 700px;
+    width: 100%;
+    padding: 0 60px;
+    text-align: left;
+    color: #000;
 }
 
-/* 2.5. Estilo do Botão */
+.hero-content-container h1 {
+    font-size: 3.2rem;
+    font-weight: 800;
+}
+
+
 .learn-more-button {
     display: inline-block;
-    padding: 10px 25px;
-    background-color: #39886a; 
-    color: white; 
-    text-decoration: none; 
-    border-radius: 8px;
+    padding: .75rem 2rem;
+    background-color: #22a06b !important;
+    color: #fff !important;
+    border-radius: 10px;
     font-weight: 600;
-    transition: background-color 0.3s ease;
-    border: none;
-    /* Adiciona sombra para dar profundidade ao botão */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    transition: .25s ease-in-out;
 }
 
 .learn-more-button:hover {
-    background-color: #2e6f56; 
+    background-color: #1c8b5c !important;
+    transform: translateY(-3px);
 }
 
-/* Responsividade para Telas Pequenas */
-@media (max-width: 991px) {
-    .hero-section {
-        height: 450px; /* Ajuste a altura para telas menores */
-    }
 
-    .hero-content-container {
-        padding: 0 20px; /* Menos padding em telas menores */
-    }
-    
-    .content-wrapper {
-        text-align: center; 
-        margin: 0 auto;
-        padding: 40px 0; /* Padding vertical para espaçamento */
-    }
-    
-    .content-wrapper h1 {
-        font-size: 2.5em;
-        font-weight: 800;
-        line-height: 1;
-        margin-bottom: 5px;
-    }
-}
+/* =========================================================
+   5. CARDS
+========================================================= */
 
-/* ======================== 3. ESTILOS DOS CARDS ======================== */
-
-.content-cards {
-    /* Margem negativa para "puxar" os cards para perto do hero */
-    margin-top: -80px; 
-    position: relative; 
-    z-index: 5;
-}
-
-.content-cards .card {
+.custom-card {
     border: none;
-    border-radius: 12px;
+    border-radius: 16px;
+    overflow: hidden;
+    transition: transform .28s ease, box-shadow .28s ease;
+    background: #ffffff;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.07);
 }
 
-.content-cards .card-body {
-    /* Centraliza o texto dentro do card */
-    text-align: center; 
-}
-
-.content-cards .card-img-top {
-    border-top-left-radius: 12px;
-    border-top-right-radius: 12px;
-    height: 220px; 
+.card img {
+    width: 100%;
+    height: 230px; /* ajuste conforme desejar */
     object-fit: cover;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
 }
-/* --- AJUSTES DE RESPONSIVIDADE --- */
 
-@media (max-width: 991px) {
-    /* Ajustes para mobile */
-    #header-nav .collapse.navbar-collapse {
-        background-color: #ffffff;
-        padding: 10px;
-        border-radius: 0 0 5px 5px;
-        border: 1px solid #eeeeee;
-        border-top: none;
-    }
-    /* Centraliza a barra de busca em mobile dentro do menu colapsado */
-    #header-nav .ms-auto,
-    #header-nav .me-auto {
-        margin: auto !important;
-        width: 100%;
-        margin-bottom: 10px !important;
-    }
+
+.custom-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.10);
 }
-/* //////////////////////////////////////////CSS DA 1º TELAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA*/
+
+/* imagem com zoom leve no hover */
+.img-container {
+    overflow: hidden;
+}
+
+.custom-card img {
+    transition: transform .35s ease;
+    object-fit: cover;
+    width: 100%;
+}
+
+.custom-card:hover img {
+    transform: scale(1.06);
+}
 
 
+/* =========================================================
+   6. GRÁFICOS
+========================================================= */
+
+#consumoChart,
+#analiseChart,
+#pizzaChart {
+    max-height: 400px;
+}
+
+#consumoTipoChart {
+    max-height: 250px;
+    max-width: 250px;
+    margin: auto;
+}
+
+#ano-picker,
+#ano-picker-pizza {
+    width: 150px;
+    margin: auto;
+}
 
 
+/* =========================================================
+   7. LAYOUT GERAL
+========================================================= */
+
+.bloco-central {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    padding: 10px;
+    min-height: 300px;
+}
+
+.texto {
+    text-align: left;
+    color: #000;
+    max-width: 300px;
+}
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* CHATTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT BOX DA TELA 1 E 2 TELAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA*/
+/* =========================================================
+   8. CHATBOX
+========================================================= */
 
 .chatbox {
-  width: 340px;
-  height: 460px;
-  display: none;
-  flex-direction: column;
-  position: fixed;
-  bottom: 90px;
-  right: 20px;
-  background: #ffffff;
-  border-radius: 20px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-  z-index: 9999;
-  overflow: hidden;
-  font-family: 'Segoe UI', sans-serif;
+    display: none;
+    position: fixed;
+    bottom: 100px;
+    right: 70px;
+    width: 500px;
+    max-height: 850px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    overflow: hidden;
+    flex-direction: column;
+    z-index: 9999;
 }
 
-.chat-header {
-  background: linear-gradient(135deg, #00b894, #00cec9);
-  color: white;
-  padding: 15px;
-  font-weight: bold;
-  text-align: center;
-  font-size: 16px;
-}
+/* =========================
+   CHATBOX - APENAS DESIGN
+   (mantém IDs/classes originais)
+   ========================= */
 
-.chat-messages {
-  padding: 15px;
-  overflow-y: auto;
-  flex-grow: 1;
-  background-color: #f8f9fa;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.message {
-  padding: 10px 14px;
-  border-radius: 18px;
-  max-width: 80%;
-  font-size: 14px;
-  line-height: 1.4;
-  word-wrap: break-word;
-  width: fit-content;
-}
-
-.user {
-  background: #00cec9;
-  color: white;
-  align-self: flex-end;
-  margin-right: 5px;
-}
-
-.bot {
-  background: #e0f7fa;
-  color: #333;
-  align-self: flex-start;
-  margin-left: 5px;
-}
-
-.chat-input {
-  display: flex;
-  border-top: 1px solid #ddd;
-  background: #fff;
-}
-
-.chat-input input {
-  flex-grow: 1;
-  border: none;
-  padding: 12px 10px;
-  font-size: 14px;
-  border-radius: 0 0 0 20px;
-  outline: none;
-  background: #f1f1f1;
-}
-
-.chat-input button {
-  border: none;
-  padding: 12px 18px;
-  background: #00b894;
-  color: white;
-  cursor: pointer;
-  font-weight: bold;
-  border-radius: 0 0 20px 0;
-  transition: background 0.3s ease;
-}
-
-.status-dot {
-  display: inline-block;
-  margin-left: 8px;
-  width: 10px;
-  height: 10px;
-  background-color: #00ff6a;
-  border-radius: 50%;
-  box-shadow: 0 0 5px #00ff6a;
-}
-
-.chatbox {
-  display: none;
-  position: fixed;
-  bottom: 100px;
-  right: 70px;
-  width: 500px;
-  max-height: 850px;
-  background: white;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-  flex-direction: column;
-  overflow: hidden;
-  z-index: 9999;
-}
-
-.chat-header {
-  background: #410568;
-  color: white;
-  padding: 10px;
-  font-weight: bold;
-}
-
-.chat-messages {
-  flex: 1;
-  padding: 10px;
-  overflow-y: auto;
-  background: #f0f0f0;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.chat-input {
-  display: flex;
-  border-top: 1px solid #ddd;
-}
-
-.chat-input input {
-  flex: 1;
-  border: none;
-  padding: 10px;
-  font-size: 14px;
-}
-
-.chat-input button {
-  background: #200462;
-  border: none;
-  color: white;
-  padding: 10px 15px;
-  cursor: pointer;
-}
-
-.message {
-  padding: 10px 14px;
-  border-radius: 18px;
-  max-width: 80%;
-  font-size: 14px;
-  line-height: 1.4;
-  word-wrap: break-word;
-  width: fit-content;
-}
-
-.message.user {
-  background: #00cec9;
-  color: #ffffff;
-  align-self: flex-end;
-  margin-right: 5px;
-}
-
-.message.bot {
-  background-color: #5e35b1;    
-  color: #ffffff;                
-  padding: 10px 14px;
-  border-radius: 16px;
-  margin: 5px 10px 5px 5px;
-  max-width: 75%;
-  align-self: flex-start;
-  font-size: 14px;
-  line-height: 1.4;
-  width: fit-content;
-  word-break: break-word;
-}
-
+/* BOTÃO FLUTUANTE */
 .chat-button {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: linear-gradient(135deg, #9abb08, #031f65);
-  border: none;
-  border-radius: 50%;
-  width: 60px;
-  height: 60px;
-  cursor: pointer;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0;
-  z-index: 9999;
+    position: fixed;
+    bottom: 22px;
+    right: 22px;
+    width: 64px;
+    height: 64px;
+    padding: 8px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #22c07a 0%, #0b7bd6 100%);
+    box-shadow: 0 10px 30px rgba(3,31,101,0.25);
+    transition: transform .18s ease, box-shadow .18s ease;
+    z-index: 9999;
+}
+.chat-button:hover { transform: translateY(-4px) scale(1.03); box-shadow: 0 14px 36px rgba(3,31,101,0.30); }
+
+.chat-button .chat-icon {
+    width: 36px;
+    height: 36px;
+    object-fit: cover;
+    pointer-events: none;
 }
 
-.chat-icon {
-  width: 80px;
-  height: 80px;
+/* CAIXA DO CHAT (glass + blur) */
+.chatbox {
+    position: fixed;
+    bottom: 96px;
+    right: 28px;
+    width: 360px;
+    max-width: calc(100% - 48px);
+    height: 520px;
+    max-height: 80vh;
+    display: none; /* sua lógica JS controla visibilidade */
+    flex-direction: column;
+    border-radius: 14px;
+    overflow: hidden;
+    z-index: 10000;
+
+    /* glassmorphism */
+    background: linear-gradient(180deg, rgba(255,255,255,0.78), rgba(250,250,250,0.68));
+    border: 1px solid rgba(255,255,255,0.4);
+    box-shadow: 0 18px 50px rgba(3,31,101,0.18);
+    backdrop-filter: blur(8px) saturate(120%);
+    transform-origin: bottom right;
+    transition: transform .26s cubic-bezier(.2,.9,.3,1), opacity .22s ease;
+    opacity: 1;
 }
-/* CHATTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT BOX DA TELA 1 E 2 TELAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA*/
+
+/* animação suave para quando for exibido (aplicar via JS já existente) */
+.chatbox.show {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+}
+
+/* CABEÇALHO */
+.chat-header {
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 0 12px;
+    font-weight: 700;
+    font-size: 15px;
+    color: #fff;
+    position: relative;
+
+    /* cabeçalho colorido (combina com botão) */
+    background: linear-gradient(90deg, #0b7bd6 0%, #22c07a 100%);
+    box-shadow: inset 0 -1px 0 rgba(255,255,255,0.06);
+}
+
+/* status dot (usa classe existente .status-dot) */
+.status-dot {
+    display: inline-block;
+    margin-left: 8px;
+    width: 10px;
+    height: 10px;
+    background-color: #b8ffcf;
+    border-radius: 50%;
+    box-shadow: 0 0 8px rgba(184,255,207,0.65);
+    animation: chat-status 1.6s infinite ease-in-out;
+}
+@keyframes chat-status {
+    0% { transform: scale(.9); opacity: .6; }
+    50% { transform: scale(1.15); opacity: 1; }
+    100% { transform: scale(.95); opacity: .7; }
+}
+
+/* botão fechar visual (não altera lógica) */
+.chat-header .close-chat {
+    position: absolute;
+    right: 8px;
+    top: 8px;
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    border: none;
+    background: rgba(255,255,255,0.12);
+    color: white;
+    font-size: 20px;
+    display: none; /* se preferir mostrar, remova; sua lógica JS atual já usa onclick em outro botão */
+    cursor: pointer;
+}
+
+/* ÁREA DE MENSAGENS */
+.chat-messages {
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    overflow-y: auto;
+    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.00));
+    flex: 1;
+}
+
+/* scrollbar custom */
+.chat-messages::-webkit-scrollbar { width: 8px; }
+.chat-messages::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, rgba(11,123,214,0.65), rgba(34,192,122,0.65));
+    border-radius: 8px;
+    box-shadow: inset 0 0 2px rgba(0,0,0,0.15);
+}
+
+/* BALÕES DE MENSAGEM (mantém .message, .user, .bot) */
+.message {
+    display: inline-block;
+    max-width: 82%;
+    padding: 10px 14px;
+    border-radius: 14px;
+    font-size: 14px;
+    line-height: 1.36;
+    word-break: break-word;
+    box-shadow: 0 6px 18px rgba(3,31,101,0.04);
+    animation: msg-in .16s ease;
+}
+
+/* Animação de entrada de mensagem */
+@keyframes msg-in {
+    from { transform: translateY(6px); opacity: 0; }
+    to   { transform: translateY(0); opacity: 1; }
+}
+
+/* usuário / enviado (mantém classe .user) */
+.message.user,
+.user {
+    align-self: flex-end;
+    background: linear-gradient(180deg, #0b7bd6 0%, #22c07a 100%);
+    color: #fff;
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 14px;
+    box-shadow: 0 10px 26px rgba(11,123,214,0.12);
+}
+
+/* bot / recebido (mantém classe .bot) */
+.message.bot,
+.bot {
+    align-self: flex-start;
+    background: #ffffff;
+    color: #111;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 14px;
+    box-shadow: 0 6px 18px rgba(3,31,101,0.04);
+}
+
+/* Texto de erro / aviso (opcional) */
+.message.error {
+    background: #ffe9e9;
+    color: #8a1f1f;
+    border: 1px solid #ffd2d2;
+}
+
+/* ÁREA DE INPUT */
+.chat-input {
+    display: flex;
+    gap: 8px;
+    padding: 12px;
+    border-top: 1px solid rgba(0,0,0,0.06);
+    background: rgba(255,255,255,0.6);
+}
+
+.chat-input input[type="text"],
+.chat-input input {
+    flex: 1;
+    border-radius: 10px;
+    border: 1px solid rgba(16,24,40,0.08);
+    padding: 10px 12px;
+    font-size: 14px;
+    outline: none;
+    background: rgba(255,255,255,0.9);
+    transition: box-shadow .12s ease, transform .12s ease;
+}
+
+/* foco no input */
+.chat-input input:focus {
+    box-shadow: 0 6px 18px rgba(11,123,214,0.12);
+    transform: translateY(-1px);
+}
+
+/* botão enviar */
+.chat-input button,
+.chat-input .send-btn {
+    min-width: 46px;
+    height: 42px;
+    border-radius: 10px;
+    background: linear-gradient(90deg, #0b7bd6 0%, #22c07a 100%);
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 10px 22px rgba(11,123,214,0.12);
+    transition: transform .12s ease, opacity .12s ease;
+}
+.chat-input button:active,
+.chat-input .send-btn:active { transform: translateY(1px); }
+
+/* RESPONSIVIDADE: reduz tamanho em telas pequenas */
+@media (max-width: 480px) {
+    .chatbox { width: calc(100% - 36px); right: 18px; left: 18px; bottom: 80px; height: 68vh; }
+    .chat-button { right: 18px; bottom: 18px; width: 56px; height: 56px; }
+    .chat-header { font-size: 14px; }
+    .chat-input input { font-size: 13px; }
+}
+
+
+
+/* =========================================================
+   9. RESPONSIVIDADE
+========================================================= */
+
+@media (max-width: 768px) {
+    .hero-section { height: 420px; }
+    .hero-content-container { text-align: center; padding: 0 25px; }
+    .hero-content-container h1 { font-size: 2.2rem; }
+
+    .bloco-central { flex-direction: column; }
+    .texto { text-align: center; max-width: 90%; }
+}

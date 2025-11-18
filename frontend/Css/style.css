@@ -1,26 +1,14 @@
-/* =========================================================
-   1. GLOBAL
-========================================================= */
-
 body {
     background-color: white;
     color: #333;
 }
-
 img {
     max-width: 100%;
     height: auto;
 }
-
-
-/* =========================================================
-   2. HERO (HEADER / BANNER PRINCIPAL)
-========================================================= */
-
 .hero {
     color: white;
 }
-
 .hero .container {
     position: relative;
     display: flex;
@@ -61,11 +49,6 @@ img {
 
 .hero-content h1 { font-size: 3em; margin-bottom: 10px; }
 .hero-content p { font-size: 1.2em; }
-
-
-/* =========================================================
-   3. NAVBAR
-========================================================= */
 
 #header-nav {
     background-color: #ffffff !important;
@@ -147,11 +130,6 @@ img {
     background-color: #156d2e !important;
 }
 
-
-/* =========================================================
-   4. HERO PRINCIPAL (TELA 1)
-========================================================= */
-
 .hero-section {
     height: 500px;
     position: relative;
@@ -217,11 +195,6 @@ img {
     transform: translateY(-3px);
 }
 
-
-/* =========================================================
-   5. CARDS
-========================================================= */
-
 .custom-card {
     border: none;
     border-radius: 16px;
@@ -260,11 +233,6 @@ img {
     transform: scale(1.06);
 }
 
-
-/* =========================================================
-   6. GRÁFICOS
-========================================================= */
-
 #consumoChart,
 #analiseChart,
 #pizzaChart {
@@ -284,10 +252,6 @@ img {
 }
 
 
-/* =========================================================
-   7. LAYOUT GERAL
-========================================================= */
-
 .bloco-central {
     display: flex;
     justify-content: center;
@@ -304,11 +268,6 @@ img {
     max-width: 300px;
 }
 
-
-/* =========================================================
-   8. CHATBOX
-========================================================= */
-
 .chatbox {
     display: none;
     position: fixed;
@@ -323,11 +282,6 @@ img {
     flex-direction: column;
     z-index: 9999;
 }
-
-/* =========================
-   CHATBOX - APENAS DESIGN
-   (mantém IDs/classes originais)
-   ========================= */
 
 /* BOTÃO FLUTUANTE */
 .chat-button {
@@ -559,12 +513,6 @@ img {
     .chat-input input { font-size: 13px; }
 }
 
-
-
-/* =========================================================
-   9. RESPONSIVIDADE
-========================================================= */
-
 @media (max-width: 768px) {
     .hero-section { height: 420px; }
     .hero-content-container { text-align: center; padding: 0 25px; }
@@ -573,11 +521,6 @@ img {
     .bloco-central { flex-direction: column; }
     .texto { text-align: center; max-width: 90%; }
 }
-
-
-/* =========================================================
-   7. PAGE-GRAF (DASHBOARD / INTERNA)
-========================================================= */
 
 /* 🔹 GERAL */
 .page-graf body {
@@ -684,14 +627,6 @@ img {
     margin-top: 60px;
 }
 
-
-
-/* =========================================================
-/* =========================================================
-   10. DASHBOARD (page-graf) - SaaS moderno (sidebar + header)
-========================================================= */
-
-/* Root tokens */
 :root {
   --eco-green: #21A67A;
   --eco-green-2: #46C58B;
@@ -789,3 +724,7 @@ a, .btn, .nav-link { transition: all .15s ease; }
 /* final spacing fixes */
 .content-area section { padding-bottom: 18px; }
 
+
+
+
+/* =========================================================

@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.*;
 import java.util.stream.Collectors;
 
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "http://localhost:8080")
 @RestController
 @RequestMapping("/api/analise-consumo")
 public class AnaliseController {

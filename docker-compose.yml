@@ -59,6 +59,14 @@ services:
     networks:
       - tiverde-net
 
+  selenium:
+    image: selenium/standalone-chrome
+    container_name: tiverde3-selenium
+    ports:
+      - "4444:4444"
+    networks:
+      - tiverde-net
+
 networks:
   tiverde-net:
     driver: bridge

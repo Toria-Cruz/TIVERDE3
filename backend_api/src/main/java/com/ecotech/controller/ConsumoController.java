@@ -13,7 +13,7 @@ import java.util.Map;
 import java.util.TreeMap; // TreeMap para manter a ordem dos anos/meses
 import java.util.stream.Collectors;
 
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "http://localhost:8080")
 @RestController
 @RequestMapping("/api/consumo")
 public class ConsumoController {
@@ -51,6 +51,10 @@ public class ConsumoController {
                 resultado.add(cm);
             });
         });
+
+// --- Adicione este novo método no final da sua classe ---
+
+      
 
         // Opcional: Ordenar a lista final por ano e depois por mês
         resultado.sort(Comparator

@@ -10,7 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 
   <!-- Seu style principal (mantém tudo existente) -->
   <link rel="stylesheet" href="Css/style.css">
@@ -295,83 +295,138 @@
 
 
     /* =========================
-       Charts (example data)
-       ========================= */
+    Charts (Consumo de Dados do Backend)
+    ========================= */
     (function () {
-      // consumoChart (line)
-      const ctx = document.getElementById("consumoChart");
-      if (ctx) {
-        new Chart(ctx, {
-          type: 'line',
-          data: {
-            labels: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
-            datasets: [{
-              label: 'kWh',
-              data: [120, 110, 140, 160, 150, 130, 125, 140, 170, 160, 155, 150],
-              borderWidth: 2,
-              borderColor: '#21A67A',
-              backgroundColor: 'rgba(33,166,122,0.08)',
-              tension: .35,
-              pointRadius: 3
-            }]
-          },
-          options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } } }
-        });
+      // --------------------------------------------------------------------------------
+      // ATENÇÃO: Ajuste a URL conforme seu ambiente.
+      // --------------------------------------------------------------------------------
+      const BASE_URL = 'http://backend-api:9090'; // Use o nome do serviço Docker + porta interna
+
+      // Endpoints que esperamos no backend:
+      const CONSUMO_MENSAL_URL = `${BASE_URL}/api/consumo/mensal`;
+      const CONSUMO_TIPO_URL = `${BASE_URL}/api/consumo/tipo`;
+
+      // Função genérica de busca (simplifica o código)
+      async function fetchData(url) {
+        try {
+          const response = await fetch(url);
+          if (!response.ok) {
+            // Tenta pegar a mensagem de erro do servidor
+            const errorDetail = await response.text().catch(() => 'Erro desconhecido');
+            throw new Error(`Falha no endpoint ${url}. Status: ${response.status}. Detalhe: ${errorDetail.substring(0, 100)}...`);
+          }
+          return await response.json();
+        } catch (error) {
+          console.error(`Erro ao buscar dados de ${url}:`, error);
+          return null; // Retorna null em caso de falha
+        }
       }
 
-      // pizza
-      const ctx2 = document.getElementById("consumoTipoChart");
-      if (ctx2) {
-        new Chart(ctx2, {
-          type: 'doughnut',
-          data: {
-            labels: ['Iluminação', 'Refrigeração', 'Máquinas', 'Outros'],
-            datasets: [{
-              data: [35, 25, 20, 20],
-              backgroundColor: ['#21A67A', '#5FD3A5', '#F5C26B', '#CDDCDC']
-            }]
-          },
-          options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom' } } }
-        });
+      // ========== 1. GRÁFICO DE CONSUMO MENSAL (LINHA) ==========
+      async function carregarConsumoMensal() {
+        const ctx = document.getElementById("consumoChart");
+        if (!ctx) return;
+
+        // Limpa o gráfico de exemplo (se existir)
+        const existingChart = Chart.getChart(ctx);
+        if (existingChart) existingChart.destroy();
+
+        ctx.parentNode.style.minHeight = '100px'; // Para mostrar status
+
+        const dataDiv = ctx.parentNode;
+        dataDiv.innerHTML = '<p class="text-center text-muted pt-5">Carregando consumo mensal...</p><canvas id="consumoChart"></canvas>';
+
+        const dados = await fetchData(CONSUMO_MENSAL_URL);
+
+        // Reconecta o canvas após a limpeza
+        const newCtx = document.getElementById("consumoChart");
+
+        if (dados && dados.labels && dados.data) {
+          dataDiv.innerHTML = '<canvas id="consumoChart"></canvas>'; // Limpa status
+          // Redefine o contexto para a nova tela
+          const chartCtx = document.getElementById("consumoChart").getContext('2d');
+
+          new Chart(chartCtx, {
+            type: 'line',
+            data: {
+              labels: dados.labels, // Ex: ['Jan', 'Fev', 'Mar', ...]
+              datasets: [{
+                label: 'kWh',
+                data: dados.data, // Ex: [120, 110, 140, ...]
+                borderWidth: 2,
+                borderColor: '#21A67A',
+                backgroundColor: 'rgba(33,166,122,0.08)',
+                tension: .35,
+                pointRadius: 3
+              }]
+            },
+            options: {
+              responsive: true,
+              maintainAspectRatio: false,
+              plugins: { legend: { display: false } }
+            }
+          });
+        } else {
+          dataDiv.innerHTML = '<p class="text-danger text-center pt-5">Não foi possível carregar dados de Consumo Mensal.</p>';
+        }
       }
-    })();
 
+      // ========== 2. GRÁFICO DE CONSUMO POR TIPO (PIZZA/ROSQUINHA) ==========
+      async function carregarConsumoTipo() {
+        const ctx2 = document.getElementById("consumoTipoChart");
+        if (!ctx2) return;
 
-    /* =========================
-       Device list + tabela (exemplo)
-       ========================= */
-    (function () {
-      const devices = [
-        { name: 'Painel 01', consumo: '120 kWh', status: 'OK' },
-        { name: 'Ar Condicionado', consumo: '45 kWh', status: 'Alerta' },
-        { name: 'Máquina 3', consumo: '72 kWh', status: 'OK' }
-      ];
+        const existingChart = Chart.getChart(ctx2);
+        if (existingChart) existingChart.destroy();
 
-      const list = document.getElementById("device-list");
-      const tbody = document.getElementById("tabela-info");
+        // O backend deve retornar: { labels: ['Iluminação', 'Refrigeração', ...], data: [35, 25, ...] }
+        const dados = await fetchData(CONSUMO_TIPO_URL);
 
-      if (list) {
-        devices.forEach(d => {
-          const el = document.createElement('div');
-          el.className = 'device-item d-flex align-items-center gap-3 py-2';
-          el.innerHTML = `<div class="badge bg-light border me-2"><i class="bi bi-hdd-network"></i></div>
-                          <div class="flex-fill">
-                            <div class="fw-semibold">${d.name}</div>
-                            <div class="small text-muted">${d.consumo}</div>
-                          </div>
-                          <div><span class="badge ${d.status === 'OK' ? 'bg-success' : 'bg-warning'}">${d.status}</span></div>`;
-          list.appendChild(el);
-        });
+        if (dados && dados.labels && dados.data) {
+          new Chart(ctx2, {
+            type: 'doughnut',
+            data: {
+              labels: dados.labels, // Ex: ['Iluminação', 'Refrigeração', ...]
+              datasets: [{
+                data: dados.data, // Ex: [35, 25, 20, 20]
+                backgroundColor: ['#21A67A', '#5FD3A5', '#F5C26B', '#CDDCDC', '#007A5E', '#C2E5D2']
+              }]
+            },
+            options: {
+              responsive: true,
+              maintainAspectRatio: false,
+              plugins: {
+                legend: { position: 'bottom' }
+              }
+            }
+          });
+        } else {
+          // Se falhar, desenha o gráfico de exemplo ou deixa uma mensagem de erro
+          // Deixaremos o exemplo com uma nota de falha para preencher o espaço, mas o ideal é deixar mensagem de erro.
+          new Chart(ctx2, {
+            type: 'doughnut',
+            data: {
+              labels: ['Falha', 'Carregamento'],
+              datasets: [{ data: [1, 1], backgroundColor: ['#FF6384', '#63FF84'] }]
+            },
+            options: {
+              responsive: true,
+              maintainAspectRatio: false,
+              plugins: { legend: { position: 'bottom', title: { display: true, text: 'Dados Indisponíveis' } } }
+            }
+          });
+        }
       }
 
-      if (tbody) {
-        devices.forEach(d => {
-          const tr = document.createElement('tr');
-          tr.innerHTML = `<td>${d.name}</td><td>${d.consumo}</td><td><span class="badge ${d.status === 'OK' ? 'bg-success' : 'bg-warning'}">${d.status}</span></td>
-                          <td class="text-end"><button class="btn btn-sm btn-outline-primary">Detalhes</button></td>`;
-          tbody.appendChild(tr);
-        });
-      }
+
+      // Inicia o carregamento de todos os componentes
+      document.addEventListener("DOMContentLoaded", () => {
+        carregarConsumoMensal();
+        carregarConsumoTipo();
+        // Você faria a mesma lógica para carregar a Tabela e a Lista de Dispositivos!
+        // carregarDadosTabela();
+      });
     })();
   </script>
 

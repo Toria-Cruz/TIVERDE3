@@ -10,7 +10,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.HashMap;
 
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "http://localhost:8080")
 @RestController
 @RequestMapping("/api/consumo-equipamento")
 public class ConsumoEquipamentoController {

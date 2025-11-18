@@ -38,12 +38,25 @@
                         <a class="nav-link px-3 fw-semibold custom-link" href="#contact">Contato</a>
                     </li>
                 </ul>
-
-                <div class="d-flex align-items-center gap-2 mt-3 mt-lg-0">
-                    <a href="./public/login.html"
+                <div class="d-flex align-items-center gap-2">
+                    <!-- Botão de login visível por padrão -->
+                    <a id="login-botao" href="#"
                         class="btn btn-outline-success rounded-pill px-4 fw-medium transition-btn">Entrar</a>
-                        <button class="btn btn-success rounded-pill px-4 fw-medium shadow-sm transition-btn">Perfil</button>
-                        
+
+                    <!-- Dropdown do perfil escondido por padrão -->
+                    <div class="dropdown d-none" id="perfil-dropdown">
+                        <button class="btn btn-success dropdown-toggle" type="button" id="perfil-botao"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Usuário
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="perfil-botao">
+                            <li><a class="dropdown-item" href="page-graf.html">Dashboard</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#" id="logout-btn">Sair</a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
@@ -51,13 +64,27 @@
 
 
     <!-- ======================== HERO ======================== -->
+
     <header class="hero-section">
-        <img src="./img/novo.png" alt="Homem monitorando energia no tablet" class="background-img">
-        <div class="hero-content-container container">
-            <h1 class="display-4 fw-bold">EcoTech Energy Solutions</h1>
-            <p class="lead">Monitoramento inteligente de energia para um futuro sustentável.</p>
+        <div class="hero-wrapper container">
+            <!-- Box que junta imagem e texto lado a lado -->
+            <div class="hero-box d-flex align-items-center justify-content-center gap-4">
+
+                <!-- Imagem -->
+                <div class="hero-img-wrapper">
+                    <img src="./img/ecotech-fundo.png" alt="Homem monitorando energia no tablet" class="hero-img">
+                </div>
+
+                <!-- Texto -->
+                <div class="hero-content-container">
+                    <h1 class="display-4 fw-bold">EcoTech Energy Solutions</h1>
+                    <p class="lead">Monitoramento inteligente de energia para um futuro sustentável.</p>
+                </div>
+
+            </div>
         </div>
     </header>
+
 
 
 
@@ -202,8 +229,69 @@
             chat.appendChild(msgDiv);
             chat.scrollTop = chat.scrollHeight;
         }
+
+        /* =========================
+   Sistema de Login Corrigido
+   ========================= */
+
+// Aguarda o DOM carregar completamente
+document.addEventListener("DOMContentLoaded", function() {
+    const loginBtn = document.getElementById("login-botao");
+    const perfilDropdown = document.getElementById("perfil-dropdown");
+    const logoutBtn = document.getElementById("logout-btn");
+    
+    console.log("Verificando estado de login...");
+    
+    // Função para verificar e atualizar o estado de login
+    function atualizarEstadoLogin() {
+        try {
+            const usuarioLogado = JSON.parse(sessionStorage.getItem("usuarioLogado"));
+            console.log("Dados na sessionStorage:", usuarioLogado);
+            
+            if (usuarioLogado && usuarioLogado.username) {
+                // USUÁRIO LOGADO - mostra dropdown, esconde botão login
+                console.log("Usuário logado:", usuarioLogado.username);
+                loginBtn.classList.add("d-none");
+                perfilDropdown.classList.remove("d-none");
+                document.getElementById("perfil-botao").textContent = usuarioLogado.username;
+            } else {
+                // USUÁRIO NÃO LOGADO - mostra botão login, esconde dropdown
+                console.log("Usuário não logado");
+                loginBtn.classList.remove("d-none");
+                perfilDropdown.classList.add("d-none");
+            }
+        } catch (error) {
+            console.error("Erro ao verificar login:", error);
+            // Em caso de erro, força estado não logado
+            loginBtn.classList.remove("d-none");
+            perfilDropdown.classList.add("d-none");
+            sessionStorage.removeItem("usuarioLogado");
+        }
+    }
+    
+    // Configuração dos event listeners
+    loginBtn.addEventListener("click", function(e) {
+        e.preventDefault();
+        console.log("Redirecionando para login...");
+        window.location.href = "./public/login.html";
+    });
+    
+    logoutBtn.addEventListener("click", function(e) {
+        e.preventDefault();
+        console.log("Fazendo logout...");
+        sessionStorage.removeItem("usuarioLogado");
+        // Redireciona para a página inicial
+        window.location.href = "index.html";
+    });
+    
+    // Verifica o estado inicial
+    atualizarEstadoLogin();
+    
+    // Também verifica quando a página é mostrada
+    window.addEventListener("pageshow", atualizarEstadoLogin);
+});
+     
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

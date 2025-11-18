@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -16,19 +17,21 @@
 
   <!-- Estilos adicionais: já inseridos no final do seu style.css (veja instrução abaixo) -->
 </head>
+
 <body class="page-graf">
 
   <div class="app-shell d-flex">
 
     <!-- ========== SIDEBAR FIXA ========== -->
     <aside class="sidebar d-flex flex-column">
-      <div class="sidebar-top px-3 py-3 d-flex align-items-center gap-2">
-        <img src="img/Logo2.png" alt="logo" class="sidebar-logo">
+      <a href="index.html" class="sidebar-top px-3 py-3 d-flex align-items-center gap-2 text-decoration-none">
+        <img src="./img/ecotech-fundo.png" alt="logo" class="sidebar-logo">
         <div>
           <div class="brand-title">EcoTech</div>
           <small class="text-muted brand-sub">Energy Solutions</small>
         </div>
-      </div>
+      </a>
+
 
       <nav class="nav flex-column sidebar-nav mt-3">
         <a class="nav-item active" href="#"><i class="bi bi-grid-fill me-2"></i>Visão Geral</a>
@@ -61,12 +64,30 @@
             <input class="form-control form-control-sm border-0" placeholder="Buscar..." aria-label="Buscar">
           </div>
 
-          <div id="userBlock" class="d-flex align-items-center gap-2">
-            <div class="user-info text-end d-none d-sm-block">
-              <div class="user-greeting small text-muted">Olá,</div>
-              <div id="usernameLabel" class="fw-semibold">Usuário</div>
+          <div class="d-flex align-items-center gap-2">
+            <!-- Botão de login (visível quando não logado) -->
+            <a id="login-botao" href="#" class="btn btn-outline-success btn-sm d-none">
+              Entrar
+            </a>
+
+            <!-- Dropdown do perfil (visível quando logado) -->
+            <div class="dropdown" id="perfil-dropdown">
+              <button class="btn btn-success dropdown-toggle btn-sm d-flex align-items-center gap-2" type="button"
+                id="perfil-botao" data-bs-toggle="dropdown" aria-expanded="false">
+                <img id="userAvatar" src="img/user.png" alt="avatar" class="avatar-sm rounded-circle">
+                <span id="usernameLabel">Usuário</span>
+              </button>
+              <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="perfil-botao">
+                <li><a class="dropdown-item" href="index.html">Página Inicial</a></li>
+                <li><a class="dropdown-item" href="#"><i class="bi bi-person me-2"></i>Meu Perfil</a></li>
+                <li><a class="dropdown-item" href="#"><i class="bi bi-gear me-2"></i>Configurações</a></li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="#" id="logout-btn"><i class="bi bi-box-arrow-right me-2"></i>Sair</a>
+                </li>
+              </ul>
             </div>
-            <img id="userAvatar" src="img/avatar-placeholder.png" alt="avatar" class="avatar-sm rounded-circle">
           </div>
         </div>
       </header>
@@ -122,7 +143,8 @@
             <div class="card h-100 p-3">
               <div class="d-flex align-items-center justify-content-between mb-2">
                 <h6 class="mb-0">Consumo em kWh</h6>
-                <div class="small text-muted">Ano <select id="ano-picker" class="form-select form-select-sm d-inline-block ms-2" style="width:110px"></select></div>
+                <div class="small text-muted">Ano <select id="ano-picker"
+                    class="form-select form-select-sm d-inline-block ms-2" style="width:110px"></select></div>
               </div>
               <div style="min-height:260px">
                 <canvas id="consumoChart"></canvas>
@@ -134,7 +156,8 @@
             <div class="card h-100 p-3">
               <div class="d-flex align-items-center justify-content-between mb-2">
                 <h6 class="mb-0">Consumo por Tipo</h6>
-                <div class="small text-muted">Mês <select id="ano-picker-pizza" class="form-select form-select-sm d-inline-block ms-2" style="width:110px"></select></div>
+                <div class="small text-muted">Mês <select id="ano-picker-pizza"
+                    class="form-select form-select-sm d-inline-block ms-2" style="width:110px"></select></div>
               </div>
               <div class="d-flex align-items-center justify-content-center" style="min-height:260px">
                 <canvas id="consumoTipoChart" style="max-width:260px;"></canvas>
@@ -164,10 +187,15 @@
                 <div>
                   <select id="mes-info-tabela" class="form-select form-select-sm d-inline-block" style="width:140px">
                     <option value="">Mês</option>
-                    <option>Janeiro</option><option>Fevereiro</option><option>Março</option>
+                    <option>Janeiro</option>
+                    <option>Fevereiro</option>
+                    <option>Março</option>
                   </select>
-                  <select id="ano-info-tabela" class="form-select form-select-sm d-inline-block ms-2" style="width:120px">
-                    <option>Ano</option><option>2025</option><option>2024</option>
+                  <select id="ano-info-tabela" class="form-select form-select-sm d-inline-block ms-2"
+                    style="width:120px">
+                    <option>Ano</option>
+                    <option>2025</option>
+                    <option>2024</option>
                   </select>
                 </div>
               </div>
@@ -194,7 +222,7 @@
 
       </section>
 
-      <footer class="py-3 text-center small text-muted">© 2025 EcoTech Energy Solutions</footer>
+
     </main>
 
   </div>
@@ -204,40 +232,64 @@
 
   <script>
     /* =========================
-       UI: perfil / logout / sidebar
+       UI: perfil / logout / sidebar - CORRIGIDO
        ========================= */
-    (function(){
-      // show stored user (localStorage "user" expected as JSON { username })
-      const user = JSON.parse(localStorage.getItem("user") || 'null');
+    (function () {
+      const loginBtn = document.getElementById("login-botao");
+      const perfilDropdown = document.getElementById("perfil-dropdown");
+      const logoutBtn = document.getElementById("logout-btn");
       const usernameLabel = document.getElementById("usernameLabel");
-      const userAvatar = document.getElementById("userAvatar");
-      const logoutBtn = document.getElementById("logout-btn") || null;
 
-      if(user && usernameLabel) {
-        usernameLabel.textContent = user.username || user.name || "Usuário";
-        // opcional: se tiver avatar url
-        if(user.avatar) userAvatar.src = user.avatar;
-      } else {
-        // não logado: redireciona para login (proteção simples)
-        if(!location.pathname.endsWith("login.html")) {
-          // se quiser bloquear direto descomente a linha abaixo:
-          // window.location.href = "login.html";
+      // Função para verificar e atualizar estado de login
+      function atualizarEstadoLogin() {
+        try {
+          const usuarioLogado = JSON.parse(sessionStorage.getItem("usuarioLogado"));
+          console.log("Usuário logado (page-graf):", usuarioLogado);
+
+          if (usuarioLogado && usuarioLogado.username) {
+            // USUÁRIO LOGADO - mostra dropdown, esconde botão login
+            loginBtn.classList.add("d-none");
+            perfilDropdown.classList.remove("d-none");
+            usernameLabel.textContent = usuarioLogado.username;
+          } else {
+            // USUÁRIO NÃO LOGADO - mostra botão login, esconde dropdown
+            loginBtn.classList.remove("d-none");
+            perfilDropdown.classList.add("d-none");
+          }
+        } catch (error) {
+          console.error("Erro ao verificar login:", error);
+          // Em caso de erro, força estado não logado
+          loginBtn.classList.remove("d-none");
+          perfilDropdown.classList.add("d-none");
+          sessionStorage.removeItem("usuarioLogado");
         }
       }
 
-      // logout
-      const logoutBtnLocal = document.getElementById("logout-btn");
-      if(logoutBtnLocal) logoutBtnLocal.addEventListener("click", () => {
-        localStorage.removeItem("user");
-        window.location.href = "index.html";
-      });
+      // Configuração dos event listeners
+      if (loginBtn) {
+        loginBtn.addEventListener("click", function (e) {
+          e.preventDefault();
+          window.location.href = "./public/login.html";
+        });
+      }
 
-      // sidebar collapse (mobile)
+      if (logoutBtn) {
+        logoutBtn.addEventListener("click", function (e) {
+          e.preventDefault();
+          sessionStorage.removeItem("usuarioLogado");
+          window.location.href = "index.html";
+        });
+      }
+
+      // Verifica o estado inicial
+      atualizarEstadoLogin();
+
+      // Sidebar collapse (mantido do código original)
       const openBtn = document.getElementById("openSidebarBtn");
       const collapseBtn = document.getElementById("collapseSidebarBtn");
       const sidebar = document.querySelector(".sidebar");
-      if(openBtn) openBtn.addEventListener("click", () => sidebar.classList.toggle("collapsed"));
-      if(collapseBtn) collapseBtn.addEventListener("click", () => sidebar.classList.toggle("collapsed"));
+      if (openBtn) openBtn.addEventListener("click", () => sidebar.classList.toggle("collapsed"));
+      if (collapseBtn) collapseBtn.addEventListener("click", () => sidebar.classList.toggle("collapsed"));
 
     })();
 
@@ -245,10 +297,10 @@
     /* =========================
        Charts (example data)
        ========================= */
-    (function(){
+    (function () {
       // consumoChart (line)
       const ctx = document.getElementById("consumoChart");
-      if(ctx) {
+      if (ctx) {
         new Chart(ctx, {
           type: 'line',
           data: {
@@ -263,23 +315,23 @@
               pointRadius: 3
             }]
           },
-          options: { responsive: true, maintainAspectRatio: false, plugins: {legend:{display:false}}}
+          options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } } }
         });
       }
 
       // pizza
       const ctx2 = document.getElementById("consumoTipoChart");
-      if(ctx2) {
+      if (ctx2) {
         new Chart(ctx2, {
           type: 'doughnut',
           data: {
-            labels: ['Iluminação','Refrigeração','Máquinas','Outros'],
+            labels: ['Iluminação', 'Refrigeração', 'Máquinas', 'Outros'],
             datasets: [{
-              data: [35,25,20,20],
-              backgroundColor: ['#21A67A','#5FD3A5','#F5C26B','#CDDCDC']
+              data: [35, 25, 20, 20],
+              backgroundColor: ['#21A67A', '#5FD3A5', '#F5C26B', '#CDDCDC']
             }]
           },
-          options: { responsive: true, maintainAspectRatio: false, plugins:{legend:{position:'bottom'}} }
+          options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom' } } }
         });
       }
     })();
@@ -288,7 +340,7 @@
     /* =========================
        Device list + tabela (exemplo)
        ========================= */
-    (function(){
+    (function () {
       const devices = [
         { name: 'Painel 01', consumo: '120 kWh', status: 'OK' },
         { name: 'Ar Condicionado', consumo: '45 kWh', status: 'Alerta' },
@@ -298,7 +350,7 @@
       const list = document.getElementById("device-list");
       const tbody = document.getElementById("tabela-info");
 
-      if(list) {
+      if (list) {
         devices.forEach(d => {
           const el = document.createElement('div');
           el.className = 'device-item d-flex align-items-center gap-3 py-2';
@@ -312,7 +364,7 @@
         });
       }
 
-      if(tbody) {
+      if (tbody) {
         devices.forEach(d => {
           const tr = document.createElement('tr');
           tr.innerHTML = `<td>${d.name}</td><td>${d.consumo}</td><td><span class="badge ${d.status === 'OK' ? 'bg-success' : 'bg-warning'}">${d.status}</span></td>
@@ -324,4 +376,5 @@
   </script>
 
 </body>
+
 </html>

@@ -6,6 +6,17 @@ img {
     max-width: 100%;
     height: auto;
 }
+
+/* Garante que os elementos sejam mostrados/ocultos corretamente */
+.d-none {
+    display: none !important;
+}
+
+/* Transição suave para mostrar/ocultar */
+#login-botao, #perfil-dropdown {
+    transition: opacity 0.3s ease;
+}
+
 .hero {
     color: white;
 }
@@ -131,16 +142,18 @@ img {
 }
 
 .hero-section {
-    height: 500px;
     position: relative;
-    border-radius: 20px;
-    overflow: hidden;
-    margin: 30px auto;
-    width: 90%;
-    max-width: 1300px;
+    width: 100%;          /* largura total */
+    min-height: 60vh;     /* altura mínima da tela */
     display: flex;
-    align-items: center;
-    box-shadow: 0 5px 18px rgba(0,0,0,0.18);
+    align-items: center;  /* centraliza verticalmente */
+    justify-content: flex-start; /* mantém o conteúdo à esquerda */
+    padding: 60px 5%;     /* espaçamento interno horizontal */
+    background: linear-gradient(135deg, rgba(33, 166, 122, 0.08), rgba(33, 166, 122, 0.01)), url('./img/ecotech-fundo.png') no-repeat center/cover;
+    border-radius: 0;     /* sem borda arredondada para full-width */
+    box-shadow: 0 10px 30px rgba(22, 34, 30, 0.05);
+    overflow: hidden;
+    color: #0b4d3a;
 }
 
 .hero-section::before {
@@ -165,19 +178,63 @@ img {
 }
 
 .hero-content-container {
-    position: relative;
-    z-index: 3;
-    max-width: 700px;
-    width: 100%;
-    padding: 0 60px;
-    text-align: left;
-    color: #000;
+    max-width: 700px;   /* largura máxima do texto */
 }
 
 .hero-content-container h1 {
     font-size: 3.2rem;
     font-weight: 800;
 }
+
+
+.hero-wrapper {
+    background: transparent !important; /* fundo transparente */
+    box-shadow: none !important;       /* remove sombra */
+    border-radius: 0 !important;       /* remove arredondamento */
+    padding: 0;                         /* se quiser, remove padding interno */
+}
+
+.hero-box {
+    background: transparent !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    padding: 0;
+}
+
+
+.hero-img-wrapper {
+    flex: 1;
+    max-width: 520px;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.hero-img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+    border-radius: 10px;
+}
+
+.hero-content-container {
+    flex: 1;
+    max-width: 600px;
+    color: #0b4d3a;
+}
+
+/* Ajustes responsivos */
+@media (max-width: 992px) {
+    .hero-box {
+        flex-direction: column;
+        text-align: center;
+    }
+    .hero-img-wrapper {
+        max-width: 80%;
+    }
+}
+
+
 
 
 .learn-more-button {
@@ -196,12 +253,11 @@ img {
 }
 
 .custom-card {
-    border: none;
-    border-radius: 16px;
-    overflow: hidden;
-    transition: transform .28s ease, box-shadow .28s ease;
-    background: #ffffff;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.07);
+    background: transparent; /* sem fundo */
+    box-shadow: none;        /* sem sombra */
+    border: none;            /* sem borda */
+    border-radius: 0;        /* sem arredondamento */
+    padding: 0;              /* remove padding extra */
 }
 
 .card img {
@@ -620,12 +676,7 @@ img {
 }
 
 /* 🔹 FOOTER INTERNO */
-.page-graf footer {
-    background: #0a7d59;
-    color: #fff;
-    padding: 12px 0;
-    margin-top: 60px;
-}
+
 
 :root {
   --eco-green: #21A67A;
@@ -679,7 +730,7 @@ img {
 .avatar-sm { width:44px; height:44px; object-fit:cover; }
 
 /* hero-like header inside content */
-.hero-section { padding: 28px 24px; border-radius: 12px; margin: 16px; background: linear-gradient(90deg, rgba(33,166,122,0.06), rgba(33,166,122,0.02)); box-shadow: 0 6px 20px rgba(22,34,30,0.02); text-align:left; }
+.hero-section { padding: 28px 24px; border-radius: 12px;  background: linear-gradient(90deg, rgba(33,166,122,0.06), rgba(33,166,122,0.02)); box-shadow: 0 6px 20px rgba(22,34,30,0.02); text-align:left; }
 .hero-section .display-4 { font-size: 1.6rem; font-weight:700; color: #0b4d3a; margin-bottom:6px; }
 .hero-section .lead { color: #415c50; }
 
@@ -728,3 +779,76 @@ a, .btn, .nav-link { transition: all .15s ease; }
 
 
 /* =========================================================
+
+/* ========================
+   CORREÇÃO DO DROPDOWN
+   ======================== */
+
+/* Garante que o dropdown não passe da tela */
+#perfil-dropdown .dropdown-menu {
+    max-height: 300px;
+    overflow-y: auto;
+    position: absolute;
+    right: 0;
+    left: auto;
+    top: 100%;
+}
+
+/* Para dispositivos móveis */
+@media (max-width: 768px) {
+    #perfil-dropdown .dropdown-menu {
+        position: fixed;
+        top: auto;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+        max-width: 300px;
+        max-height: 200px;
+    }
+    
+    /* Ajusta a posição do dropdown trigger em mobile */
+    #perfil-dropdown {
+        position: relative;
+    }
+}
+
+/* Garante que o nav tenha z-index adequado */
+#header-nav {
+    position: relative;
+    z-index: 1020;
+}
+
+/* Dropdown do Bootstrap ajustado */
+.dropdown-menu {
+    border: 1px solid #dee2e6;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+/* Se ainda estiver transbordando, force um scroll */
+.dropdown-menu.scrollable {
+    max-height: 250px;
+    overflow-y: auto;
+}
+
+/* Estilos para o dropdown no page-graf */
+#perfil-dropdown .dropdown-toggle {
+    background: #198754;
+    border: none;
+    padding: 0.375rem 0.75rem;
+}
+
+#perfil-dropdown .dropdown-toggle:hover {
+    background: #157347;
+}
+
+#perfil-dropdown .dropdown-menu {
+    border: 1px solid #dee2e6;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+.avatar-sm {
+    width: 32px;
+    height: 32px;
+    object-fit: cover;
+}

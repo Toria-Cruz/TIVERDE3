@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cadastrar Usuário</title>
+<style>
+    body { font-family: Arial, sans-serif; display:flex; justify-content:center; align-items:center; height:100vh; background:#f4f4f4; }
+    .card { background:white; padding:25px; border-radius:10px; width:300px; text-align:center; box-shadow:0 0 10px rgba(0,0,0,.2); }
+    input { width:100%; padding:10px; margin:8px 0; }
+    button { width:100%; padding:10px; background:#28a745; border:none; color:white; cursor:pointer; }
+    button:hover { background:#218838; }
+    a { text-decoration:none; display:block; margin-top:10px; }
+</style>
+</head>
+<body>
+
+<div class="card">
+    <h2>Criar Conta</h2>
+    <form action="http://localhost:5000/register" method="POST">
+        <input type="text" name="username" placeholder="Usuário" required>
+        <input type="password" name="password" placeholder="Senha" required>
+        <button type="submit">Cadastrar</button>
+    </form>
+    <a href="login.html">Já tenho conta</a>
+</div>
+
+</body>
+</html>

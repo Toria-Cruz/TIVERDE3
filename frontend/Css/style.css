@@ -573,3 +573,219 @@ img {
     .bloco-central { flex-direction: column; }
     .texto { text-align: center; max-width: 90%; }
 }
+
+
+/* =========================================================
+   7. PAGE-GRAF (DASHBOARD / INTERNA)
+========================================================= */
+
+/* 🔹 GERAL */
+.page-graf body {
+    background-color: #f7fefb;
+    font-family: "Poppins", sans-serif;
+}
+
+.page-graf h2 {
+    font-weight: 600;
+    color: #0a7d59;
+}
+
+/* 🔹 NAVBAR (ESPECÍFICO DA PAGE GRAF) */
+.page-graf .navbar-brand span {
+    font-size: 20px;
+    color: #0a7d59;
+}
+
+.page-graf .navbar {
+    transition: 0.3s ease;
+}
+
+/* 🔹 HERO INTERNA */
+.hero-panel {
+    background: linear-gradient(120deg, #0fb985d2, #007863d3), url("../img/novo.png");
+    background-size: cover;
+    background-position: center;
+    padding: 100px 0;
+    color: #fff;
+    text-align: center;
+}
+
+.hero-panel .hero-title {
+    font-weight: 700;
+}
+
+/* Botão "Saiba Mais" */
+.learn-more-btn {
+    display: inline-block;
+    margin-top: 15px;
+    background: #fff;
+    color: #0a7d59;
+    padding: 10px 25px;
+    border-radius: 30px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: .3s;
+}
+
+.learn-more-btn:hover {
+    background: #c1ffe4;
+    transform: translateY(-3px);
+}
+
+/* 🔹 DASHBOARD - CARDS */
+.dash-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,.08);
+    text-align: center;
+    transition: transform .3s;
+}
+
+.dash-card:hover {
+    transform: translateY(-5px);
+}
+
+/* 🔹 CONTAINER DE DISPOSITIVOS */
+.bloco-central {
+    border-radius: 10px;
+    overflow: hidden;
+    background: #ffffff;
+    box-shadow: 0px 5px 15px rgba(0,0,0,.1);
+}
+
+/* 🔹 BOTÃO FLOTANTE - CHAT */
+.chat-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: linear-gradient(135deg, #00b894, #00cec9);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    font-size: 26px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.25);
+    transition: transform 0.2s ease-in-out;
+    z-index: 9999;
+}
+
+.chat-button:hover {
+    transform: scale(1.1);
+}
+
+/* 🔹 FOOTER INTERNO */
+.page-graf footer {
+    background: #0a7d59;
+    color: #fff;
+    padding: 12px 0;
+    margin-top: 60px;
+}
+
+
+
+/* =========================================================
+/* =========================================================
+   10. DASHBOARD (page-graf) - SaaS moderno (sidebar + header)
+========================================================= */
+
+/* Root tokens */
+:root {
+  --eco-green: #21A67A;
+  --eco-green-2: #46C58B;
+  --muted-1: #7b8794;
+  --bg-page: #f8fafa;
+  --card-radius: 12px;
+}
+
+/* Layout shells */
+.app-shell { min-height: 100vh; background: var(--bg-page); }
+
+/* Sidebar */
+.sidebar {
+  width: 260px;
+  min-width: 260px;
+  background: #fff;
+  border-right: 1px solid rgba(15,23,42,0.04);
+  display: flex;
+  flex-direction: column;
+  transition: width .28s ease, transform .28s ease;
+  z-index: 1050;
+}
+.sidebar.collapsed { width: 72px; min-width: 72px; }
+.sidebar .sidebar-top { border-bottom: 1px solid rgba(15,23,42,0.04); }
+.sidebar-logo { width:40px; height:40px; object-fit:contain; }
+
+/* Brand */
+.brand-title { font-weight: 700; color: var(--eco-green); }
+.brand-sub { font-size: .75rem; display:block; color:var(--muted-1); }
+
+/* Nav */
+.sidebar-nav { padding: 8px 6px; display:flex; flex-direction:column; gap:4px; }
+.sidebar-nav .nav-item {
+  color: #123; padding: 10px 12px; border-radius: 8px; text-decoration: none; display:inline-flex; align-items:center;
+  gap:10px; font-weight:600; color: #233;
+}
+.sidebar-nav .nav-item i { font-size: 1.05rem; color: var(--eco-green); }
+.sidebar-nav .nav-item:hover { background: rgba(33,166,122,0.06); transform: translateX(4px); }
+.sidebar-nav .nav-item.active { background: linear-gradient(90deg, rgba(33,166,122,0.08), rgba(70,197,139,0.04)); box-shadow: inset 0 1px 0 rgba(255,255,255,0.02); }
+
+/* Sidebar footer */
+.sidebar-footer { border-top: 1px solid rgba(15,23,42,0.04); }
+
+/* Content area */
+.content-area { flex:1; min-width:0; display:flex; flex-direction:column; }
+
+/* topbar */
+.topbar { background: #fff; border-bottom:1px solid rgba(15,23,42,0.04); }
+.topbar .user-greeting { font-size:.8rem; color:var(--muted-1); }
+.avatar-sm { width:44px; height:44px; object-fit:cover; }
+
+/* hero-like header inside content */
+.hero-section { padding: 28px 24px; border-radius: 12px; margin: 16px; background: linear-gradient(90deg, rgba(33,166,122,0.06), rgba(33,166,122,0.02)); box-shadow: 0 6px 20px rgba(22,34,30,0.02); text-align:left; }
+.hero-section .display-4 { font-size: 1.6rem; font-weight:700; color: #0b4d3a; margin-bottom:6px; }
+.hero-section .lead { color: #415c50; }
+
+/* KPI cards */
+.kpi-card { background:#fff; border-radius: var(--card-radius); box-shadow: 0 6px 18px rgba(3,31,101,0.04); display:flex; align-items:center; gap:12px; transition: transform .18s ease, box-shadow .18s ease; }
+.kpi-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(3,31,101,0.06); }
+.kpi-icon { width:56px; height:56px; display:flex; align-items:center; justify-content:center; font-size:20px; }
+.bg-soft-success { background: rgba(33,166,122,0.08); color: var(--eco-green); }
+.bg-soft-primary { background: rgba(59,130,246,0.08); color: #2563eb; }
+.bg-soft-warning { background: rgba(255,193,7,0.08); color: #d97706; }
+
+.kpi-label { font-size: .78rem; color: var(--muted-1); }
+.kpi-value { font-weight:700; color: #102a20; }
+
+/* cards & charts */
+.card { border: none; border-radius: 12px; }
+.card h6 { font-weight:700; color:#0b4d3a; }
+.table-light th { font-weight:600; }
+
+/* device list */
+.device-list .device-item { border-bottom: 1px dashed rgba(15,23,42,0.04); padding:10px 0; align-items:center; }
+
+/* small helpers */
+.badge { font-weight:600; border-radius: 8px; }
+.small-muted { color: var(--muted-1); }
+
+/* responsive: collapse sidebar on small screens */
+@media (max-width: 991px) {
+  .sidebar { position: fixed; left: 0; top: 0; bottom: 0; transform: translateX(-120%); }
+  .sidebar.collapsed { transform: translateX(0); width:260px; }
+  .content-area { margin-left: 0; }
+  .app-shell { position: relative; }
+}
+
+/* subtle transitions for links/buttons */
+a, .btn, .nav-link { transition: all .15s ease; }
+
+/* micro interactions */
+.kpi-card .badge { transform-origin:center; transition: transform .18s ease; }
+.kpi-card:hover .badge { transform: translateY(-2px); }
+
+/* final spacing fixes */
+.content-area section { padding-bottom: 18px; }
+

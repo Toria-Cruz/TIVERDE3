@@ -6,8 +6,11 @@ services:
       - "5000:5000"
     env_file:
       - .env
+    depends_on:
+      - postgres
     networks:
       - tiverde-net
+
   frontend:
     build: ./frontend 
     container_name: tiverde3-frontend 
@@ -17,14 +20,48 @@ services:
       - backend
     networks:
       - tiverde-net
+
   backend-api:
     build: ./backend_api
     container_name: tiverde3-backend-api
     ports: 
       - "9000:9000"
+    env_file:
+      - .env
+    depends_on:
+      - postgres
+    networks:
+      - tiverde-net
+
+  postgres:
+    image: postgres:alpine
+    container_name: bd
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: tiverdedb
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - tiverde-net
+
+  adminer:
+    image: adminer
+    container_name: tiverde3-adminer
+    restart: always
+    ports:
+      - "8081:8080"
+    depends_on:
+      - postgres
     networks:
       - tiverde-net
 
 networks:
   tiverde-net:
     driver: bridge
+
+volumes:
+  pgdata:

@@ -1,443 +1,327 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-<<<<<<< HEAD
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>EcoTech Energy Solutions</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="Css/style.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <style>
-        .chat-button {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: linear-gradient(135deg, #00b894, #00cec9);
-    color: white;
-    border: none;
-    border-radius: 50%;
-    width: 60px;
-    height: 60px;
-    cursor: pointer;
-    font-size: 26px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
-    transition: transform 0.2s ease-in-out;
-    z-index: 9999;
-  }
-    </style>
-=======
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>EcoTech Energy Solutions</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>EcoTech — Painel</title>
+
+  <!-- Fonts + Bootstrap + Icons + ChartJS -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-  <style>
-    /* ======== ESTILO GERAL ======== */
-    body {
-      background-color: #ffffff !important;
-      color: #212529;
-      font-family: 'Segoe UI', Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-    }
+  <!-- Seu style principal (mantém tudo existente) -->
+  <link rel="stylesheet" href="Css/style.css">
 
-    /* ======== NAVBAR ======== */
-    .custom-navbar {
-      background-color: #ffffff !important;
-      border-bottom: 1px solid #e0e0e0;
-    }
-
-    .navbar-dark .navbar-nav .nav-link {
-      color: #212529 !important;
-      font-weight: 500;
-    }
-
-    .navbar-dark .navbar-nav .nav-link:hover {
-      color: #1d8348 !important;
-    }
-
-    .navbar-dark .navbar-brand img {
-      filter: none;
-    }
-
-    /* ======== HEADER (Hero Section) ======== */
-    .hero {
-      background: #f8f9fa;
-      color: #212529;
-      padding: 60px 0;
-      text-align: center;
-    }
-
-    .hero h1 {
-      font-weight: 700;
-      color: #1d8348;
-    }
-
-    .hero p {
-      font-size: 1.2rem;
-      color: #333;
-    }
-
-    /* ======== CONTEÚDO PRINCIPAL ======== */
-    .container h2, .container h1 {
-      color: #1d8348;
-      margin-top: 20px;
-      font-weight: 600;
-    }
-
-    select.form-select {
-      border-radius: 8px;
-      border: 1px solid #ccc;
-      background-color: #f8f9fa;
-      color: #212529;
-    }
-
-    canvas {
-      background-color: #ffffff;
-      border: 1px solid #eaeaea;
-      border-radius: 10px;
-      padding: 10px;
-      box-shadow: 0px 3px 8px rgba(0,0,0,0.05);
-    }
-
-    /* ======== DISPOSITIVOS E EQUIPAMENTOS ======== */
-    .bloco-central {
-      background-color: #f8f9fa;
-      border-radius: 10px;
-      padding: 20px;
-      box-shadow: 0px 3px 8px rgba(0,0,0,0.1);
-    }
-
-    .tecnicos-img {
-      border-radius: 10px;
-      width: 100%;
-      margin-bottom: 10px;
-    }
-
-    /* ======== SEÇÃO INFORMAÇÕES ======== */
-    .informacoes {
-      background-color: #f8f9fa;
-      color: #212529;
-      padding: 40px 0;
-    }
-
-    .informacoes p {
-      margin: 0;
-    }
-
-    /* ======== FOOTER ======== */
-    footer {
-      background-color: #1d8348 !important;
-      color: #fff;
-      font-size: 0.9rem;
-    }
-
-    /* ======== CHATBOT BUTTON ======== */
-    .chat-button {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: linear-gradient(135deg, #00b894, #00cec9);
-      color: white;
-      border: none;
-      border-radius: 50%;
-      width: 60px;
-      height: 60px;
-      cursor: pointer;
-      font-size: 26px;
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
-      transition: transform 0.2s ease-in-out;
-      z-index: 9999;
-    }
-
-    .chat-button:hover {
-      transform: scale(1.1);
-    }
-
-    /* ======== BARRA DE PESQUISA ======== */
-    .search-bar {
-      max-width: 250px;
-      border-radius: 30px;
-      padding-left: 15px;
-    }
-
-    .navbar-nav .nav-link {
-      margin-right: 10px;
-    }
-  </style>
->>>>>>> c98adc4cf52cb84ce1d7b68ab6297451eef59460
+  <!-- Estilos adicionais: já inseridos no final do seu style.css (veja instrução abaixo) -->
 </head>
+<body class="page-graf">
 
-<body>
-<<<<<<< HEAD
-<nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm">
-    <div class="container-fluid">
-        <a class="navbar-brand d-flex align-items-center" href="#">
-            <img style="width: 30px; height: 30px;" class="img-fluid me-2" alt="Logo" src="img/Logo2.png">
-            <span class="fw-bold">EcoTech</span>
-        </a>
-        
-        <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
-            
-            <ul class="navbar-nav mx-auto"> 
-                <li class="nav-item"><a class="nav-link fw-semibold" href="#about">Sobre</a></li>
-                <li class="nav-item"><a class="nav-link fw-semibold" href="#services">Serviços</a></li>
-                <li class="nav-item"><a class="nav-link fw-semibold" href="#contact">Contato</a></li>
-            </ul>
-            
-            <form class="d-flex mx-3" role="search">
-                <input class="form-control form-control-sm" type="search" placeholder="Buscar..." aria-label="Search">
-            </form>
-            
-            <div class="d-flex ms-auto">
-                <a href="page-graf.html" id="login-botao" class="btn btn-outline-success">Perfil</a> 
-                <button id="cadastro-botao" class="btn btn-success">Sair</button>
-            </div>
-=======
-  <!-- ======== NAVBAR ======== -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark custom-navbar">
-    <div class="container">
-      <a class="navbar-brand d-flex align-items-center" href="index.html">
-        <img src="img/tecnologia-verde.png" alt="Logo" class="logo" width="30" height="30">
-      </a>
+  <div class="app-shell d-flex">
 
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto align-items-center">
-          <li class="nav-item"><a class="nav-link" href="#about">Sobre</a></li>
-          <li class="nav-item"><a class="nav-link" href="#services">Serviços</a></li>
-          <li class="nav-item"><a class="nav-link" href="#contact">Contato</a></li>
-        </ul>
-
-        <!-- Barra de Pesquisa -->
-        <form class="d-flex ms-3">
-          <input class="form-control form-control-sm search-bar" type="search" placeholder="Buscar..." aria-label="Buscar">
-        </form>
-
-        <!-- Botão Usuário -->
-        <div class="d-flex ms-3">
-          <button type="button" class="btn btn-sm btn-outline-success">User: Joel Miller</button>
->>>>>>> c98adc4cf52cb84ce1d7b68ab6297451eef59460
+    <!-- ========== SIDEBAR FIXA ========== -->
+    <aside class="sidebar d-flex flex-column">
+      <div class="sidebar-top px-3 py-3 d-flex align-items-center gap-2">
+        <img src="img/Logo2.png" alt="logo" class="sidebar-logo">
+        <div>
+          <div class="brand-title">EcoTech</div>
+          <small class="text-muted brand-sub">Energy Solutions</small>
         </div>
       </div>
-    </div>
-  </nav>
 
-<header class="hero-section">
-        <img src="./img/novo.png" alt="Homem monitorando energia no tablet" class="background-img">
-        <div class="container hero-content-container">
-            <div>
-                <h1 class="display-4 fw-bold">EcoTech Energy Solutions</h1>
+      <nav class="nav flex-column sidebar-nav mt-3">
+        <a class="nav-item active" href="#"><i class="bi bi-grid-fill me-2"></i>Visão Geral</a>
+        <a class="nav-item" href="#"><i class="bi bi-bar-chart-line-fill me-2"></i>Análises</a>
+        <a class="nav-item" href="#"><i class="bi bi-hdd-network-fill me-2"></i>Dispositivos</a>
+        <a class="nav-item" href="#"><i class="bi bi-gear-fill me-2"></i>Configurações</a>
+      </nav>
 
-                <p class="lead">Monitoramento inteligente de energia para um futuro sustentável.</p>
-
-                <a href="#" class="learn-more-button shadow">Saiba mais</a>
-
-            </div>
-
-        </div>
-
-    </header>
-
-  <!-- ======== VISÃO GERAL ======== -->
-  <section class="monitoring-overview text-center">
-    <h2>Visão Geral do Monitoramento</h2>
-  </section>
-
- <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-md-6 text-center">
-        <h2>Consumo em kWh</h2>
-        <select id="ano-picker" class="form-select form-select-sm mb-3"></select>
-        <canvas id="consumoChart"></canvas>
+      <div class="sidebar-footer mt-auto px-3 py-3">
+        <button id="collapseSidebarBtn" class="btn btn-sm btn-outline-secondary w-100 mb-2">
+          <i class="bi bi-chevron-left"></i> Esconder
+        </button>
+        <div class="sidebar-help small text-muted">Precisa de ajuda? <a href="#" class="link-primary">Suporte</a></div>
       </div>
+    </aside>
 
-      <div class="col-md-6 text-center">
-        <h2>Análise Gráfica</h2>
-        <canvas id="analiseChart"></canvas>
-      </div>
-    </div>
-  </div>
+    <!-- ========== MAIN (HEADER + CONTENT) ========== -->
+    <main class="content-area flex-fill">
 
-  <!-- ======== DISPOSITIVOS ======== -->
-  <div class="container my-5">
-    <h1>Dispositivos e Equipamentos</h1>
-    <div class="row justify-content-center">
-      <div class="col-md-6">
-        <div class="bloco-central">
-          <img class="tecnicos-img" src="img/tecnicos.jpg" alt="Equipe técnica">
-          <div class="texto" id="device-list-container">
-            <p>Não foi possível carregar a lista de dispositivos.</p>
+      <!-- top header -->
+      <header class="topbar d-flex align-items-center justify-content-between px-4 py-3 shadow-sm">
+        <div class="d-flex align-items-center gap-3">
+          <button id="openSidebarBtn" class="btn btn-light btn-sm d-md-none"><i class="bi bi-list"></i></button>
+          <h6 class="mb-0 text-uppercase text-muted small">Painel • Visão Geral</h6>
+        </div>
+
+        <div class="d-flex align-items-center gap-3">
+          <div class="input-group search-sm d-none d-md-flex">
+            <span class="input-group-text bg-white border-0"><i class="bi bi-search"></i></span>
+            <input class="form-control form-control-sm border-0" placeholder="Buscar..." aria-label="Buscar">
+          </div>
+
+          <div id="userBlock" class="d-flex align-items-center gap-2">
+            <div class="user-info text-end d-none d-sm-block">
+              <div class="user-greeting small text-muted">Olá,</div>
+              <div id="usernameLabel" class="fw-semibold">Usuário</div>
+            </div>
+            <img id="userAvatar" src="img/avatar-placeholder.png" alt="avatar" class="avatar-sm rounded-circle">
+          </div>
+        </div>
+      </header>
+
+      <!-- page content -->
+      <section class="px-4 py-4">
+
+        <!-- KPI CARDS -->
+        <div class="row g-3 mb-4">
+          <div class="col-md-4">
+            <div class="kpi-card p-3 d-flex align-items-center gap-3">
+              <div class="kpi-icon bg-soft-success rounded-circle">
+                <i class="bi bi-currency-dollar"></i>
+              </div>
+              <div class="kpi-body">
+                <div class="kpi-label small text-muted">Custo Mensal</div>
+                <div class="kpi-value h5 mb-0">R$ 1.234,56 <span class="badge bg-success ms-2">+5%</span></div>
+                <div class="kpi-sub small text-muted">Comparado ao mês anterior</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="kpi-card p-3 d-flex align-items-center gap-3">
+              <div class="kpi-icon bg-soft-primary rounded-circle">
+                <i class="bi bi-lightning-fill"></i>
+              </div>
+              <div class="kpi-body">
+                <div class="kpi-label small text-muted">Consumo Atual</div>
+                <div class="kpi-value h5 mb-0">32 kWh <span class="badge bg-info ms-2">Estável</span></div>
+                <div class="kpi-sub small text-muted">Última atualização: 5 min</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="kpi-card p-3 d-flex align-items-center gap-3">
+              <div class="kpi-icon bg-soft-warning rounded-circle">
+                <i class="bi bi-shield-lock-fill"></i>
+              </div>
+              <div class="kpi-body">
+                <div class="kpi-label small text-muted">Economia</div>
+                <div class="kpi-value h5 mb-0">18% <span class="badge bg-success ms-2">Bom</span></div>
+                <div class="kpi-sub small text-muted">Meta: 20%</div>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div class="col-md-6 text-center">
-            <h2 class="tag-consumo">Consumo por Tipo</h2>
-            <select id="ano-picker-pizza" class="form-select form-select-sm mb-3">
-            </select>
-            <canvas id="consumoTipoChart"></canvas>
-        </div>
-    </div>
-</div>
-<div class="container"> 
-    <h1 id="titulo-disp">Informações de Consumo Mensal</h1>
-    <div class="row justify-content-center mb-3"> 
-        <div class="col-md-3 col-6"> 
-            <select name="mes-info-tabela" id="mes-info-tabela" class="form-select form-select-sm" aria-label="Selecione o mês">
-                <option value="">Selecione o mês</option>
-                <option value="Janeiro">Janeiro</option>
-                <option value="Fevereiro">Fevereiro</option>
-                <option value="Março">Março</option>
-                <option value="Abril">Abril</option>
-                <option value="Maio">Maio</option>
-                <option value="Junho">Junho</option>
-                <option value="Julho">Julho</option>
-                <option value="Agosto">Agosto</option>
-                <option value="Setembro">Setembro</option>
-                <option value="Outubro">Outubro</option>
-                <option value="Novembro">Novembro</option>
-                <option value="Dezembro">Dezembro</option>
-            </select>
-        </div>
-        <div class="col-md-3 col-6"> 
-            <select name="ano-info-tabela" id="ano-info-tabela" class="form-select form-select-sm" aria-label="Selecione o ano">
-                <option value="">Selecione o ano</option>
-            </select>
-        </div>
-    </div>
-    <div id="tabela-info"></div>
-</div>
-<div class="informacoes">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-4 d-flex align-items-start gap-4">
-          <img src="img/X Logo.png" class="img-fluid logo-img" alt="Logo X">
-          <img src="img/insta logo.png" class="img-fluid logo-img" alt="Logo Instagram">
-          <img src="img/linkedin logo.png" class="img-fluid logo-img" alt="Logo LinkedIn">
-        </div>
-        <div class="col-md-8">
-          <div class="row">
-            <div class="col-md-6">
-              <p class="fs-4 fw-semibold">Equipe Técnica</p>
-              <p>UI design</p>
-              <p>UX design</p>
-              <p>Wireframing</p>
-              <p>Diagramming</p>
-              <p>Prototyping</p>
-              <p>Brainstorming</p>
-              <p>Online whiteboard</p>
-              <p>Team collaboration</p>
+        <!-- charts row -->
+        <div class="row g-4 mb-4">
+          <div class="col-lg-7">
+            <div class="card h-100 p-3">
+              <div class="d-flex align-items-center justify-content-between mb-2">
+                <h6 class="mb-0">Consumo em kWh</h6>
+                <div class="small text-muted">Ano <select id="ano-picker" class="form-select form-select-sm d-inline-block ms-2" style="width:110px"></select></div>
+              </div>
+              <div style="min-height:260px">
+                <canvas id="consumoChart"></canvas>
+              </div>
             </div>
-            <div class="col-md-6">
-              <p class="fs-4 fw-semibold">Outros</p>
-              <p>Prototyping</p>
-              <p>Brainstorming</p>
-              <p>Online whiteboard</p>
-              <p>Team collaboration</p>
-              <p>Prototyping</p>
-              <p>Brainstorming</p>
-              <p>Online whiteboard</p>
+          </div>
+
+          <div class="col-lg-5">
+            <div class="card h-100 p-3">
+              <div class="d-flex align-items-center justify-content-between mb-2">
+                <h6 class="mb-0">Consumo por Tipo</h6>
+                <div class="small text-muted">Mês <select id="ano-picker-pizza" class="form-select form-select-sm d-inline-block ms-2" style="width:110px"></select></div>
+              </div>
+              <div class="d-flex align-items-center justify-content-center" style="min-height:260px">
+                <canvas id="consumoTipoChart" style="max-width:260px;"></canvas>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
+
+        <!-- devices + table -->
+        <div class="row g-4">
+          <div class="col-xl-5">
+            <div class="card p-3 h-100">
+              <div class="d-flex align-items-center justify-content-between mb-2">
+                <h6 class="mb-0">Dispositivos</h6>
+                <small class="text-muted">Lista ativa</small>
+              </div>
+              <div id="device-list" class="device-list">
+                <!-- JS will inject list -->
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xl-7">
+            <div class="card p-3 h-100">
+              <div class="d-flex align-items-center justify-content-between mb-2">
+                <h6 class="mb-0">Consumo mensal (tabela)</h6>
+                <div>
+                  <select id="mes-info-tabela" class="form-select form-select-sm d-inline-block" style="width:140px">
+                    <option value="">Mês</option>
+                    <option>Janeiro</option><option>Fevereiro</option><option>Março</option>
+                  </select>
+                  <select id="ano-info-tabela" class="form-select form-select-sm d-inline-block ms-2" style="width:120px">
+                    <option>Ano</option><option>2025</option><option>2024</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="table-responsive">
+                <table class="table table-sm align-middle mb-0">
+                  <thead class="table-light">
+                    <tr>
+                      <th>Dispositivo</th>
+                      <th>Consumo (kWh)</th>
+                      <th>Status</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody id="tabela-info">
+                    <!-- JS inject -->
+                  </tbody>
+                </table>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+      <footer class="py-3 text-center small text-muted">© 2025 EcoTech Energy Solutions</footer>
+    </main>
+
   </div>
 
-  <!-- ======== FOOTER ======== -->
-  <footer class="text-white text-center py-3">
-    <p>&copy; 2025 EcoTech Energy Solutions - Todos os direitos reservados.</p>
-  </footer>
+  <!-- ========== SCRIPTS ========== -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-  <!-- Botão flutuante do chatbot -->
+  <script>
+    /* =========================
+       UI: perfil / logout / sidebar
+       ========================= */
+    (function(){
+      // show stored user (localStorage "user" expected as JSON { username })
+      const user = JSON.parse(localStorage.getItem("user") || 'null');
+      const usernameLabel = document.getElementById("usernameLabel");
+      const userAvatar = document.getElementById("userAvatar");
+      const logoutBtn = document.getElementById("logout-btn") || null;
 
-<button class="chat-button" onclick="toggleChat()">
-  <img src="img/atendente.png" alt="Atendente" class="chat-icon">
-</button>
+      if(user && usernameLabel) {
+        usernameLabel.textContent = user.username || user.name || "Usuário";
+        // opcional: se tiver avatar url
+        if(user.avatar) userAvatar.src = user.avatar;
+      } else {
+        // não logado: redireciona para login (proteção simples)
+        if(!location.pathname.endsWith("login.html")) {
+          // se quiser bloquear direto descomente a linha abaixo:
+          // window.location.href = "login.html";
+        }
+      }
 
-<!-- Caixa do chatbot -->
-<div class="chatbox" id="chatbox">
-  <div class="chat-header">
-    Atendimento Online <span class="status-dot"></span>
-  </div>
-  <div class="chat-messages" id="chatMessages"></div>
-  <div class="chat-input">
-    <input type="text" id="userInput" placeholder="Digite sua mensagem..." onkeypress="if(event.key==='Enter'){sendMessage();}">
-    <button onclick="sendMessage()">Enviar</button>
-  </div>
-</div>
-<footer class="bg-dark text-white text-center py-3">
-    <p>&copy; 2025 EcoTech Energy Solutions - Todos os direitos reservados.</p>
-</footer>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<script src="js/index.js"></script> 
+      // logout
+      const logoutBtnLocal = document.getElementById("logout-btn");
+      if(logoutBtnLocal) logoutBtnLocal.addEventListener("click", () => {
+        localStorage.removeItem("user");
+        window.location.href = "index.html";
+      });
 
-<button class="chat-button" onclick="toggleChat()">
-  <img src="img/atendente.png" alt="Atendente" class="chat-icon">
-</button>
+      // sidebar collapse (mobile)
+      const openBtn = document.getElementById("openSidebarBtn");
+      const collapseBtn = document.getElementById("collapseSidebarBtn");
+      const sidebar = document.querySelector(".sidebar");
+      if(openBtn) openBtn.addEventListener("click", () => sidebar.classList.toggle("collapsed"));
+      if(collapseBtn) collapseBtn.addEventListener("click", () => sidebar.classList.toggle("collapsed"));
 
-<!-- Caixa do chatbot -->
-<div class="chatbox" id="chatbox">
-  <div class="chat-header">
-    Atendimento Online <span class="status-dot"></span>
-  </div>
-  <div class="chat-messages" id="chatMessages"></div>
-  <div class="chat-input">
-    <input type="text" id="userInput" placeholder="Digite sua mensagem..." onkeypress="if(event.key==='Enter'){sendMessage();}">
-    <button onclick="sendMessage()">Enviar</button>
-  </div>
-</div>
+    })();
 
-<script>
-  const BACKEND_URL = "http://localhost:5000/chat"; // URL do backend
-  function toggleChat() {
-    const chatbox = document.getElementById("chatbox");
-    chatbox.style.display = chatbox.style.display === "flex" ? "none" : "flex";
-    chatbox.style.flexDirection = "column";
 
-  }
+    /* =========================
+       Charts (example data)
+       ========================= */
+    (function(){
+      // consumoChart (line)
+      const ctx = document.getElementById("consumoChart");
+      if(ctx) {
+        new Chart(ctx, {
+          type: 'line',
+          data: {
+            labels: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
+            datasets: [{
+              label: 'kWh',
+              data: [120, 110, 140, 160, 150, 130, 125, 140, 170, 160, 155, 150],
+              borderWidth: 2,
+              borderColor: '#21A67A',
+              backgroundColor: 'rgba(33,166,122,0.08)',
+              tension: .35,
+              pointRadius: 3
+            }]
+          },
+          options: { responsive: true, maintainAspectRatio: false, plugins: {legend:{display:false}}}
+        });
+      }
 
-async function sendMessage() {
-  const input = document.getElementById("userInput");
-  const msg = input.value.trim();
-  if (!msg) return;
-  addMessage(msg, "user");
-  input.value = "";
+      // pizza
+      const ctx2 = document.getElementById("consumoTipoChart");
+      if(ctx2) {
+        new Chart(ctx2, {
+          type: 'doughnut',
+          data: {
+            labels: ['Iluminação','Refrigeração','Máquinas','Outros'],
+            datasets: [{
+              data: [35,25,20,20],
+              backgroundColor: ['#21A67A','#5FD3A5','#F5C26B','#CDDCDC']
+            }]
+          },
+          options: { responsive: true, maintainAspectRatio: false, plugins:{legend:{position:'bottom'}} }
+        });
+      }
+    })();
 
-  try {
-    const response = await fetch(BACKEND_URL, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ message: msg })
 
-    });
+    /* =========================
+       Device list + tabela (exemplo)
+       ========================= */
+    (function(){
+      const devices = [
+        { name: 'Painel 01', consumo: '120 kWh', status: 'OK' },
+        { name: 'Ar Condicionado', consumo: '45 kWh', status: 'Alerta' },
+        { name: 'Máquina 3', consumo: '72 kWh', status: 'OK' }
+      ];
 
-    if (!response.ok) {
-      throw new Error(`Servidor retornou ${response.status}`);
+      const list = document.getElementById("device-list");
+      const tbody = document.getElementById("tabela-info");
 
-    }
-    const data = await response.json();
-    addMessage(data.reply || "Sem resposta do servidor.", "bot");
-  } catch (error) {
-    console.error("Erro ao enviar mensagem:", error);
-    addMessage("Ops! Não consegui me conectar ao servidor.", "bot");
-  }
-}
-  function addMessage(text, sender) {
-    const chat = document.getElementById("chatMessages");
-    const msgDiv = document.createElement("div");
-    msgDiv.classList.add("message", sender);
-    msgDiv.innerText = text;
-    chat.appendChild(msgDiv);
-    chat.scrollTop = chat.scrollHeight;
-  }
+      if(list) {
+        devices.forEach(d => {
+          const el = document.createElement('div');
+          el.className = 'device-item d-flex align-items-center gap-3 py-2';
+          el.innerHTML = `<div class="badge bg-light border me-2"><i class="bi bi-hdd-network"></i></div>
+                          <div class="flex-fill">
+                            <div class="fw-semibold">${d.name}</div>
+                            <div class="small text-muted">${d.consumo}</div>
+                          </div>
+                          <div><span class="badge ${d.status === 'OK' ? 'bg-success' : 'bg-warning'}">${d.status}</span></div>`;
+          list.appendChild(el);
+        });
+      }
 
-</script>
+      if(tbody) {
+        devices.forEach(d => {
+          const tr = document.createElement('tr');
+          tr.innerHTML = `<td>${d.name}</td><td>${d.consumo}</td><td><span class="badge ${d.status === 'OK' ? 'bg-success' : 'bg-warning'}">${d.status}</span></td>
+                          <td class="text-end"><button class="btn btn-sm btn-outline-primary">Detalhes</button></td>`;
+          tbody.appendChild(tr);
+        });
+      }
+    })();
+  </script>
 
 </body>
 </html>

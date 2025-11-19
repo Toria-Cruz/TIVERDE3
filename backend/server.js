@@ -1,3 +1,17 @@
+import pkg from "pg";
+const { Pool } = pkg;
+
+const pool = new Pool({
+    host: process.env.DB_HOST || "postgres",
+    port: process.env.DB_PORT || 5432,
+    user: process.env.DB_USER || "postgres",
+    password: process.env.DB_PASSWORD || "postgres",
+    database: process.env.DB_NAME || "tiverdedb"
+});
+
+
+
+
 import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
@@ -11,38 +25,35 @@ const port = 5000;
 app.use(cors());
 app.use(express.json());
 
-// ----------------------------------------------------------------------
-// DADOS MOCKADOS (PARA RESOLVER O ERRO 404 E CARREGAR OS GRÁFICOS)
-// ----------------------------------------------------------------------
-const mockData = {
-    // Anos disponíveis para os selects
-    anos: [2023, 2024, 2025],
+app.use(express.urlencoded({ extended: true }));
 
-    // Dados de consumo mensal (para gráfico de barras e linhas)
-    consumoMensal: [
-        { mes: "Janeiro", ano: 2024, consumo: 150.5 },
-        { mes: "Fevereiro", ano: 2024, consumo: 120.2 },
-        { mes: "Março", ano: 2024, consumo: 180.1 },
-        { mes: "Abril", ano: 2024, consumo: 95.7 },
-        { mes: "Janeiro", ano: 2025, consumo: 165.8 },
-        { mes: "Fevereiro", ano: 2025, consumo: 130.4 },
-        { mes: "Março", ano: 2025, consumo: 210.0 }
-    ],
 
-    // Dados de consumo por tipo de equipamento por ano (para gráfico de pizza e tabela)
-    consumoTipo: {
-        2024: { "Iluminação": 80.5, "Aquecimento": 40.2, "Refrigeração": 30.1, "Computadores": 15.0 },
-        2025: { "Iluminação": 95.0, "Aquecimento": 60.5, "Refrigeração": 45.3, "Outros": 5.0 }
-    },
-    
-    // Resumo de dispositivos ativos
-    dispositivos: [
-        { nome: "Sensor de Corrente A", tipo: "Monitoramento", ativo: true, consumoKWh: 0.5 },
-        { nome: "Ar Condicionado Sala", tipo: "Refrigeração", ativo: true, consumoKWh: 50 },
-        { nome: "Aquecedor de Água", tipo: "Aquecimento", ativo: false, consumoKWh: 0 },
-        { nome: "Iluminação Externa", tipo: "Iluminação", ativo: true, consumoKWh: 10 }
-    ]
-};
+// ROTA DE CADASTRO SALVANDO NO POSTGRES
+app.post("/register", async (req, res) => {
+    const { username, password } = req.body;
+
+    if (!username || !password) {
+        return res.status(400).json({ error: "Usuário e senha são obrigatórios." });
+    }
+
+    try {
+        const result = await pool.query(
+            "INSERT INTO users (username, password) VALUES ($1, $2) RETURNING id",
+            [username, password]
+        );
+
+        return res.json({
+            message: "Usuário cadastrado com sucesso!",
+            id: result.rows[0].id
+        });
+
+    } catch (err) {
+        console.error("Erro ao salvar no banco:", err);
+        return res.status(500).json({ error: "Erro ao salvar no banco." });
+    }
+});
+
+
 
 
 // ----------------------------------------------------------------------

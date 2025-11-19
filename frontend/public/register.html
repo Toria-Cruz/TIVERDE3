@@ -1,29 +1,78 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cadastrar Usuário</title>
-<style>
-    body { font-family: Arial, sans-serif; display:flex; justify-content:center; align-items:center; height:100vh; background:#f4f4f4; }
-    .card { background:white; padding:25px; border-radius:10px; width:300px; text-align:center; box-shadow:0 0 10px rgba(0,0,0,.2); }
-    input { width:100%; padding:10px; margin:8px 0; }
-    button { width:100%; padding:10px; background:#28a745; border:none; color:white; cursor:pointer; }
-    button:hover { background:#218838; }
-    a { text-decoration:none; display:block; margin-top:10px; }
-</style>
-</head>
-<body>
 
-<div class="card">
-    <h2>Criar Conta</h2>
-    <form action="http://localhost:5000/register" method="POST">
-        <input type="text" name="username" placeholder="Usuário" required>
-        <input type="password" name="password" placeholder="Senha" required>
-        <button type="submit">Cadastrar</button>
-    </form>
-    <a href="login.html">Já tenho conta</a>
-</div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar Usuário - EcoTech</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #f7fefb;
+        }
+
+        .register-form {
+            max-width: 400px;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body class="d-flex justify-content-center align-items-center vh-100">
+
+    <div class="register-form">
+        <form class="p-4 bg-white rounded shadow">
+            <h3 class="text-success text-center mb-4">Criar Conta</h3>
+
+            <input type="text" name="username" class="form-control mb-3" placeholder="Usuário" required>
+            <input type="password" name="password" class="form-control mb-3" placeholder="Senha" required>
+
+            <button type="submit" class="btn btn-success w-100">Cadastrar</button>
+            <a href="login.html" class="btn btn-outline-success w-100 mt-3">Já tenho conta</a>
+        </form>
+
+        <script>
+            document.querySelector("form").addEventListener("submit", async function (e) {
+                e.preventDefault(); // impede recarregar a página
+
+                const form = e.target;
+                const formData = new FormData(form);
+
+                const data = {
+                    username: formData.get("username"),
+                    password: formData.get("password")
+                };
+
+                try {
+                    const response = await fetch("http://localhost:5000/register", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify(data)
+                    });
+
+                    const result = await response.json();
+
+                    if (result.id) {
+                        // 🔥 SALVA O LOGIN AUTOMATICAMENTE
+                        sessionStorage.setItem("usuarioLogado", JSON.stringify({
+                            id: result.id,
+                            username: data.username
+                        }));
+
+                        // 🔥 REDIRECIONA PARA A HOME
+                        window.location.href = "/index.html";
+                    } else {
+                        alert("Erro: " + (result.error || "Erro inesperado"));
+                    }
+                } catch (err) {
+                    console.error("Erro:", err);
+                    alert("Não foi possível cadastrar");
+                }
+            });
+        </script>
 
 </body>
+
 </html>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -7,6 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="Css/style.css">
 </head>
+
 <body>
     <nav id="header-nav" class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm py-3">
         <div class="container-fluid px-lg-5">
@@ -40,9 +42,10 @@
 
                     <!-- Dropdown do perfil escondido por padrão -->
                     <div class="dropdown d-none" id="perfil-dropdown">
-                        <button class="btn btn-success dropdown-toggle" type="button" id="perfil-botao"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            Usuário
+                        <button class="btn btn-success dropdown-toggle btn-sm d-flex align-items-center gap-2"
+                            type="button" id="perfil-botao" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img id="userAvatar" src="img/user.png" alt="avatar" class="avatar-sm rounded-circle">
+                            <span id="usernameLabel">Usuário</span>
                         </button>
                         <ul class="dropdown-menu" aria-labelledby="perfil-botao">
                             <li><a class="dropdown-item" href="page-graf.html">Dashboard</a></li>
@@ -229,66 +232,49 @@
    Sistema de Login Corrigido
    ========================= */
 
-// Aguarda o DOM carregar completamente
-document.addEventListener("DOMContentLoaded", function() {
-    const loginBtn = document.getElementById("login-botao");
-    const perfilDropdown = document.getElementById("perfil-dropdown");
-    const logoutBtn = document.getElementById("logout-btn");
-    
-    console.log("Verificando estado de login...");
-    
-    // Função para verificar e atualizar o estado de login
-    function atualizarEstadoLogin() {
-        try {
-            const usuarioLogado = JSON.parse(sessionStorage.getItem("usuarioLogado"));
-            console.log("Dados na sessionStorage:", usuarioLogado);
-            
-            if (usuarioLogado && usuarioLogado.username) {
-                // USUÁRIO LOGADO - mostra dropdown, esconde botão login
-                console.log("Usuário logado:", usuarioLogado.username);
-                loginBtn.classList.add("d-none");
-                perfilDropdown.classList.remove("d-none");
-                document.getElementById("perfil-botao").textContent = usuarioLogado.username;
-            } else {
-                // USUÁRIO NÃO LOGADO - mostra botão login, esconde dropdown
-                console.log("Usuário não logado");
-                loginBtn.classList.remove("d-none");
-                perfilDropdown.classList.add("d-none");
+        document.addEventListener("DOMContentLoaded", function () {
+            const loginBtn = document.getElementById("login-botao");
+            const perfilDropdown = document.getElementById("perfil-dropdown");
+            const perfilBotao = document.getElementById("perfil-botao");
+            const logoutBtn = document.getElementById("logout-btn");
+
+            function atualizarEstadoLogin() {
+                try {
+                    const usuarioLogado = JSON.parse(sessionStorage.getItem("usuarioLogado"));
+
+                    if (usuarioLogado && usuarioLogado.username) {
+                        // Usuário logado → mostra dropdown
+                        loginBtn.classList.add("d-none");
+                        perfilDropdown.classList.remove("d-none");
+
+                        // Atualiza nome no botão
+                        perfilBotao.textContent = usuarioLogado.username;
+
+                    } else {
+                        // Usuário NÃO logado → mostra botão login
+                        loginBtn.classList.remove("d-none");
+                        perfilDropdown.classList.add("d-none");
+                    }
+                } catch (err) {
+                    sessionStorage.removeItem("usuarioLogado");
+                }
             }
-        } catch (error) {
-            console.error("Erro ao verificar login:", error);
-            // Em caso de erro, força estado não logado
-            loginBtn.classList.remove("d-none");
-            perfilDropdown.classList.add("d-none");
-            sessionStorage.removeItem("usuarioLogado");
-        }
-    }
-    
-    // Configuração dos event listeners
-    loginBtn.addEventListener("click", function(e) {
-        e.preventDefault();
-        console.log("Redirecionando para login...");
-        window.location.href = "public/login.html";
 
-    });
-    
-    logoutBtn.addEventListener("click", function(e) {
-        e.preventDefault();
-        console.log("Fazendo logout...");
-        sessionStorage.removeItem("usuarioLogado");
-        // Redireciona para a página inicial
-        window.location.href = "index.html";
-    });
-    
-    // Verifica o estado inicial
-    atualizarEstadoLogin();
-    
-    // Também verifica quando a página é mostrada
-    window.addEventListener("pageshow", atualizarEstadoLogin);
-});
+            loginBtn.addEventListener("click", function (e) {
+                e.preventDefault();
+                window.location.href = "public/login.html";
+            });
 
+            logoutBtn.addEventListener("click", function (e) {
+                e.preventDefault();
+                sessionStorage.removeItem("usuarioLogado");
+                window.location.href = "index.html";
+            });
 
-     
+            atualizarEstadoLogin();
+            window.addEventListener("pageshow", atualizarEstadoLogin);
+        });
+
     </script>
 </body>
 

@@ -53,6 +53,46 @@ app.post("/register", async (req, res) => {
     }
 });
 
+// ROTA DE LOGIN CONSULTANDO POSTGRES
+app.post("/login", async (req, res) => {
+    const { username, password } = req.body;
+
+    if (!username || !password) {
+        return res.status(400).json({ error: "Usuário e senha são obrigatórios." });
+    }
+
+    try {
+        const result = await pool.query(
+            "SELECT * FROM users WHERE username = $1 LIMIT 1",
+            [username]
+        );
+
+        if (result.rows.length === 0) {
+            return res.status(400).json({ error: "Usuário não encontrado." });
+        }
+
+        const user = result.rows[0];
+
+        if (user.password !== password) {
+            return res.status(400).json({ error: "Senha incorreta." });
+        }
+
+        return res.json({
+            success: true,
+            message: "Login realizado com sucesso!",
+            user: {
+                id: user.id,
+                username: user.username
+            }
+        });
+
+    } catch (err) {
+        console.error("Erro no login:", err);
+        return res.status(500).json({ error: "Erro interno no servidor." });
+    }
+});
+
+
 
 
 
